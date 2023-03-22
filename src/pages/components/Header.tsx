@@ -16,11 +16,11 @@ export default function Header() {
     return (
         <div>
             <div className={styles.headerContainer}>
-                <Link href="/" style={{ textDecoration: "none" }}>
+                <Link href="/" onClick={() => setIsClicked(false)}>
                     <Image className={styles.titleIcon} src="/logo.png" alt="" width={40} height={40} />
                 </Link>
 
-                <Link href="/" style={{ textDecoration: "none" }}>
+                <Link href="/" onClick={() => setIsClicked(false)}>
                     <div className={styles.titleText}>
                         archive-eng
                     </div>
@@ -33,7 +33,7 @@ export default function Header() {
 
             <div className={styles.menuContainer} style={isClicked ? { top: "0px" } : { top: "-100vh" }}>
                 <div className={styles.menuElements}>
-                    <Link href="aboutme" style={{ textDecoration: "none" }}>
+                    <Link href="/aboutme">
                         <div className={styles.menuElementsTop}>
                             [ ? ]
                         </div>
@@ -49,7 +49,7 @@ export default function Header() {
                 </div>
 
                 <div className={styles.menuElements}>
-                    <Link href="achievements" style={{ textDecoration: "none" }}>
+                    <Link href="/achievements">
                         <div className={styles.menuElementsTop}>
                             ( ! )
                         </div>
@@ -65,7 +65,7 @@ export default function Header() {
                 </div>
 
                 <div className={styles.menuElements}>
-                    <Link href="abilities" style={{ textDecoration: "none" }}>
+                    <Link href="/abilities">
                         <div className={styles.menuElementsTop}>
                             +×
                         </div>
@@ -81,7 +81,7 @@ export default function Header() {
                 </div>
 
                 <div className={styles.menuElements}>
-                    <Link href="appsprojects" style={{ textDecoration: "none" }}>
+                    <Link href="/appsprojects">
                         <div className={styles.menuElementsTop}>
                             &lt;/&gt;
                         </div>
@@ -97,7 +97,7 @@ export default function Header() {
                 </div>
 
                 <div className={styles.menuElements}>
-                    <Link href="articles" style={{ textDecoration: "none" }}>
+                    <Link href="/articles">
                         <div className={styles.menuElementsTop}>
                             &#47;**&#47;
                         </div>
