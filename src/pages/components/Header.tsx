@@ -99,7 +99,7 @@ export default function Header() {
                 <div className={styles.menuElements}>
                     <Link href="articles" style={{ textDecoration: "none" }}>
                         <div className={styles.menuElementsTop}>
-                        /**/
+                            &#47;**&#47;
                         </div>
 
                         <div className={styles.menuElementsCenter}>
