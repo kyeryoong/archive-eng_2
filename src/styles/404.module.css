@@ -1,0 +1,29 @@
+.errorContainer {
+    width: 100vw;
+    height: calc(100vh - 70px);
+    display: grid;
+    align-content: center;
+    justify-items: center;
+}
+
+.errorIcon {
+    width: 500px;
+    height: 250px;
+}
+
+.errorMessage {
+    font-size: 2rem;
+}
+
+
+
+@media (max-width: 1000px) {
+    .errorIcon {
+        width: min(50vw, 500px);
+        height: min(25vw, 250px)
+    }
+
+    .errorMessage {
+        font-size: 1.5rem;
+    }
+}

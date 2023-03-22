@@ -4,6 +4,7 @@
     display: grid;
     align-content: center;
     justify-items: center;
+    text-align: center;
 }
 
 .mainText {
@@ -13,4 +14,5 @@
 
 .subText {
     font-size: 1.2rem;
+    margin-top: 20px;
 }

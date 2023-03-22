@@ -1,0 +1,119 @@
+.headerContainer {
+    width: 100vw;
+    height: 60px;
+    padding-left: 20vw;
+    padding-right: 20vw;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: black;
+    position: relative;
+    display: grid;
+    grid-template-columns: fit-content(100%) 1fr fit-content(100%);
+    align-items: center;
+    z-index: 3;
+}
+
+.titleText {
+    font-size: 1.2rem;
+    line-height: 40px;
+    color: white;
+    margin-left: 10px;
+}
+
+.button {
+    padding: 10px;
+    filter: invert();
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.background {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 1;
+    transition: 0.5s;
+}
+
+.menuContainer {
+    width: 100vw;
+    height: 100vh;
+    padding-left: 15vw;
+    padding-right: 15vw;
+    padding-top: 150px;
+    padding-bottom: 150px;
+    position: absolute;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5vw;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+}
+
+.menuElements {
+    height: 100px;
+    z-index: 2;
+    cursor: pointer;
+    text-decoration-line: none;
+    z-index: 2;
+}
+
+.menuElementsTop {
+    font-size: 5rem;
+    font-weight: 800;
+    color: black;
+    transition: 0.5s;
+}
+
+.menuElementsCenter {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgb(150, 150, 150);
+    color: black;
+}
+
+.menuElementsBottom {
+    margin-top: 10px;
+    color: rgb(150, 150, 150);
+}
+
+
+@media (max-width: 1000px) {
+    .headerContainer {
+        padding-left: 5vw;
+        padding-right: 5vw;
+    }
+
+    .menuContainer {
+        padding-left: 5vw;
+        padding-right: 5vw;
+        padding-top: 120px;
+        padding-bottom: 120px;
+        grid-template-columns: none;
+        grid-template-rows: repeat(5, 1fr);
+        gap: 40px;
+    }
+    
+    .menuElements {
+        width: 90vw;
+    }
+
+    .menuElementsTop {
+        font-size: 3rem;
+    }
+    
+    .menuElementsCenter {
+        font-size: 1.2rem;
+        margin-top: 10px;
+        padding-top: 6px;
+    }
+
+    .menuElementsBottom {
+        margin-top: 0px;
+    }
+}
