@@ -8,51 +8,192 @@
     padding-top: 200px;
     padding-bottom: 200px;
     background-color: black;
-    display: grid;
-    justify-content: center;
 }
 
 .abilitiesHeader {
+    width: 100vw;
     font-size: 2rem;
     color: white;
+    padding-left: 15vw;
+    padding-right: 15vw;
     margin-bottom: 20px;
 }
 
 .abilitiesSubContainer {
+    width: 100vw;
+    padding-left: 15vw;
+    padding-right: 15vw;
     display: grid;
-    grid-template-columns: repeat(4, fit-content(100%));
-    gap: 50px;
+    grid-template-columns: repeat(4, 240px);
+    gap: 30px calc((70vw - 960px) / 3);
     margin-bottom: 100px;
 }
 
-.ability {
-    width: 200px;
-    height: 200px;
+.abilityNotClicked {
+    width: 240px;
+    height: 240px;
+    font-size: 1.2rem;
     border-radius: 10px;
     padding: 20px;
-    font-size: 1.2rem;
     color: white;
+    display: grid;
+    grid-template-rows: fit-content(100%) 1fr;
     position: relative;
+    cursor: pointer;
 }
 
-.abilityIcon {
+.abilityNotClicked:hover {
+    transform: scale(1.2);
+}
+
+.abilityClicked {
+    width: 240px;
+    height: 240px;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    padding: 20px;
+    transform: scale(1.6);
+    z-index: 1;
+    display: grid;
+    grid-template-rows: fit-content(100%) 1fr fit-content(100%);
+    justify-self: center;
+}
+
+.abilityDescription {
+    font-size: 0.7rem;
+    margin-top: 10px;
+}
+
+.abilityIconNotClicked {
+    width: 120px;
+    height: 120px;
     position: absolute;
-    right: 0px;
-    bottom: 0px;
+    right: 0;
+    bottom: 0;
+}
+
+.abilityIconClicked {
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    right: 0;
+    bottom: 50px;
+}
+
+.abilityGoToButton {
+    width: 200px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 0.8rem;
+    text-align: center;
+    color: white;
+    border-radius: 5px;
 }
 
 
-@media (max-width: 1000px) {
+
+@media (max-width: 1500px) {
     .abilitiesSubContainer {
-        margin-left: 5vw;
-        margin-bottom: 5vw;
-        grid-template-columns: repeat(3, fit-content(100%));
-        gap: 10vw;
-        margin-bottom: 100px;
+        grid-template-columns: repeat(3, 240px);
+        gap: 30px calc((70vw - 720px) / 2);
+    }
+}
+
+@media (max-width: 1200px) {
+    .abilitiesSubContainer {
+        grid-template-columns: repeat(3, 200px);
+        gap: 30px calc((70vw - 600px) / 2);
     }
 
-    .ability {
-        width: 30vw;
-        height: 30vw;
+    .abilityNotClicked {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .abilitiesHeader {
+        padding-left: 5vw;
+        padding-right: 5vw;
+    }
+    
+    .abilitiesSubContainer {
+        padding-left: 5vw;
+        padding-right: 5vw;
+        grid-template-columns: repeat(3, 200px);
+        gap: 30px calc((90vw - 600px) / 2);
+    }
+
+    .abilityNotClicked {
+        width: 200px;
+        height: 200px;
+    }
+
+    .abilityClicked {
+        width: 200px;
+        height: 200px;
+        grid-template-rows: fit-content(100%) 1fr;
+        transform: scale(1.2);
+    }
+
+    .abilityDescription {
+        display: none;
+    }
+
+    .abilityGoToButton {
+        width: 160px;
+        align-self: flex-end;
+    }
+}
+
+@media (max-width: 700px) {
+    .abilitiesContainer {
+        padding-top: 150px;
+        padding-bottom: 150px;
+    }
+
+    .abilitiesSubContainer {
+        grid-template-columns: repeat(2, 42.5vw);
+        gap: 30px 5vw;
+        margin-bottom: 10vw;
+    }
+
+    .abilityNotClicked {
+        width: 42.5vw;
+        height: 42.5vw;
+        font-size: 1rem;
+        border-radius: 5px;
+        padding: 3vw;
+    }
+
+    .abilityNotClicked:hover {
+        transform: scale(1.1);
+    }
+
+    .abilityClicked {
+        width: 42.5vw;
+        height: 42.5vw;
+        font-size: 1rem;
+        border-radius: 5px;
+        padding: 3vw;
+        transform: scale(1.2);
+    }
+
+    .abilityIconNotClicked {
+        width: 20vw;
+        height: 20vw;
+    }
+
+    .abilityIconClicked {
+        width: 18vw;
+        height: 18vw;
+        bottom: 13vw;
+    }
+
+    .abilityGoToButton {
+        font-size: 0.8rem;
+        width: 36.5vw;
+        height: 10vw;
+        line-height: 10vw;
     }
 }

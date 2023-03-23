@@ -31,10 +31,10 @@ export default function Header() {
                 <Image className={styles.button} src="/arrow.png" alt="" width={40} height={40} onClick={() => setIsClicked((prev) => !prev)} style={isClicked ? { transform: "rotate(180deg)" } : {}} />
             </div>
 
-            <div className={styles.background} style={isClicked ? { backgroundColor: "rgba(50, 50, 50, 0.9)" } : { backgroundColor: "rgba(0, 0, 0, 0)" }} />
+            <div className={styles.background} style={isClicked ? { backgroundColor: "rgba(50, 50, 50, 0.9)", zIndex: 2 } : { backgroundColor: "rgba(0, 0, 0, 0)", zIndex: -1 }} />
 
             <div className={styles.menuContainer} style={isClicked ? { top: "0px" } : { top: "-100vh" }}>
-                <div className={styles.menuElements}>
+                <div className={styles.menuElements} onClick={() => setIsClicked(false)}>
                     <Link href="/aboutme">
                         <div className={styles.menuElementsTop}>
                             [ ? ]
@@ -50,7 +50,7 @@ export default function Header() {
                     </Link>
                 </div>
 
-                <div className={styles.menuElements}>
+                <div className={styles.menuElements} onClick={() => setIsClicked(false)}>
                     <Link href="/achievements">
                         <div className={styles.menuElementsTop}>
                             ( ! )
@@ -66,7 +66,7 @@ export default function Header() {
                     </Link>
                 </div>
 
-                <div className={styles.menuElements}>
+                <div className={styles.menuElements} onClick={() => setIsClicked(false)}>
                     <Link href="/abilities">
                         <div className={styles.menuElementsTop}>
                             +×
@@ -82,7 +82,7 @@ export default function Header() {
                     </Link>
                 </div>
 
-                <div className={styles.menuElements}>
+                <div className={styles.menuElements} onClick={() => setIsClicked(false)}>
                     <Link href="/appsprojects">
                         <div className={styles.menuElementsTop}>
                             &lt;/&gt;
@@ -98,7 +98,7 @@ export default function Header() {
                     </Link>
                 </div>
 
-                <div className={styles.menuElements}>
+                <div className={styles.menuElements} onClick={() => setIsClicked(false)}>
                     <Link href="/articles">
                         <div className={styles.menuElementsTop}>
                             &#47;**&#47;
