@@ -98,7 +98,7 @@ export default function Abilities() {
 
             <div className={styles.abilitiesSubContainer}>
                 <Ability name="Python" color="white" rgb1={[74, 138, 189]} rgb2={[255, 223, 89]} description="General-Purpose Programing Language" />
-                <Ability name="Selenium" color="white" rgb1={[67, 176, 42]} description="Tools and Libraries for Browser Automation Tools" />
+                <Ability name="Selenium" color="white" rgb1={[67, 176, 42]} description="Tools and Libraries for Browser Automation" />
                 <Ability name="Pandas" color="white" rgb1={[21, 4, 88]} description="Python Library for Data Analysis" />
             </div>
 
