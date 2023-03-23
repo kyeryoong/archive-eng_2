@@ -26,10 +26,12 @@ export default function Header() {
                     </div>
                 </Link>
 
+                <div />
+
                 <Image className={styles.button} src="/arrow.png" alt="" width={40} height={40} onClick={() => setIsClicked((prev) => !prev)} style={isClicked ? { transform: "rotate(180deg)" } : {}} />
             </div>
 
-            <div className={styles.background} style={isClicked ? { backgroundColor: "rgba(255, 255, 255, 0.9)" } : { backgroundColor: "rgba(255, 255, 255, 0)" }} />
+            <div className={styles.background} style={isClicked ? { backgroundColor: "rgba(50, 50, 50, 0.9)" } : { backgroundColor: "rgba(0, 0, 0, 0)" }} />
 
             <div className={styles.menuContainer} style={isClicked ? { top: "0px" } : { top: "-100vh" }}>
                 <div className={styles.menuElements}>

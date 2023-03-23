@@ -1,0 +1,58 @@
+.abilitiesContainer {
+    width: 100vw;
+    height: fit-content;
+    min-height: 100vh;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    padding-top: 200px;
+    padding-bottom: 200px;
+    background-color: black;
+    display: grid;
+    justify-content: center;
+}
+
+.abilitiesHeader {
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.abilitiesSubContainer {
+    display: grid;
+    grid-template-columns: repeat(4, fit-content(100%));
+    gap: 50px;
+    margin-bottom: 100px;
+}
+
+.ability {
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    padding: 20px;
+    font-size: 1.2rem;
+    color: white;
+    position: relative;
+}
+
+.abilityIcon {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+}
+
+
+@media (max-width: 1000px) {
+    .abilitiesSubContainer {
+        margin-left: 5vw;
+        margin-bottom: 5vw;
+        grid-template-columns: repeat(3, fit-content(100%));
+        gap: 10vw;
+        margin-bottom: 100px;
+    }
+
+    .ability {
+        width: 30vw;
+        height: 30vw;
+    }
+}

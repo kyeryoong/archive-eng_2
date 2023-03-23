@@ -1,6 +1,10 @@
 .errorContainer {
     width: 100vw;
-    height: calc(100vh - 70px);
+    height: 100vh;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: black;
     display: grid;
     align-content: center;
     justify-items: center;
@@ -13,6 +17,7 @@
 
 .errorMessage {
     font-size: 2rem;
+    color: white;
 }
 
 

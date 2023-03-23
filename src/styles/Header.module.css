@@ -1,14 +1,13 @@
 .headerContainer {
     width: 100vw;
-    height: 60px;
-    padding-left: 20vw;
-    padding-right: 20vw;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    background-color: black;
+    height: 140px;
+    padding-left: 15vw;
+    padding-right: 15vw;
+    padding-top: 40px;
+    padding-bottom: 40px;
     position: relative;
     display: grid;
-    grid-template-columns: fit-content(100%) 1fr fit-content(100%);
+    grid-template-columns: fit-content(100%) fit-content(100%) 1fr fit-content(100%);
     align-items: center;
     z-index: 3;
 }
@@ -42,13 +41,13 @@
     height: 100vh;
     padding-left: 15vw;
     padding-right: 15vw;
-    padding-top: 150px;
+    padding-top: 200px;
     padding-bottom: 150px;
     position: absolute;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 5vw;
-    align-items: center;
+    align-self: center;
     justify-content: center;
     transition: 0.5s;
 }
@@ -64,7 +63,7 @@
 .menuElementsTop {
     font-size: 5rem;
     font-weight: 800;
-    color: black;
+    color: white;
     transition: 0.5s;
 }
 
@@ -74,7 +73,7 @@
     margin-top: 30px;
     padding-top: 20px;
     border-top: 1px solid rgb(150, 150, 150);
-    color: black;
+    color: white;
 }
 
 .menuElementsBottom {
@@ -92,8 +91,8 @@
     .menuContainer {
         padding-left: 5vw;
         padding-right: 5vw;
-        padding-top: 120px;
-        padding-bottom: 120px;
+        padding-top: 150px;
+        padding-bottom: 200px;
         grid-template-columns: none;
         grid-template-rows: repeat(5, 1fr);
         gap: 40px;

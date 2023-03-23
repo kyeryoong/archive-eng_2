@@ -1,18 +1,73 @@
 .homeContainer {
     width: 100vw;
-    height: calc(100vh - 70px);
+    height: 100vh;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: black;
     display: grid;
     align-content: center;
-    justify-items: center;
-    text-align: center;
+    justify-content: center;
 }
 
-.mainText {
-    font-size: 3rem;
-    font-weight: 700;
+.animationText1 {
+    width: 70vw;
+    height: fit-content;
+    min-height: 120px;
+    line-height: 120px;
+    font-size: 10rem;
+    font-weight: 100;
+    color: white;
+    display: grid;
+    align-items: end;
+}
+
+.animationText2 {
+    width: 70vw;
+    height: 70px;
+    min-height: 70px;
+    line-height: 70px;
+    font-size: 4rem;;
+    color: white;
 }
 
 .subText {
-    font-size: 1.2rem;
+    font-size: 2rem;
+    color: white;
+    text-align: right;
+}
+
+.line {
+    width: 70vw;
+    border: 1px solid white;
     margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+
+
+@media (max-width: 1000px) {
+    .animationText1 {
+        width: 90vw;
+        min-height: 80px;
+        line-height: 80px;
+        font-size: 5rem;
+    }
+
+    .animationText2 {
+        width: 90vw;
+        height: fit-content;
+        min-height: 40px;
+        line-height: 40px;
+        font-size: 2rem;
+    }
+
+    .subText {
+        font-size: 1rem;
+    }
+
+    .line {
+        width: 90vw;
+    }
 }
