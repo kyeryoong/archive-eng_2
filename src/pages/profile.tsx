@@ -106,7 +106,7 @@ export default function Profile() {
 
                 <div className={styles.question}>
                     <div className={styles.questionHeader}>
-                        What's<br />
+                        What&#39;s<br />
                         Important<br />
                         As Developer<br />
                         ?
