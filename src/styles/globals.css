@@ -9,6 +9,11 @@
     margin: 0;
 
     transition: 0.5s;
+
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none
 }
 
 *::-webkit-scrollbar {

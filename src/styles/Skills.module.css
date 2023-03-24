@@ -20,8 +20,9 @@
 
 .skillsSubContainer {
     display: grid;
-    grid-template-columns: repeat(4, 240px);
-    gap: 30px calc((70vw - 960px) / 3);
+    grid-template-columns: repeat(5, 240px);
+    gap: 30px 0px;
+    justify-content: space-between;
     margin-bottom: 100px;
 }
 
@@ -101,36 +102,21 @@
     margin-right: 20px;
 }
 
-
+@media (max-width: 2000px) {
+    .skillsSubContainer {
+        grid-template-columns: repeat(4, 240px);
+    }
+}
 
 @media (max-width: 1500px) {
     .skillsSubContainer {
         grid-template-columns: repeat(3, 240px);
-        gap: 30px calc((70vw - 720px) / 2);
     }
 }
 
 @media (max-width: 1200px) {
     .skillsSubContainer {
         grid-template-columns: repeat(3, 200px);
-        gap: 30px calc((70vw - 600px) / 2);
-    }
-
-    .skillNotClicked {
-        width: 200px;
-        height: 200px;
-    }
-}
-
-@media (max-width: 1000px) {
-    .skillsContainer {
-        padding-left: 5vw;
-        padding-right: 5vw;
-    }
-    
-    .skillsSubContainer {
-        grid-template-columns: repeat(3, 200px);
-        gap: 30px calc((90vw - 600px) / 2);
     }
 
     .skillNotClicked {
@@ -167,16 +153,26 @@
     }
 }
 
+@media (max-width: 1000px) {
+    .skillsContainer {
+        padding-left: 5vw;
+        padding-right: 5vw;
+    }
+}
+
 @media (max-width: 700px) {
     .skillsContainer {
         padding-top: 150px;
         padding-bottom: 150px;
     }
 
+    .skillsHeader {
+        font-size: 1.5rem;
+    }
+
     .skillsSubContainer {
         grid-template-columns: repeat(2, 42.5vw);
-        gap: 30px 5vw;
-        margin-bottom: 10vw;
+        margin-bottom: 50px;
     }
 
     .skillNotClicked {

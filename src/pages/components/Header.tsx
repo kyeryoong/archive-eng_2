@@ -10,6 +10,7 @@ import styles from "../../styles/Header.module.css";
 export default function Header() {
     const [isClicked, setIsClicked] = useState<boolean>(false);
 
+
     return (
         <div>
             <div className={styles.headerContainer}>
@@ -30,8 +31,8 @@ export default function Header() {
 
 
             <div className={isClicked ? styles.menuContainerClicked : styles.menuContainerNotClicked}>
-                <div className={styles.menuElements} onClick={() => setIsClicked(false)}>
-                    <Link href="/profile">
+                <Link href="/profile">
+                    <div className={styles.menuElements} onClick={() => setIsClicked(false)}>
                         <div className={styles.menuElementsTop}>
                             [ ? ]
                         </div>
@@ -43,11 +44,11 @@ export default function Header() {
                         <div className={styles.menuElementsBottom}>
                             학력 및 경력
                         </div>
-                    </Link>
-                </div>
+                    </div>
+                </Link>
 
-                <div className={styles.menuElements} onClick={() => setIsClicked(false)}>
-                    <Link href="/achievements">
+                <Link href="/achievements">
+                    <div className={styles.menuElements} onClick={() => setIsClicked(false)}>
                         <div className={styles.menuElementsTop}>
                             ( ! )
                         </div>
@@ -59,11 +60,11 @@ export default function Header() {
                         <div className={styles.menuElementsBottom}>
                             수상 경력 및 자격증
                         </div>
-                    </Link>
-                </div>
+                    </div>
+                </Link>
 
-                <div className={styles.menuElements} onClick={() => setIsClicked(false)}>
-                    <Link href="/skills">
+                <Link href="/skills">
+                    <div className={styles.menuElements} onClick={() => setIsClicked(false)}>
                         <div className={styles.menuElementsTop}>
                             +×
                         </div>
@@ -75,11 +76,11 @@ export default function Header() {
                         <div className={styles.menuElementsBottom}>
                             기술 스택
                         </div>
-                    </Link>
-                </div>
+                    </div>
+                </Link>
 
-                <div className={styles.menuElements} onClick={() => setIsClicked(false)}>
-                    <Link href="/projects">
+                <Link href="/projects">
+                    <div className={styles.menuElements} onClick={() => setIsClicked(false)}>
                         <div className={styles.menuElementsTop}>
                             &lt;/&gt;
                         </div>
@@ -91,11 +92,12 @@ export default function Header() {
                         <div className={styles.menuElementsBottom}>
                             프로젝트
                         </div>
-                    </Link>
-                </div>
+                    </div>
+                </Link>
 
-                <div className={styles.menuElements} onClick={() => setIsClicked(false)}>
-                    <Link href="/articles">
+                <Link href="/articles">
+                    <div className={styles.menuElements} onClick={() => setIsClicked(false)}>
+
                         <div className={styles.menuElementsTop}>
                             &#47;**&#47;
                         </div>
@@ -107,8 +109,8 @@ export default function Header() {
                         <div className={styles.menuElementsBottom}>
                             영자신문사 기사
                         </div>
-                    </Link>
-                </div>
+                    </div>
+                </Link>
             </div>
         </div>
     )
