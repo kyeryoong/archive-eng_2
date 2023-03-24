@@ -2,15 +2,12 @@ import { useState } from "react";
 
 import Link from "next/link"
 import Image from "next/image";
-import { useRouter } from "next/router"
 
 import styles from "../../styles/Header.module.css";
 
 
 
 export default function Header() {
-    const router = useRouter();
-
     const [isClicked, setIsClicked] = useState<boolean>(false);
 
     return (
@@ -31,9 +28,8 @@ export default function Header() {
                 <Image className={styles.button} src="/arrow.png" alt="" width={40} height={40} onClick={() => setIsClicked((prev) => !prev)} style={isClicked ? { transform: "rotate(180deg)" } : {}} />
             </div>
 
-            <div className={styles.background} style={isClicked ? { backgroundColor: "rgba(50, 50, 50, 0.9)", zIndex: 2 } : { backgroundColor: "rgba(0, 0, 0, 0)", zIndex: -1 }} />
 
-            <div className={styles.menuContainer} style={isClicked ? { top: "0px" } : { top: "-100vh" }}>
+            <div className={isClicked ? styles.menuContainerClicked : styles.menuContainerNotClicked}>
                 <div className={styles.menuElements} onClick={() => setIsClicked(false)}>
                     <Link href="/profile">
                         <div className={styles.menuElementsTop}>
