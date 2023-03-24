@@ -20,18 +20,6 @@ function Ability({ name, newName, color, rgb1, rgb2, description, url }: Ability
     const [containerHover, setContainerHover] = useState<boolean>(false);
     const [buttonHover, setButtonHover] = useState<boolean>(false);
 
-    const [width, setWidth] = useState(0);
-
-    if (typeof window !== undefined) {
-        setWidth(window.innerWidth);
-
-        useEffect(() => {
-            window.addEventListener("resize", () => { setWidth(window.innerWidth); });
-        });
-    }
-    
-
-
 
 
     return (
@@ -106,9 +94,9 @@ function Ability({ name, newName, color, rgb1, rgb2, description, url }: Ability
                     onMouseLeave={() => setButtonHover(false)}
                 >
                     <div className={styles.abilityGoToButtonText} style={{ color: color }}>
-                        {width > 1200 && "Go to "}Official Page
+                        Official Page
                     </div>
-
+                        
                     <Image
                         className={styles.abilityGoToButtonIcon}
                         src="/share.png"

@@ -92,6 +92,10 @@
     padding-left: 30px;
 }
 
+.abilityGoToButtonText::before {
+    content: "Go to ";
+}
+
 .abilityGoToButtonIcon {
     width: 40px;
     height: 40px;
@@ -153,7 +157,11 @@
     }
 
     .abilityGoToButtonText {
-        padding-left: 25px;
+        padding-left: 30px;
+    }
+
+    .abilityGoToButtonText::before {
+        content: none;
     }
     
     .abilityGoToButtonIcon {
