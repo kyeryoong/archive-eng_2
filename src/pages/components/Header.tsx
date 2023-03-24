@@ -35,13 +35,13 @@ export default function Header() {
 
             <div className={styles.menuContainer} style={isClicked ? { top: "0px" } : { top: "-100vh" }}>
                 <div className={styles.menuElements} onClick={() => setIsClicked(false)}>
-                    <Link href="/aboutme">
+                    <Link href="/profile">
                         <div className={styles.menuElementsTop}>
                             [ ? ]
                         </div>
 
                         <div className={styles.menuElementsCenter}>
-                            About Me
+                            Profile
                         </div>
 
                         <div className={styles.menuElementsBottom}>
@@ -67,13 +67,13 @@ export default function Header() {
                 </div>
 
                 <div className={styles.menuElements} onClick={() => setIsClicked(false)}>
-                    <Link href="/abilities">
+                    <Link href="/skills">
                         <div className={styles.menuElementsTop}>
                             +×
                         </div>
 
                         <div className={styles.menuElementsCenter}>
-                            Abilities
+                            Skills
                         </div>
 
                         <div className={styles.menuElementsBottom}>
@@ -83,13 +83,13 @@ export default function Header() {
                 </div>
 
                 <div className={styles.menuElements} onClick={() => setIsClicked(false)}>
-                    <Link href="/appsprojects">
+                    <Link href="/projects">
                         <div className={styles.menuElementsTop}>
                             &lt;/&gt;
                         </div>
 
                         <div className={styles.menuElementsCenter}>
-                            Apps & Projects
+                            Projects
                         </div>
 
                         <div className={styles.menuElementsBottom}>

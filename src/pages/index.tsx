@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import { useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 import styles from "../styles/Home.module.css";
 
@@ -7,6 +6,8 @@ import styles from "../styles/Home.module.css";
 
 function TypingAnimation({ mainWords, subWords }: { mainWords: string[], subWords: string[] }) {
     const [index, setIndex] = useState<number>(0);
+    const [randomIndex1, setRandomIndex1] = useState<number>(Math.floor(Math.random() * 4));
+    const [randomIndex2, setRandomIndex2] = useState<number>(Math.floor(Math.random() * 4));
 
     const [mainText, setMainText] = useState<string>("");
     const [subText, setSubText] = useState<string>("");
@@ -15,32 +16,42 @@ function TypingAnimation({ mainWords, subWords }: { mainWords: string[], subWord
 
     const [cursor, setCursor] = useState<number>(0);
 
+    const animationText1 = mainWords[index];
+    var animationText2 = subWords[index];
+
+    const randomWords1: string[] = ["Smart", "Superb", "Stylish", "Skillful"];
+    const randomWords2: string[] = ["Ambitious", "Amazing", "Awesome", "Active"];
+
+    if (subWords[index] === "ASAP") {
+        animationText2 = "Also, " + randomWords1[randomIndex1] + " and " + randomWords2[randomIndex2] + " Programmer";
+    }
+
     useEffect(() => {
         const typingInterval = setInterval(() => {
             if (increase) {
                 setMainText((prev: string) => {
-                    if (count > mainWords[index].length - 1) {
-
-                        return mainWords[index]
+                    if (count > animationText1.length - 1) {
+                        return animationText1
                     }
 
                     else {
                         setCount(count + 1);
 
-                        return prev + mainWords[index][count];
+                        return prev + animationText1[count]
                     }
                 })
 
                 setSubText((prev: string) => {
-                    if (count === subWords[index].length) {
+                    if (count === animationText2.length) {
                         setIncrease(false);
-                        return subWords[index]
+
+                        return animationText2
                     }
 
                     else {
                         setCount(count + 1);
 
-                        return prev + subWords[index][count];
+                        return prev + animationText2[count]
                     }
                 });
             }
@@ -50,8 +61,9 @@ function TypingAnimation({ mainWords, subWords }: { mainWords: string[], subWord
                     if (count === 0) {
                         setIncrease(true);
                         setMainText("");
-
                         setIndex((prev: number) => (prev + 1) % mainWords.length);
+                        setRandomIndex1(Math.floor(Math.random() * 4));
+                        setRandomIndex2(Math.floor(Math.random() * 4));
 
                         return ""
                     }
@@ -59,13 +71,13 @@ function TypingAnimation({ mainWords, subWords }: { mainWords: string[], subWord
                     else {
                         setCount(count - 1);
 
-                        return prev.substring(0, count);
+                        return prev.substring(0, count)
                     }
                 });
             }
 
             setCursor((prev: number) => (prev + 1) % 8);
-        }, 150);
+        }, 120);
 
 
         return () => {
@@ -96,21 +108,23 @@ export default function Home() {
         <div className={styles.homeContainer}>
             <div>
                 <TypingAnimation
-                    mainWords={["#FE", "#FBWE"]}
-                    subWords={["Frontend Developer", "For Better Web Experience"]}
+                    mainWords={["#FE", "#ASAP", "#FBWE"]}
+                    subWords={["Frontend Developer", "ASAP", "For Better Web Experience"]}
                 />
             </div>
 
             <div className={styles.line} />
 
-
             <div className={styles.subText}>
                 @kyeryoong
             </div>
 
-
             <div className={styles.subText}>
                 Kim Young-Woo
+            </div>
+
+            <div className={styles.subText}>
+                김영우
             </div>
         </div>
     )

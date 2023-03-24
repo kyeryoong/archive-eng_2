@@ -4,6 +4,7 @@
     position: absolute;
     top: 0px;
     left: 0px;
+    padding-bottom: 2vh;
     background-color: black;
     display: grid;
     align-content: center;
@@ -17,17 +18,34 @@
     line-height: 120px;
     font-size: 10rem;
     font-weight: 100;
-    color: white;
+    background: linear-gradient(135deg,
+            red,
+            orange,
+            yellow,
+            lightgreen,
+            green,
+            skyblue,
+            blue,
+            purple,
+            pink,
+            red
+            );
+    background-size: 200% 200%;
+    animation: animateGlow 5s linear infinite;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
     display: grid;
     align-items: end;
 }
 
 .animationText2 {
     width: 70vw;
-    height: 70px;
+    height: fit-content;
     min-height: 70px;
     line-height: 70px;
-    font-size: 4rem;;
+    font-size: 4rem;
+    ;
     color: white;
 }
 
@@ -39,32 +57,56 @@
 
 .line {
     width: 70vw;
-    border: 1px solid white;
+    height: 4px;
+    border-radius: 2px;
     margin-top: 20px;
     margin-bottom: 20px;
+    background: linear-gradient(to left,
+            red,
+            orange,
+            yellow,
+            lightgreen,
+            green,
+            skyblue,
+            blue,
+            purple,
+            pink,
+            red
+            );
+    background-size: 200% 200%;
+    animation: animateGlow 1.5s linear infinite;
 }
 
+@keyframes animateGlow {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 200% 50%;
+    }
+}
 
 
 
 @media (max-width: 1000px) {
     .animationText1 {
         width: 90vw;
-        min-height: 80px;
-        line-height: 80px;
-        font-size: 5rem;
+        min-height: 18vw;
+        line-height: 18vw;
+        font-size: 18vw;
     }
 
     .animationText2 {
         width: 90vw;
         height: fit-content;
-        min-height: 40px;
-        line-height: 40px;
-        font-size: 2rem;
+        min-height: 7vw;
+        line-height: 7vw;
+        font-size: 7vw;
     }
 
     .subText {
-        font-size: 1rem;
+        font-size: 4vw;
     }
 
     .line {

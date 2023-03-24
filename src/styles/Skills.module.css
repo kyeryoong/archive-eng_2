@@ -5,24 +5,22 @@
     position: absolute;
     top: 0px;
     left: 0px;
+    background-color: black;
     padding-top: 200px;
     padding-bottom: 200px;
-    background-color: black;
+    padding-left: 15vw;
+    padding-right: 15vw;
 }
 
 .abilitiesHeader {
     width: 100vw;
     font-size: 2rem;
     color: white;
-    padding-left: 15vw;
-    padding-right: 15vw;
     margin-bottom: 20px;
 }
 
 .abilitiesSubContainer {
     width: 100vw;
-    padding-left: 15vw;
-    padding-right: 15vw;
     display: grid;
     grid-template-columns: repeat(4, 240px);
     gap: 30px calc((70vw - 960px) / 3);
@@ -42,10 +40,6 @@
     cursor: pointer;
 }
 
-.abilityNotClicked:hover {
-    transform: scale(1.2);
-}
-
 .abilityClicked {
     width: 240px;
     height: 240px;
@@ -53,7 +47,7 @@
     border-radius: 10px;
     padding: 20px;
     transform: scale(1.6);
-    z-index: 1;
+    z-index: 2;
     display: grid;
     grid-template-rows: fit-content(100%) 1fr fit-content(100%);
     justify-self: center;
@@ -61,6 +55,7 @@
 
 .abilityDescription {
     font-size: 0.7rem;
+    color: rgb(100, 100, 100);
     margin-top: 10px;
 }
 
@@ -84,10 +79,24 @@
     width: 200px;
     height: 40px;
     line-height: 40px;
-    font-size: 0.8rem;
-    text-align: center;
-    color: white;
     border-radius: 5px;
+    display: grid;
+    grid-template-columns: 1fr fit-content(100%);
+    cursor: pointer;
+}
+
+.abilityGoToButtonText {
+    font-size: 0.8rem;
+    text-align: left;
+    color: white;
+    padding-left: 30px;
+}
+
+.abilityGoToButtonIcon {
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    margin-right: 20px;
 }
 
 
@@ -112,14 +121,12 @@
 }
 
 @media (max-width: 1000px) {
-    .abilitiesHeader {
+    .abilitiesContainer {
         padding-left: 5vw;
         padding-right: 5vw;
     }
     
     .abilitiesSubContainer {
-        padding-left: 5vw;
-        padding-right: 5vw;
         grid-template-columns: repeat(3, 200px);
         gap: 30px calc((90vw - 600px) / 2);
     }
@@ -144,6 +151,14 @@
         width: 160px;
         align-self: flex-end;
     }
+
+    .abilityGoToButtonText {
+        padding-left: 25px;
+    }
+    
+    .abilityGoToButtonIcon {
+        margin-right: 15px;
+    }
 }
 
 @media (max-width: 700px) {
@@ -167,7 +182,7 @@
     }
 
     .abilityNotClicked:hover {
-        transform: scale(1.1);
+        transform: none;
     }
 
     .abilityClicked {
@@ -191,9 +206,20 @@
     }
 
     .abilityGoToButton {
-        font-size: 0.8rem;
         width: 36.5vw;
         height: 10vw;
         line-height: 10vw;
+    }
+
+    .abilityGoToButtonText {
+        font-size: 0.8rem;
+        padding-left: 3vw;
+    }
+
+    .abilityGoToButtonIcon {
+        width: 10vw;
+        height: 10vw;
+        padding: 3vw;
+        margin: 0px;
     }
 }

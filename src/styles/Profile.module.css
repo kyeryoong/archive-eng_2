@@ -1,0 +1,99 @@
+.profileContainer {
+    width: 100vw;
+    height: fit-content;
+    min-height: 100vh;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: black;
+    padding-top: 200px;
+    padding-bottom: 200px;
+    padding-left: 15vw;
+    padding-right: 15vw;
+}
+
+.keywordShow {
+    color: rgba(255, 255, 255, 1);
+}
+
+.keywordHide {
+    color: rgba(255, 255, 255, 0);
+}
+
+.name {
+    width: 70vw;
+    font-size: 5rem;
+    text-align: left;
+}
+
+.careerContainer {
+    height: fit-content;
+    margin-top: 150px;
+    display: grid;
+    gap: 40px
+}
+
+.careerPeriod {
+    font-size: 1rem;
+    color: rgb(150, 150, 150);
+}
+
+.careerName {
+    font-size: 1.2rem;
+    color: white;
+    margin-top: 10px;
+    word-break: keep-all;
+}
+
+.questionContainer {
+    height: fit-content;
+    margin-top: 150px;
+    display: grid;
+    gap: 100px
+}
+
+.question {
+    height: fit-content;
+    display: grid;
+    grid-template-rows: fit-content(100%) 1fr;
+    gap: 20px;
+    align-items: center;
+    justify-items: center;
+}
+
+.questionHeader {
+    width: 200px;
+    height: 200px;
+    font-size: 1.25rem;
+    border-radius: 100px;
+    border: 2px solid white;
+    color: white;
+    display: grid;
+    align-items: center;
+    text-align: center;
+}
+
+.questionText {
+    font-size: 1.2rem;
+    color: white;
+    word-break: keep-all;
+    text-align: center;
+}
+
+
+
+@media (max-width: 1000px) {
+    .profileContainer {
+        padding-left: 5vw;
+        padding-right: 5vw;
+    }
+
+    .name {
+        font-size: 3rem;
+    }
+
+    .careerContainer,
+    .questionContainer {
+        margin-top: 100px;
+    }
+}
