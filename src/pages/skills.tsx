@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+
 import Image from "next/image";
 
 import styles from "../styles/Skills.module.css";
@@ -19,11 +20,19 @@ function Ability({ name, newName, color, rgb1, rgb2, description, url }: Ability
     const [containerHover, setContainerHover] = useState<boolean>(false);
     const [buttonHover, setButtonHover] = useState<boolean>(false);
 
-    const [width, setWidth] = useState(window.innerWidth);
+    const [width, setWidth] = useState(0);
 
-    useEffect(() => {
-        window.addEventListener("resize", () => { setWidth(window.innerWidth); });
-    });
+    if (typeof window !== undefined) {
+        setWidth(window.innerWidth);
+
+        useEffect(() => {
+            window.addEventListener("resize", () => { setWidth(window.innerWidth); });
+        });
+    }
+    
+
+
+
 
     return (
         <div
