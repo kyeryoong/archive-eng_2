@@ -84,6 +84,8 @@
 
 @media (max-width: 1000px) {
     .profileContainer {
+        padding-top: 150px;
+        padding-bottom: 150px;
         padding-left: 5vw;
         padding-right: 5vw;
     }
