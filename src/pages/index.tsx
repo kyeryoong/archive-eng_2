@@ -26,6 +26,8 @@ function TypingAnimation({ mainWords, subWords }: { mainWords: string[], subWord
         animationText2 = "Also, " + randomWords1[randomIndex1] + " and " + randomWords2[randomIndex2] + " Programmer";
     }
 
+
+
     useEffect(() => {
         const typingInterval = setInterval(() => {
             if (increase) {

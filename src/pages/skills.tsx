@@ -20,8 +20,6 @@ function Skill({ name, newName, color, rgb1, rgb2, description, url }: SkillProp
     const [containerHover, setContainerHover] = useState<boolean>(false);
     const [buttonHover, setButtonHover] = useState<boolean>(false);
 
-
-
     return (
         <div
             className={containerHover ? styles.skillClicked : styles.skillNotClicked}

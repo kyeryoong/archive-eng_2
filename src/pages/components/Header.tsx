@@ -15,7 +15,7 @@ export default function Header() {
         <div>
             <div className={styles.headerContainer}>
                 <Link href="/" onClick={() => setIsClicked(false)}>
-                    <Image className={styles.titleIcon} src="/logo.png" alt="" width={40} height={40} />
+                    <Image className={styles.titleIcon} src="/logo_white.png" alt="" width={40} height={40} />
                 </Link>
 
                 <Link href="/" onClick={() => setIsClicked(false)}>
