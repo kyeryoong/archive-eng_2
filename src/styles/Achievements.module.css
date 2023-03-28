@@ -1,4 +1,4 @@
-.achievementsContainer {
+.container {
     width: 100vw;
     height: fit-content;
     min-height: 100vh;
@@ -53,13 +53,13 @@
 }
 
 @media (max-width: 1400px) {
-    .achievementsContainer {
+    .container {
         grid-template-columns: repeat(1, 1fr);
     }
 }
 
 @media (max-width: 700px) {
-    .achievementsContainer {
+    .container {
         padding-top: 150px;
         padding-bottom: 150px;
         padding-left: 5vw;

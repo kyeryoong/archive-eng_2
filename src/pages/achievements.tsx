@@ -1,30 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 import Image from "next/image";
-import axios from "axios";
 
 import styles from "../styles/Achievements.module.css";
-
-
-
-const getSolvedacUserData = () => {
-    axios({
-      method: "get",
-      url: "https://solved.ac/api/v3/user/show?handle=kyeryoong",
-    })
-      .then((res) => {
-        console.log(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
-
-const a = getSolvedacUserData();
-
-console.log(a)
-
 
 
 
@@ -99,7 +77,7 @@ function Achievement({ title, subtitle, imageFile, imageColor, textColor, rgb1, 
 
 export default function Achievements() {
     return (
-        <div className={styles.achievementsContainer}>
+        <div className={styles.container}>
             <Achievement
                 title="마이 핀테크 서비스 개발 경진대회"
                 subtitle="우수상(학생부)"
@@ -161,28 +139,6 @@ export default function Achievements() {
                 rgb1={[67, 162, 226]}
                 description="OPIc는 공인인증 영어 말하기 시험입니다. 컴퓨터를 이용해 응시자 개개인의 질문에 대한 대답을 녹음한 후 미국의 평가 서버에 전송하여 공인평가자가 평가합니다."
             />
-
-            <div className={styles.achievement}>
-                <Image
-                    className={styles.achievementImage}
-                    src={`/achievements/.png`}
-                    alt=""
-                    width={480}
-                    height={160}
-                />
-
-                <div className={styles.achievementSubText}>
-                    boj
-                </div>
-
-                <div className={styles.achievementMainText}>
-                    boj
-                </div>
-
-                <div className={styles.achievementDescription}>
-                    boj
-                </div>
-            </div>
         </div>
     )
 }

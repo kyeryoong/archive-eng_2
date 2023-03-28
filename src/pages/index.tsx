@@ -107,7 +107,7 @@ function TypingAnimation({ mainWords, subWords }: { mainWords: string[], subWord
 
 export default function Home() {
     return (
-        <div className={styles.homeContainer}>
+        <div className={styles.container}>
             <div>
                 <TypingAnimation
                     mainWords={["#FE", "#ASAP", "#FBWE"]}

@@ -86,7 +86,7 @@ function Skill({ name, newName, color, rgb1, rgb2, description, url }: SkillProp
 
                 <div
                     className={styles.skillGoToButton}
-                    style={buttonHover ? {backgroundColor: `rgba(${rgb1[0]}, ${rgb1[1]}, ${rgb1[2]}, 0.85)`} :{ backgroundColor: `rgb(${rgb1[0]}, ${rgb1[1]}, ${rgb1[2]})` }}
+                    style={buttonHover ? { backgroundColor: `rgba(${rgb1[0]}, ${rgb1[1]}, ${rgb1[2]}, 0.85)` } : { backgroundColor: `rgb(${rgb1[0]}, ${rgb1[1]}, ${rgb1[2]})` }}
                     onClick={() => window.open("https://" + url)}
                     onMouseEnter={() => setButtonHover(true)}
                     onMouseLeave={() => setButtonHover(false)}
@@ -94,7 +94,7 @@ function Skill({ name, newName, color, rgb1, rgb2, description, url }: SkillProp
                     <div className={styles.skillGoToButtonText} style={{ color: color }}>
                         Official Page
                     </div>
-                        
+
                     <Image
                         className={styles.skillGoToButtonIcon}
                         src="/share.png"
@@ -113,7 +113,7 @@ function Skill({ name, newName, color, rgb1, rgb2, description, url }: SkillProp
 
 export default function skills() {
     return (
-        <div className={styles.skillsContainer}>
+        <div className={styles.container}>
             <div className={styles.skillsHeader}>
                 Python
             </div>

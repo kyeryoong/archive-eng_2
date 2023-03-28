@@ -1,4 +1,4 @@
-.skillsContainer {
+.container {
     width: 100vw;
     height: fit-content;
     min-height: 100vh;
@@ -154,7 +154,7 @@
 }
 
 @media (max-width: 1000px) {
-    .skillsContainer {
+    .container {
         padding-top: 150px;
         padding-bottom: 150px;
         padding-left: 5vw;

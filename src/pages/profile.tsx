@@ -1,16 +1,18 @@
 import { useState, useEffect } from "react";
 
+import Image from "next/image";
+
 import styles from "../styles/Profile.module.css";
 
 
 
-function Keywords({ keywords }: { keywords: string[] }) {
+function Keywords({ keywords, delay }: { keywords: string[], delay: number }) {
     const [index, setIndex] = useState<number>(0);
 
     useEffect(() => {
         const keywordInterval = setInterval(() => {
-            setIndex((prev) => prev + 1)
-        }, 5000);
+            setIndex((prev) => prev + 1);
+        }, delay * 1000);
 
         return () => {
             clearInterval(keywordInterval);
@@ -34,15 +36,80 @@ function Keywords({ keywords }: { keywords: string[] }) {
     )
 }
 
+
+
+function Question({ question, answer }: { question: string, answer: string }) {
+    return (
+        <div className={styles.questionAnswer}>
+            <div className={styles.question}>
+                <div className={styles.questionArrow} />
+
+                <div className={styles.questionText}>
+                    {question}
+                </div>
+            </div>
+
+            <div className={styles.answer}>
+                <div className={styles.answerText}>
+                    {answer}
+                </div>
+
+                <div className={styles.answerArrow} />
+            </div>
+        </div>
+    )
+}
+
+
+
 export default function Profile() {
+    const [image, setImage] = useState<boolean>(false);
+
+
+    useEffect(() => {
+        const keywordInterval = setInterval(() => {
+            setImage((prev) => !prev);
+        }, 4000);
+
+        return () => {
+            clearInterval(keywordInterval);
+        };
+    })
+
 
 
     return (
-        <div className={styles.profileContainer}>
-            <div className={styles.name}>
-                <Keywords keywords={["김영우", "Kim Young-Woo", "@kyeryoong"]} />
-            </div>
+        <div className={styles.container}>
+            <div className={styles.profileContainer}>
+                {
+                    image
 
+                    ?
+
+                    <Image
+                        className={image ? styles.profileImageShow : styles.profileImageHide}
+                        src={"/profile/profile1.jpg"}
+                        alt=""
+                        width={200}
+                        height={200}
+                    />
+
+                    :
+
+                    <Image
+                        className={image ? styles.profileImageHide : styles.profileImageShow}
+                        src={"/profile/profile2.jpg"}
+                        alt=""
+                        width={200}
+                        height={200}
+                    />
+                }
+
+
+                <div className={styles.profileName}>
+                    <Keywords keywords={["김영우", "Kim Young-Woo", "@kyeryoong"]} delay={5} />
+                </div>
+            </div>
 
             <div className={styles.careerContainer}>
                 <div className={styles.career}>
@@ -51,7 +118,7 @@ export default function Profile() {
                     </div>
 
                     <div className={styles.careerName}>
-                        홍익대학교 컴퓨터공학과 학사 과정
+                        홍익대학교 컴퓨터공학과 학사
                     </div>
                 </div>
 
@@ -76,48 +143,21 @@ export default function Profile() {
                 </div>
             </div>
 
-            <div className={styles.questionContainer}>
-                <div className={styles.question}>
-                    <div className={styles.questionHeader}>
-                        Why<br />
-                        Computer<br />
-                        Engineering<br />
-                        ?
-                    </div>
+            <div className={styles.questionAnswerContainer}>
+                <Question
+                    question="컴퓨터공학을 선택한 이유는?"
+                    answer={`어릴적 부터 컴퓨터가 너무 좋아서 선택했습니다.\n물론 학교를 다닐수록 컴퓨터를 사용하는 것이랑 크게 연관이 없는것을 아주 많이 느꼈습니다.`}
+                />
 
-                    <div className={styles.questionText}>
-                        어릴 적 부터 컴퓨터가 너무 좋아서 선택했습니다.<br />
-                        물론 학교를 다닐수록 컴퓨터 사용하는 거랑 크게 연관없는것을 느꼈습니다.
-                    </div>
-                </div>
+                <Question
+                    question="프론트엔드 개발자를 선택한 이유는?"
+                    answer={`사용자 인터페이스를 설계하면서, 직접 눈으로 보여지는 결과물을 만드는게 너무 즐거웠습니다.\n그리고, 사용자 경험을 만족시켜주는 것에 흥미를 느꼈기 때문에 선택했습니다.`}
+                />
 
-                <div className={styles.question}>
-                    <div className={styles.questionHeader}>
-                        Why<br />
-                        Frontend<br />
-                        ?
-                    </div>
-
-                    <div className={styles.questionText}>
-                        사용자 인터페이스를 설계하면서,<br />
-                        사용자 경험을 만족시켜주는 것에 흥미를 느꼈기 때문에 선택했습니다.
-                    </div>
-                </div>
-
-                <div className={styles.question}>
-                    <div className={styles.questionHeader}>
-                        What&#39;s<br />
-                        Important<br />
-                        As Developer<br />
-                        ?
-                    </div>
-
-                    <div className={styles.questionText}>
-                        1. 다른 개발 분야에 대한 이해<br />
-                        2. 커뮤니케이션 능력<br />
-                        3. 지치지 않고 배우려는 자세
-                    </div>
-                </div>
+                <Question
+                    question="개발자로서 중요하게 생각하는 것은?"
+                    answer={`1. 끊임없이 노력하는 것\n2. 새로운 것을 배우려는 도전 정신\n3. 팀원들과 함께 일하려는 마음\n4. 팀원들의 분야에 대한 최소한의 이해\n5. 다른 사람들의 코드 이해하고 내 것으로 만드는 능력\n6. 구글링 잘하기`}
+                />
             </div>
         </div>
     )
