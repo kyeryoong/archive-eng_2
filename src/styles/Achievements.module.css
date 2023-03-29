@@ -6,81 +6,163 @@
     top: 0px;
     left: 0px;
     background-color: black;
-    padding-top: 200px;
-    padding-bottom: 200px;
     padding-left: 15vw;
     padding-right: 15vw;
+    overflow: hidden;
+}
+
+.achievementsContainer {
+    height: 100vh;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 50px 5vw;
+    grid-template-columns: repeat(4, fit-content(100%));
 }
 
 .achievement {
-    width: 100%;
-    border-radius: 10px;
-    padding: 80px;
+    width: 17.5vw;
+    height: 100vh;
+    display: grid;
+    position: relative;
+}
+
+.achievement:hover {
+    width: 40vw;
+}
+
+.achievement:hover > .achievementImage {
+    width: 40vw;
+    filter:grayscale(0%);
 }
 
 .achievementImage {
+    width: 17.5vw;
+    height: 100vh;
+    object-fit: cover;
+    filter: grayscale(100%);
+}
+
+.achievementName {
     width: 100%;
-    height: auto;
-}
-
-.achievementSubText {
-    font-size: 1.2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.5);
-    padding-top: 40px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-bottom: 5px;
+    position: absolute;
+    bottom: 5vh;
+    padding: 20px;
     word-break: keep-all;
-    text-align: justify;
 }
 
-.achievementMainText {
-    font-size: 2.4rem;
+.achievementNameTop {
+    font-size: 2rem;
     font-weight: 700;
-    margin-bottom: 10px;
-    word-break: keep-all;
-    text-align: justify;
+    color: white;
 }
 
-.achievementDescription {
+.achievementNameCenter {
+    font-size: 0.8rem;
+    margin-top: 10px;
     color: white;
-    margin-top: 20px;
-    word-break: keep-all;
-    text-align: justify;
 }
+
+.achievementNameBottom {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-top: 20px;
+    padding-top: 20px;
+    color: white;
+    border-top: 1px solid white;
+}
+
+
 
 @media (max-width: 1400px) {
-    .container {
-        grid-template-columns: repeat(1, 1fr);
-    }
-}
 
-@media (max-width: 700px) {
-    .container {
-        padding-top: 150px;
-        padding-bottom: 150px;
-        padding-left: 5vw;
-        padding-right: 5vw;
-        grid-template-columns: repeat(1, 1fr);
-        gap: 5vw;
+    .achievementsContainer {
+        height: 100vh;
+        display: grid;
+        grid-template-columns: none;
+        grid-template-rows: repeat(4, fit-content(100%));
     }
 
     .achievement {
-        padding: 10vw;
+        width: 75vw;
+        height: 25vh;
     }
 
-    .achievementSubText {
-        font-size: 1rem;
+    .achievement:hover {
+        width: 75vw;
+        height: 50vh;
     }
     
-    .achievementMainText {
-        font-size: 1.6rem;
+    .achievement:hover > .achievementImage {
+        width: 75vw;
+        height: 50vh;
+    }
+
+    .achievementImage {
+        width: 75vw;
+        height: 25vh;
+    }
+
+    .achievementName {
+        bottom: 1vh;
+    }
+
+    .achievementNameTop {
+        font-size: 1.5rem;
     }
     
-    .achievementDescription {
+    .achievementNameCenter {
         font-size: 0.8rem;
+        margin-top: 0px;
+    }
+    
+    .achievementNameBottom {
+        font-size: 2rem;
+        margin-top: 5px;
+        padding-top: 5px;
+    }
+}
+
+
+
+@media (max-width: 1000px) {
+    .container {
+        padding-top: 5vw;
+        padding-left: 5vw;
+        padding-right: 5vw;
+    }
+
+    .achievement {
+        width: 90vw;
+        height: 25vh;
+    }
+
+    .achievement:hover {
+        width: 90vw;
+        height: 50vh;
+    }
+    
+    .achievement:hover > .achievementImage {
+        width: 90vw;
+        height: 50vh;
+    }
+
+    .achievementImage {
+        width: 90vw;
+        height: 25vh;
+    }
+
+    .achievementName {
+        bottom: 1vh;
+        padding: 5vw;
+    }
+
+    .achievementNameTop {
+        font-size: 1.2rem;
+    }
+    
+    .achievementNameCenter {
+        font-size: 0.8rem;
+    }
+    
+    .achievementNameBottom {
+        font-size: 1.5rem;
     }
 }
