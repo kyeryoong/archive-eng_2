@@ -12,7 +12,7 @@ export default function Articles() {
 
     const [searchTitle, setSearchTitle] = useState<string>("");
     const [searchSection, setSearchSection] = useState<string[]>([]);
-
+    const [order, setOrder] = useState<number>(0);
 
     const [articlesData, setArticlesData] = useState<articleProps | any>(articlesDatabase);
 
@@ -67,7 +67,7 @@ export default function Articles() {
     function Article({ id, section, title, year, month, chiefEditor, keyword, link }: articleProps) {
         return (
             <div className={styles.article} onClick={() => setIndex(id)}>
-                <div className={styles.articleImage} />
+                <Image src={"/articles/images/" + id + ".png"} alt="" width={720} height={360} className={styles.articleImage} />
 
                 <div className={styles.articleInfo}>
                     <div className={styles.section}>
@@ -85,6 +85,7 @@ export default function Articles() {
             </div>
         )
     }
+
 
 
     return (
@@ -141,11 +142,31 @@ export default function Articles() {
             </div>
 
             <div className={index !== 0 ? styles.backgroundShow : styles.backgroundHide}>
-                <div
-                    className={index !== 0 ? styles.backgroundContainerShow : styles.backgroundContainerHide}
-                    onClick={() => setIndex(0)}
-                >
+                <div className={index !== 0 ? styles.backgroundContainerShow : styles.backgroundContainerHide}>
+                    <Image src={"/articles/images/" + index + ".png"} alt="" width={1000} height={500} className={styles.backgroundContainerImage} />
 
+                    <Image src={"/close.png"} alt="" width={1000} height={500} className={styles.backgroundContainerClose} onClick={() => setIndex(0)} />
+
+                    <div className={styles.backgroundContainerBottom}>
+                        <div className={styles.backgroundContainerBottomTitle}>
+                            {articlesDatabase[index - 1]?.title}
+                        </div>
+
+                        <div className={styles.nameContainer}>
+                            <div className={styles.nameHeader}>Writer</div>
+                            <div className={styles.nameText}>Kim Youngwoo</div>
+                        </div>
+
+                        <div className={styles.nameContainer}>
+                            <div className={styles.nameHeader}>Reviser</div>
+                            <div className={styles.nameText}>{articlesDatabase[index - 1]?.reviser}</div>
+                        </div>
+
+                        <div className={styles.nameContainer}>
+                            <div className={styles.nameHeader}>Chief Editor</div>
+                            <div className={styles.nameText}>{articlesDatabase[index - 1]?.chiefEditor}</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

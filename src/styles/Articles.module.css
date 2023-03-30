@@ -45,6 +45,7 @@
     display: grid;
     grid-template-columns: repeat(6, fit-content(100%));
     gap: 10px;
+    overflow-x: scroll;
     margin-top: 20px;
 }
 
@@ -105,12 +106,12 @@
 }
 
 .article {
-    width: 360px;
-    height: 480px;
+    width: 400px;
+    height: 450px;
     border-radius: 10px;
     background: linear-gradient(135deg, rgb(70, 70, 70) 20%, rgb(50, 50, 50) 80%);
     display: grid;
-    grid-template-rows: 240px 1fr;
+    grid-template-rows: fit-content(100%) 1fr;
     cursor: pointer;
 }
 
@@ -119,8 +120,10 @@
 }
 
 .articleImage {
+    width: 400px;
+    height: 200px;
     border-radius: 10px 10px 0px 0px;
-    background-color: white;
+    object-fit: cover;
 }
 
 .articleInfo {
@@ -130,7 +133,6 @@
 .section {
     width: fit-content;
     height: 20px;
-    border-radius: 3px;
     display: grid;
     grid-template-columns: repeat(2, fit-content(100%));
     gap: 5px;
@@ -175,7 +177,7 @@
     top: 0px;
     left: 0px;
     background-color: rgba(0, 0, 0, 0.8);
-    z-index: 1;
+    z-index: 4;
 }
 
 .backgroundHide {
@@ -191,19 +193,203 @@
 .backgroundContainerShow {
     width: 800px;
     height: 700px;
-    border-radius: 10px;
-    background-color: white;
     position: fixed;
     top: calc(50vh - 350px);
     left: calc(50vw - 400px);
+    display: grid;
+    grid-template-rows: repeat(2, fit-content(100%));
+    z-index: 4;
 }
 
 .backgroundContainerHide {
     width: 800px;
     height: 700px;
-    border-radius: 10px;
-    background-color: white;
     position: fixed;
-    top: 100vh;
+    top: -100vh;
     left: calc(50vw - 400px);
+    display: grid;
+    grid-template-rows: repeat(2, fit-content(100%));
+    z-index: 4;
+}
+
+.backgroundContainerClose {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: -50px;
+    right: 0px;
+    filter: invert();
+    cursor: pointer;
+    z-index: 4;
+}
+
+.backgroundContainerImage {
+    width: 800px;
+    height: 350px;
+    border-radius: 10px 10px 0px 0px;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    object-fit: cover;
+}
+
+.backgroundContainerBottom {
+    height: 350px;
+    position: relative;
+    padding: 40px;
+    border-radius: 0px 0px 10px 10px;
+    background-color: white;
+}
+
+.backgroundContainerBottomTitle {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 40px;
+    color: black;
+    margin-bottom: 20px;
+}
+
+.nameContainer {
+    height: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, fit-content(100%));
+    margin-bottom: 10px;
+}
+
+.nameHeader {
+    width: 87px;
+    height: 20px;
+    line-height: 20px;
+    color: gray;
+}
+
+.nameText {
+    height: 20px;
+    line-height: 20px;
+    margin-left: 10px;
+    padding-left: 10px;
+    border-left: 1px solid rgb(200, 200, 200);
+}
+
+
+@media (max-width: 2000px) {
+    .articlesContainer {
+        grid-template-columns: repeat(2, fit-content(100%));
+    }
+
+    .article {
+        width: 32vw;
+        height: 40vw;
+        max-height: calc(16vw + 250px);
+    }
+
+    .articleImage {
+        width: 32vw;
+        height: 16vw;
+    }   
+
+    .title {
+        font-size: 1.5rem;
+    }
+}
+
+
+
+@media (max-width: 1000px) {
+    .container {
+        padding-top: 150px;
+        padding-bottom: 150px;
+        padding-left: 5vw;
+        padding-right: 5vw;
+    }
+
+    .article {
+        width: 42.5vw;
+        height: 53.125vw;
+    }
+
+    .articleImage {
+        width: 42.5vw;
+        height: 21.25vw;
+    }
+
+    .articleInfo {
+        padding: min(5vw, 30px);
+    }
+
+    .backgroundContainerShow {
+        width: 90vw;
+        height: 70vh;
+        top: 15vh;
+        left: 5vw;
+        display: grid;
+    }
+    
+    .backgroundContainerHide {
+        width: 90vw;
+        height: 70vh;
+        top: -100vh;
+        left: 5vw;
+        display: grid;
+    }
+
+    .backgroundContainerClose {
+        width: 20px;
+        height: 20px;
+        top: -40px;
+    }
+
+    .backgroundContainerImage {
+        width: 90vw;
+        height: 35vh;
+    }
+    
+    .backgroundContainerBottom {
+        height: 35vh;
+        padding: 5vw;
+    }
+
+    .backgroundContainerBottomTitle {
+        font-size: 2rem;
+        line-height: 30px;
+    }
+
+    .nameContainer {
+        font-size: 0.85rem;
+        height: 15px;
+        margin-bottom: 5px;
+    }
+    
+    .nameHeader {
+        font-size: 0.85rem;
+        width: 80px;
+        height: 15px;
+        line-height: 15px;
+    }
+    
+    .nameText {
+        font-size: 0.85rem;
+        height: 15px;
+        line-height: 15px;
+    }
+}
+
+
+
+@media (max-width: 700px) {
+    .articlesContainer {
+        grid-template-columns: none;
+        gap: 5vw;
+    }
+
+    .article {
+        width: 90vw;
+        height: calc(45vw + 150px);
+        max-height: none;
+    }
+
+    .articleImage {
+        width: 90vw;
+        height: 45vw;
+    }
 }
