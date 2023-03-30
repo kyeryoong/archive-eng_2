@@ -117,6 +117,7 @@ export default function Articles() {
                             {
                                 articlesData.map((data: articleProps) => (
                                     <Article
+                                        key={data.id}
                                         id={data.id}
                                         section={data.section}
                                         title={data.title}
