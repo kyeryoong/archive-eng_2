@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { articlesDatabase, articleProps } from "../../database/articlesDatabase";
 
+import Image from "next/image";
+
 import styles from "../styles/Articles.module.css";
 
 
@@ -51,7 +53,7 @@ export default function Articles() {
                     setSearchSection([...temp]);
                 }}
             >
-                <img src={"/articles/sections/" + section + ".png"} className={searchSection.includes(section) ? styles.searchSectionImageIncluded : styles.searchSectionImageNotIncluded} />
+                <Image src={"/articles/sections/" + section.toLowerCase() + ".png"} alt="" width={30} height={30} className={searchSection.includes(section) ? styles.searchSectionImageIncluded : styles.searchSectionImageNotIncluded} />
 
                 <div className={searchSection.includes(section) ? styles.searchSectionTextIncluded : styles.searchSectionTextNotIncluded}>
                     {section}
@@ -69,7 +71,7 @@ export default function Articles() {
 
                 <div className={styles.articleInfo}>
                     <div className={styles.section}>
-                        <img src={"/articles/sections/" + section + ".png"} className={styles.sectionImage} />
+                        <Image src={"/articles/sections/" + section.toLowerCase() + ".png"} alt="" width={30} height={30} className={styles.sectionImage} />
 
                         <div className={styles.sectionText}>
                             {section}
