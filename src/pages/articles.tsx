@@ -53,7 +53,7 @@ export default function Articles() {
                     setSearchSection([...temp]);
                 }}
             >
-                <Image src={`/articles/sections/${section}.png`} alt="" width={30} height={30} className={searchSection.includes(section) ? styles.searchSectionImageIncluded : styles.searchSectionImageNotIncluded} />
+                <Image src={"/articles/sections/" + section + ".png"} alt="" width={30} height={30} className={searchSection.includes(section) ? styles.searchSectionImageIncluded : styles.searchSectionImageNotIncluded} />
 
                 <div className={searchSection.includes(section) ? styles.searchSectionTextIncluded : styles.searchSectionTextNotIncluded}>
                     {section}
