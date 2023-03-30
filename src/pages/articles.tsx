@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { articlesDatabase, articleProps } from "./articles/articlesDatabase";
+import { articlesDatabase, articleProps } from "../../database/articlesDatabase";
 
 import Image from "next/image";
 
