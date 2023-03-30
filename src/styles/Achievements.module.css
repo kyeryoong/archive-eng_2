@@ -1,7 +1,6 @@
 .container {
     width: 100vw;
-    height: fit-content;
-    min-height: 100vh;
+    height: 100vh;
     position: absolute;
     top: 0px;
     left: 0px;
@@ -9,42 +8,51 @@
     padding-left: 15vw;
     padding-right: 15vw;
     overflow: hidden;
-}
-
-.achievementsContainer {
-    height: 100vh;
     display: grid;
     grid-template-columns: repeat(4, fit-content(100%));
 }
 
-.achievement {
+.achievementNormal {
     width: 17.5vw;
     height: 100vh;
     display: grid;
     position: relative;
 }
 
-.achievement:hover {
-    width: 40vw;
+.achievementSelected {
+    width: 28vw;
+    height: 100vh;
+    display: grid;
+    position: relative;
 }
 
-.achievement:hover > .achievementImage {
-    width: 40vw;
-    filter:grayscale(0%);
+.achievementNotSelected {
+    width: 14vw;
+    height: 100vh;
+    display: grid;
+    position: relative;
 }
 
-.achievementImage {
-    width: 17.5vw;
+.achievementImageSelected {
+    width: 100%;
     height: 100vh;
     object-fit: cover;
-    filter: grayscale(100%);
+    filter: grayscale(0%) brightness(100%);;
+}
+
+.achievementImageNotSelected {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    filter: grayscale(100%) brightness(60%);
 }
 
 .achievementName {
     width: 100%;
     position: absolute;
-    bottom: 5vh;
-    padding: 20px;
+    bottom: 15vh;
+    padding-left: 20px;
+    padding-right: 20px;
     word-break: keep-all;
 }
 
@@ -55,8 +63,8 @@
 }
 
 .achievementNameCenter {
-    font-size: 0.8rem;
-    margin-top: 10px;
+    font-size: 1rem;
+    margin-top: 5px;
     color: white;
 }
 
@@ -64,48 +72,86 @@
     font-size: 3rem;
     font-weight: 700;
     margin-top: 20px;
-    padding-top: 20px;
+    padding-top: 15px;
     color: white;
     border-top: 1px solid white;
 }
 
+.moreButtonShow {
+    font-size: 1rem;
+    width: 150px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    border-radius: 5px;
+    color: black;
+    background-color: rgba(255, 255, 255, 0.9);
+    position: absolute;
+    bottom: 8vh;
+    left: 20px;
+    opacity: 1;
+    cursor: pointer;
+}
+
+.moreButtonHide {
+    font-size: 1rem;
+    width: 150px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    border-radius: 5px;
+    color: black;
+    background-color: rgba(255, 255, 255, 0.9);
+    position: absolute;
+    bottom: 8vh;
+    left: 20px;
+    opacity: 0;
+}
 
 
 @media (max-width: 1400px) {
-
-    .achievementsContainer {
-        height: 100vh;
-        display: grid;
+    .container {
+        padding-top: 14vh;
+        padding-bottom: 6vh;
+        padding-left: 0vw;
+        padding-right: 0vw;
         grid-template-columns: none;
         grid-template-rows: repeat(4, fit-content(100%));
     }
 
-    .achievement {
-        width: 75vw;
-        height: 25vh;
-    }
-
-    .achievement:hover {
-        width: 75vw;
-        height: 50vh;
+    .achievementNormal {
+        width: 100vw;
+        height: 20vh;
     }
     
-    .achievement:hover > .achievementImage {
-        width: 75vw;
-        height: 50vh;
+    .achievementSelected {
+        width: 100vw;
+        height: 35vh;
+    }
+    
+    .achievementNotSelected {
+        width: 100vw;
+        height: 15vh;
     }
 
-    .achievementImage {
-        width: 75vw;
-        height: 25vh;
+    .achievementImageSelected {
+        width: 100vw;
+        height: 35vh;
+    }
+    
+    .achievementImageNotSelected {
+        width: 100vw;
+        height: 20vh;
     }
 
     .achievementName {
-        bottom: 1vh;
+        top: 2.5vh;
+        padding-left: 5vw;
+        padding-right: 5vw;
     }
 
     .achievementNameTop {
-        font-size: 1.5rem;
+        font-size: 1rem;
     }
     
     .achievementNameCenter {
@@ -115,54 +161,23 @@
     
     .achievementNameBottom {
         font-size: 2rem;
-        margin-top: 5px;
+        margin-top: 10px;
         padding-top: 5px;
     }
-}
 
-
-
-@media (max-width: 1000px) {
-    .container {
-        padding-top: 5vw;
-        padding-left: 5vw;
-        padding-right: 5vw;
-    }
-
-    .achievement {
-        width: 90vw;
-        height: 25vh;
-    }
-
-    .achievement:hover {
-        width: 90vw;
-        height: 50vh;
+    .moreButtonShow {
+        width: 120px;
+        height: 40px;
+        line-height: 40px;
+        bottom: 2.5vh;
+        left: 5vw;
     }
     
-    .achievement:hover > .achievementImage {
-        width: 90vw;
-        height: 50vh;
-    }
-
-    .achievementImage {
-        width: 90vw;
-        height: 25vh;
-    }
-
-    .achievementName {
-        bottom: 1vh;
-        padding: 5vw;
-    }
-
-    .achievementNameTop {
-        font-size: 1.2rem;
-    }
-    
-    .achievementNameCenter {
-        font-size: 0.8rem;
-    }
-    
-    .achievementNameBottom {
-        font-size: 1.5rem;
+    .moreButtonHide {
+        width: 120px;
+        height: 40px;
+        line-height: 40px;
+        bottom: 2.5vh;
+        left: 5vw;
     }
 }
