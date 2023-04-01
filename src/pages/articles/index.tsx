@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { articlesDatabase, articleProps } from "../../database/articlesDatabase";
+import { articlesDatabase, articleProps } from "../../../database/articlesDatabase";
 
 import Image from "next/image";
 
-import styles from "../styles/Articles.module.css";
+import styles from "../../styles/Articles.module.css";
 
 
 
@@ -91,14 +91,12 @@ export default function Articles() {
     return (
         <div>
             <div className={styles.container}>
-                <div className={styles.searchBar}>
-                    <input
-                        className={styles.searchBarInputBox}
-                        placeholder="검색어를 입력하세요."
-                        value={searchTitle}
-                        onChange={(event) => setSearchTitle(event.target.value)}
-                    />
-                </div>
+                <input
+                    className={styles.searchBar}
+                    placeholder="검색어를 입력하세요."
+                    value={searchTitle}
+                    onChange={(event) => setSearchTitle(event.target.value)}
+                />
 
                 <div className={styles.searchSection}>
                     <Section section="Architecture" />

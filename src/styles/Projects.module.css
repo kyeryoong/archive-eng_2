@@ -1,0 +1,52 @@
+.container {
+    width: 100vw;
+    height: fit-content;
+    min-height: 100vh;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: black;
+    padding-top: 200px;
+    padding-bottom: 200px;
+    padding-left: 15vw;
+    padding-right: 15vw;
+}
+
+.projectContainer {
+    display: grid;
+    grid-template-columns: repeat(2, fit-content(100%));
+    justify-content: space-between;
+}
+
+.projectElement {
+    width: 500px;
+    height: 500px;
+    border-radius: 10px;
+    padding: 40px;
+    cursor: pointer;
+    display: grid;
+    grid-template-rows: fit-content(100%) fit-content(100%) 1fr;
+}
+
+.projectElement:hover {
+    transform: scale(1.1);
+}
+
+.projectSubTitle {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.projectTitle {
+    font-size: 3rem;
+    font-weight: 700;
+    color: white;
+}
+
+.projectIcon {
+    width: 240px;
+    height: 240px;
+    object-fit: contain;
+    align-self: center;
+    justify-self: center;
+}

@@ -14,8 +14,7 @@
 
 .searchBar {
     font-size: 1.2rem;
-    font-weight: 300;
-    width: fit-content;
+    width: 250px;
     height: 60px;
     line-height: 60px;
     padding-left: 20px;
@@ -23,29 +22,18 @@
     border: none;
     border-radius: 5px;
     background-color: rgb(50, 50, 50);
-    display: grid;
-    grid-template-columns: repeat(2, fit-content(100%));
 }
 
-.searchBarInputBox {
-    width: 200px;
-    font-size: 1.2rem;
-    border: none;
-    color: gray;
-    background-color: transparent;
-}
-
-.searchBarInputBox:focus {
-    width: 500px;
+.searchBar:focus {
+    width: 70vw;
     color: white;
     outline: none;
 }
 
 .searchSection {
-    display: grid;
-    grid-template-columns: repeat(6, fit-content(100%));
+    display: flex;
+    flex-wrap: wrap;
     gap: 10px;
-    overflow-x: scroll;
     margin-top: 20px;
 }
 
@@ -301,6 +289,19 @@
         padding-bottom: 150px;
         padding-left: 5vw;
         padding-right: 5vw;
+    }
+
+    .searchBar {
+        font-size: 1rem;
+        width: 90vw;
+        height: 60px;
+        line-height: 60px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    
+    .searchBar:focus {
+        width: 90vw;
     }
 
     .article {

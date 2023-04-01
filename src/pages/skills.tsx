@@ -175,7 +175,7 @@ export default function skills() {
                 />
                 <Skill
                     name="Next JS" newName="Next.js"
-                    color="white" rgb1={[50, 50, 50]}
+                    color="white" rgb1={[70, 70, 70]}
                     description="React-based Framework for Building Web Applications"
                     url="nextjs.org"
                 />
@@ -200,7 +200,7 @@ export default function skills() {
                 />
                 <Skill
                     name="Vercel"
-                    color="white" rgb1={[50, 50, 50]}
+                    color="white" rgb1={[70, 70, 70]}
                     description="Website Hosting and Deploying Platform"
                     url="vercel.com"
                 />
