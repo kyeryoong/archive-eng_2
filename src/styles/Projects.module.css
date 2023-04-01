@@ -32,15 +32,17 @@
     transform: scale(1.1);
 }
 
-.projectSubTitle {
+.projectTitle1 {
     font-size: 1.5rem;
     color: white;
+    word-break: keep-all;
 }
 
-.projectTitle {
+.projectTitle2 {
     font-size: 3rem;
     font-weight: 700;
     color: white;
+    word-break: keep-all;
 }
 
 .projectIcon {
@@ -49,4 +51,37 @@
     object-fit: contain;
     align-self: center;
     justify-self: center;
+}
+
+
+
+@media (max-width: 1000px) {
+    .container {
+        padding-left: 5vw;
+        padding-right: 5vw;
+    }
+
+    .projectContainer {
+        grid-template-columns: repeat(1, fit-content(100%));
+        gap: 5vw;
+    }
+
+    .projectElement {
+        width: 90vw;
+        height: 90vw;
+        padding: 5vw;
+    }
+
+    .projectTitle1 {
+        font-size: 1rem;
+    }
+    
+    .projectTitle2 {
+        font-size: 2rem;
+    }
+
+    .projectIcon {
+        width: min(40vw, 240px);
+        height: min(40vw, 240px);
+    }
 }

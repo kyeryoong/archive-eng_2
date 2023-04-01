@@ -14,11 +14,11 @@ export default function Project() {
                         className={styles.projectElement}
                         style={{ backgroundColor: "rgb(0, 220, 220)" }}
                     >
-                        <div className={styles.projectSubTitle}>
+                        <div className={styles.projectTitle1}>
                             사용자 소비 패턴 기반 카드 추천 서비스
                         </div>
 
-                        <div className={styles.projectTitle}>
+                        <div className={styles.projectTitle2}>
                             카드바이저
                         </div>
 
@@ -36,11 +36,11 @@ export default function Project() {
                         className={styles.projectElement}
                         style={{ background: "linear-gradient(135deg, rgb(0, 200, 200) 20%, rgb(0, 100, 200) 80%)" }}
                     >
-                        <div className={styles.projectSubTitle}>
+                        <div className={styles.projectTitle1}>
                             온라인 시험 플랫폼
                         </div>
 
-                        <div className={styles.projectTitle}>
+                        <div className={styles.projectTitle2}>
                             테스트콘
                         </div>
 
