@@ -1,12 +1,12 @@
-.headerContainer {
+.container {
     width: 100vw;
-    height: 15vh;
+    height: 150px;
     padding-left: 15vw;
     padding-right: 15vw;
     position: fixed;
     background: linear-gradient(180deg, black 40%, transparent);
     display: grid;
-    grid-template-columns: fit-content(100%) fit-content(100%) 1fr fit-content(100%);
+    grid-template-columns: fit-content(100%) fit-content(100%) 1fr;
     align-items: center;
     z-index: 3;
 }
@@ -19,20 +19,58 @@
 }
 
 .button {
-    padding: 5px;
-    filter: invert();
-    transition: 0.5s;
+    width: 40px;
+    height: 40px;
     cursor: pointer;
+    position: relative;
+    justify-self: right;
 }
 
-.background {
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    z-index: 1;
+.button span {
+    height: 10%;
+    border-radius: 10px;
+    background-color: white;
     transition: 0.5s;
+}
+
+.button span:nth-of-type(1) {
+    width: 50%;
+    position: absolute;
+    top: 15%;
+}
+
+.button span:nth-of-type(2) {
+    width: 100%;
+    position: absolute;
+    top: 45%;
+    opacity: 1;
+}
+
+.button span:nth-of-type(3) {
+    width: 75%;
+    position: absolute;
+    bottom: 15%;
+}
+
+.buttonClicked {
+    display: none;
+}
+
+.buttonClicked~span:nth-of-type(1) {
+    width: 100%;
+    transform: rotate(45deg);
+    top: 45%;
+}
+
+.buttonClicked~span:nth-of-type(2) {
+    width: 0%;
+    opacity: 0;
+}
+
+.buttonClicked~span:nth-of-type(3) {
+    width: 100%;
+    transform: rotate(-45deg);
+    bottom: 45%;
 }
 
 .menuContainerClicked {
@@ -45,6 +83,7 @@
     background-color: rgba(0, 0, 0, 0.8);
     position: fixed;
     top: 0px;
+    opacity: 1;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 5vw;
@@ -64,6 +103,7 @@
     background-color: rgba(0, 0, 0, 0);
     position: fixed;
     top: -100vh;
+    opacity: 0;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 5vw;
@@ -89,21 +129,19 @@
 .menuElementsCenter {
     font-size: 2.5rem;
     font-weight: 700;
-    margin-top: 30px;
-    padding-top: 20px;
-    border-top: 1px solid rgb(150, 150, 150);
+    margin-top: 10px;
     color: white;
 }
 
 .menuElementsBottom {
-    margin-top: 10px;
+    margin-top: 5px;
     color: rgb(150, 150, 150);
 }
 
 
 
 @media (max-width: 1000px) {
-    .headerContainer {
+    .container {
         padding-left: 5vw;
         padding-right: 5vw;
     }
@@ -111,9 +149,12 @@
     .titleText {
         font-size: 1.2rem;
     }
-    
+
     .button {
-        padding: 10px;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        position: relative;
     }
 
     .menuContainerClicked {
@@ -125,7 +166,7 @@
         align-items: center;
         justify-items: stretch;
     }
-    
+
     .menuContainerNotClicked {
         padding-left: 5vw;
         padding-right: 5vw;
@@ -135,15 +176,14 @@
         align-items: center;
         justify-items: stretch;
     }
-    
+
     .menuElementsTop {
         font-size: 3rem;
     }
-    
+
     .menuElementsCenter {
         font-size: 1.2rem;
-        margin-top: 10px;
-        padding-top: 6px;
+        margin-top: 5px;
     }
 
     .menuElementsBottom {

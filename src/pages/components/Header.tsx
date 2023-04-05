@@ -10,10 +10,11 @@ import styles from "../../styles/Header.module.css";
 export default function Header() {
     const [isClicked, setIsClicked] = useState<boolean>(false);
 
+    console.log(isClicked)
 
     return (
         <div>
-            <div className={styles.headerContainer}>
+            <div className={styles.container}>
                 <Link href="/" onClick={() => setIsClicked(false)}>
                     <Image className={styles.titleIcon} src="/logo_white.png" alt="" width={40} height={40} />
                 </Link>
@@ -24,9 +25,12 @@ export default function Header() {
                     </div>
                 </Link>
 
-                <div />
-
-                <Image className={styles.button} src="/arrow.png" alt="" width={40} height={40} onClick={() => setIsClicked((prev) => !prev)} style={isClicked ? { transform: "rotate(180deg)" } : {}} />
+                <div className={styles.button} onClick={() => setIsClicked((prev: boolean) => !prev)}>
+                    <div className={isClicked ? styles.buttonClicked : styles.buttonNotClicked} />
+                    <span />
+                    <span />
+                    <span />
+                </div>
             </div>
 
 
@@ -58,7 +62,7 @@ export default function Header() {
                         </div>
 
                         <div className={styles.menuElementsBottom}>
-                            수상 경력 및 자격증
+                            수상 및 활동
                         </div>
                     </div>
                 </Link>
