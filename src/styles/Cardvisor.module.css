@@ -1,11 +1,7 @@
 .container {
     width: 100vw;
     height: fit-content;
-    position: absolute;
-    top: 0px;
-    left: 0px;
     padding-top: 150px;
-    padding-bottom: 200px;
     background-color: black;
 }
 
@@ -200,7 +196,6 @@
     .containerTop {
         height: min(60vw, 300px);
         padding-top: min(10vw, 50px);
-        padding-bottom: min(10vw, 50px);
         padding-left: 5vw;
         padding-right: 5vw;
         margin-bottom: 50px;

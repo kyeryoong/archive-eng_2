@@ -10,8 +10,8 @@ import styles from "../../styles/Header.module.css";
 export default function Header() {
     const [isClicked, setIsClicked] = useState<boolean>(false);
 
-    console.log(isClicked)
 
+    
     return (
         <div>
             <div className={styles.container}>

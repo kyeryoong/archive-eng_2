@@ -2,12 +2,8 @@
     width: 100vw;
     height: fit-content;
     min-height: 100vh;
-    position: absolute;
-    top: 0px;
-    left: 0px;
     background-color: black;
     padding-top: 150px;
-    padding-bottom: 150px;
     padding-left: 15vw;
     padding-right: 15vw;
 }
@@ -286,7 +282,7 @@
 @media (max-width: 1000px) {
     .container {
         padding-top: 150px;
-        padding-bottom: 150px;
+
         padding-left: 5vw;
         padding-right: 5vw;
     }

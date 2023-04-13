@@ -2,12 +2,8 @@
     width: 100vw;
     height: fit-content;
     min-height: 100vh;
-    position: absolute;
-    top: 0px;
-    left: 0px;
     background-color: black;
     padding-top: 150px;
-    padding-bottom: 150px;
     padding-left: 15vw;
     padding-right: 15vw;
     display: grid;
@@ -35,13 +31,15 @@
     height: 100px;
     border-radius: 50px;
     opacity: 1;
+    transition: 0.5s;
 }
 
 .profileImageHide {
     width: 100px;
     height: 100px;
     border-radius: 50px;
-    opacity: 0.0;
+    opacity: 0;
+    transition: 0.5s;
 }
 
 .profileName {
@@ -70,28 +68,23 @@
 .questionAnswerContainer {
     height: fit-content;
     display: grid;
-    gap: 100px
+    gap: 50px
 }
 
 .questionAnswer {
-    height: fit-content;
+    background-color: rgb(20, 20, 20);
     display: grid;
     grid-template-rows: repeat(2, fit-content(100%));
     gap: 20px;
+    border-radius: 10px;
+    padding: 30px;
 }
 
 .question {
-    max-width: 70%;
     display: grid;
     grid-template-columns: repeat(2, fit-content(100%));
     justify-self: left;
-}
-
-.answer {
-    max-width: 70%;
-    display: grid;
-    grid-template-columns: repeat(2, fit-content(100%));
-    justify-self: right;
+    word-break: keep-all;
 }
 
 .questionArrow {
@@ -101,16 +94,6 @@
     border-top: 10px solid white;
     border-left: 10px solid transparent;
     border-right: 10px solid white;
-    margin-top: 15px;
-}
-
-.answerArrow {
-    width: 0;
-    height: 0;
-    border-bottom: 10px solid transparent;
-    border-top: 10px solid rgb(50, 50, 50);
-    border-left: 10px solid rgb(50, 50, 50);
-    border-right: 10px solid transparent;
     margin-top: 15px;
 }
 
@@ -124,16 +107,98 @@
     text-align: left;
 }
 
-.answerText {
-    width: fit-content;
-    font-size: 1.1rem;
+.answer {
+    font-size: 1.5rem;
+    color: white;
+    text-align: center;
+    word-break: keep-all;
+    margin-top: 20px;
+}
+
+.hashtag {
+    display: flex;
+    gap: 20px;
+    justify-self: right;
+}
+
+.hastagElements {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: rgb(100, 100, 100);
+}
+
+.importantContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.importantElements {
     padding: 20px;
     border-radius: 5px;
+    background-color: rgb(60, 60, 60);
+    text-align: left;
+}
+
+.importantText1 {
+    font-size: 1.5rem;
     color: white;
-    background-color: rgb(50, 50, 50);
-    text-align: right;
-    word-break: keep-all;
-    white-space: pre-wrap
+}
+
+.importantText2 {
+    font-size: 1rem;
+    color: rgb(150, 150, 150);
+    margin-top: 5px;
+}
+
+.jsImageContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.jsImage1 {
+    width: 300px;
+    height: 300px;
+    justify-self: center;
+}
+
+.jsImage2 {
+    width: 500px;
+}
+
+.equipmentContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 50px;
+}
+
+.equipmentElements {
+    display: grid;
+    grid-template-rows: repeat(3, fit-content(100%));
+    gap: 10px
+}
+
+.equipmentImage {
+    width: 160px;
+    height: 160px;
+    justify-self: center;
+}
+
+.equipmentText1 {
+    font-size: 1.2rem;
+    color: white;
+    text-align: center;
+}
+
+.equipmentText2 {
+    font-weight: 500;
+    color: rgb(100, 100, 100);
+    text-align: center;
 }
 
 
@@ -141,10 +206,9 @@
 @media (max-width: 1000px) {
     .container {
         padding-top: 150px;
-        padding-bottom: 150px;
         padding-left: 5vw;
         padding-right: 5vw;
-        gap: 100px;
+        gap: 50px;
     }
 
     .careerContainer {
@@ -154,7 +218,7 @@
     .careerPeriod {
         font-size: 0.8rem;
     }
-    
+
     .careerName {
         font-size: 1rem;
         margin-top: 5px;
@@ -166,8 +230,20 @@
     }
 
     .profileImage {
-        width: 60px;
-        height: 60px;
+        width: 50px;
+        height: 50px;
+    }
+
+    .profileImageShow {
+        width: 50px;
+        height: 50px;
+        border-radius: 25px;
+    }
+
+    .profileImageHide {
+        width: 50px;
+        height: 50px;
+        border-radius: 25px;
     }
 
     .profileName {
@@ -175,16 +251,13 @@
         line-height: 30px;
     }
 
-    .questionAnswerContainer {
-        gap: 100px;
+    .questionAnswer {
+        padding: 5vw;
     }
 
-    .question {
-        max-width: 65vw;
-    }
-
-    .answer {
-        max-width: 65vw;
+    .questionText {
+        font-size: 1rem;
+        padding: 15px;
     }
 
     .questionArrow {
@@ -195,21 +268,66 @@
         margin-top: 10px;
     }
 
-    .answerArrow {
-        border-bottom: 10px solid transparent;
-        border-top: 10px solid rgb(50, 50, 50);
-        border-left: 10px solid rgb(50, 50, 50);
-        border-right: 10px solid transparent;
+    .answer {
+        font-size: 1.2rem;
         margin-top: 10px;
     }
 
-    .questionText {
-        font-size: 1rem;
-        padding: min(20px, 5vw);
+    .hashtag {
+        flex-direction: column;
+        text-align: right;
+        gap: 5px;
     }
 
-    .answerText {
-        font-size: 0.9rem;
-        padding: min(20px, 5vw);
+    .hastagElements {
+        font-size: 1rem;
+    }
+
+    .importantContainer {
+        gap: 10px;
+    }
+
+    .importantElements {
+        padding: 10px;
+    }
+
+    .importantText1 {
+        font-size: 1rem;
+    }
+
+    .importantText2 {
+        font-size: 0.75rem;
+        margin-top: 2.5px;
+    }
+
+    .jsImage1 {
+        width: min(300px, 50vw);
+        height: min(300px, 50vw);
+    }
+
+    .jsImage2 {
+        width: 70vw;
+        height: auto;
+    }
+
+    .equipmentContainer {
+        gap: 10px 50px;
+    }
+
+    .equipmentElements {
+        gap: 0px;
+    }
+
+    .equipmentImage {
+        width: 100px;
+        height: 100px;
+    }
+
+    .equipmentText1 {
+        font-size: 1rem;
+    }
+
+    .equipmentText2 {
+        font-size: 0.85rem;
     }
 }

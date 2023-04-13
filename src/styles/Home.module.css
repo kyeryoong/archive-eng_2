@@ -1,9 +1,6 @@
 .container {
     width: 100vw;
     height: 100vh;
-    position: absolute;
-    top: 0px;
-    left: 0px;
     padding-bottom: 2vh;
     background-color: black;
     display: grid;
@@ -38,6 +35,7 @@
     -webkit-text-fill-color: transparent;
     display: grid;
     align-items: end;
+    margin-bottom: 15px;
 }
 
 .animationText2 {
@@ -97,6 +95,7 @@
         min-height: 18vw;
         line-height: 18vw;
         font-size: 18vw;
+        margin-bottom: 5px;
     }
 
     .animationText2 {

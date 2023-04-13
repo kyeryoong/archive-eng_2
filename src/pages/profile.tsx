@@ -38,30 +38,6 @@ function Keywords({ keywords, delay }: { keywords: string[], delay: number }) {
 
 
 
-function Question({ question, answer }: { question: string, answer: string }) {
-    return (
-        <div className={styles.questionAnswer}>
-            <div className={styles.question}>
-                <div className={styles.questionArrow} />
-
-                <div className={styles.questionText}>
-                    {question}
-                </div>
-            </div>
-
-            <div className={styles.answer}>
-                <div className={styles.answerText}>
-                    {answer}
-                </div>
-
-                <div className={styles.answerArrow} />
-            </div>
-        </div>
-    )
-}
-
-
-
 export default function Profile() {
     const [image, setImage] = useState<boolean>(false);
 
@@ -84,25 +60,23 @@ export default function Profile() {
                 {
                     image
 
-                    ?
+                        ?
 
-                    <Image
-                        className={image ? styles.profileImageShow : styles.profileImageHide}
-                        src={"/profile/profile1.jpg"}
-                        alt=""
-                        width={200}
-                        height={200}
-                    />
+                        <img
+                            className={image ? styles.profileImageShow : styles.profileImageHide}
+                            src={"/profile/profile1.jpg"}
+                            alt=""
+                        />
 
-                    :
+                        :
 
-                    <Image
-                        className={image ? styles.profileImageHide : styles.profileImageShow}
-                        src={"/profile/profile2.jpg"}
-                        alt=""
-                        width={200}
-                        height={200}
-                    />
+                        <img
+                            className={image ? styles.profileImageHide : styles.profileImageShow}
+                            src={"/profile/profile2.jpg"}
+                            alt=""
+                            width={200}
+                            height={200}
+                        />
                 }
 
 
@@ -144,20 +118,228 @@ export default function Profile() {
             </div>
 
             <div className={styles.questionAnswerContainer}>
-                <Question
-                    question="컴퓨터공학을 선택한 이유는?"
-                    answer={`어릴적 부터 컴퓨터가 너무 좋아서 선택했습니다.\n물론 학교를 다닐수록 컴퓨터를 사용하는 것이랑 크게 연관이 없는것을 아주 많이 느꼈습니다.`}
-                />
+                <div className={styles.questionAnswer}>
+                    <div className={styles.question}>
+                        <div className={styles.questionArrow} />
 
-                <Question
-                    question="프론트엔드 개발자를 선택한 이유는?"
-                    answer={`사용자 인터페이스를 설계하면서, 직접 눈으로 보여지는 결과물을 만드는게 너무 즐거웠습니다.\n그리고, 사용자 경험을 만족시켜주는 것에 흥미를 느꼈기 때문에 선택했습니다.`}
-                />
+                        <div className={styles.questionText}>
+                            컴퓨터공학을 선택한 이유는?
+                        </div>
+                    </div>
 
-                <Question
-                    question="개발자로서 중요하게 생각하는 것은?"
-                    answer={`1. 끊임없이 노력하는 것\n2. 새로운 것을 배우려는 도전 정신\n3. 팀원들과 함께 일하려는 마음\n4. 팀원들의 분야에 대한 최소한의 이해\n5. 다른 사람들의 코드 이해하고 내 것으로 만드는 능력\n6. 구글링 잘하기`}
-                />
+                    <div className={styles.answer}>
+                        어릴적 부터 컴퓨터가 너무 좋아서 선택했습니다.<br />
+                        물론 전공을 배울수록 컴퓨터를 사용하는 것이랑 크게 연관이 없다는것을 많이 느꼈습니다.
+                    </div>
+
+                    <div className={styles.hashtag}>
+                        <div className={styles.hastagElements}>
+                            #컴퓨터수리안해줌
+                        </div>
+
+                        <div className={styles.hastagElements}>
+                            #체크무늬안입음
+                        </div>
+
+                        <div className={styles.hastagElements}>
+                            #해킹할줄모름
+                        </div>
+                    </div>
+                </div>
+
+                <div className={styles.questionAnswer}>
+                    <div className={styles.question}>
+                        <div className={styles.questionArrow} />
+
+                        <div className={styles.questionText}>
+                            프론트엔드 개발자를 선택한 이유는?
+                        </div>
+                    </div>
+
+                    <div className={styles.answer}>
+                        직접 눈으로 보여지는 사용자 인터페이스를 설계하는게 너무 즐거웠습니다.<br />
+                        특히, 내가 작성한 코드가 바로 브라우저 화면에 나타난다는 것이 좋았습니다.
+                    </div>
+
+                    <div className={styles.hashtag}>
+                        <div className={styles.hastagElements}>
+                            #감성충만프엔
+                        </div>
+
+                        <div className={styles.hastagElements}>
+                            #휘황찬란프엔
+                        </div>
+                    </div>
+                </div>
+
+                <div className={styles.questionAnswer}>
+                    <div className={styles.question}>
+                        <div className={styles.questionArrow} />
+
+                        <div className={styles.questionText}>
+                            개발자로서 중요하게 생각하는 것은?
+                        </div>
+                    </div>
+
+                    <div className={styles.importantContainer}>
+                        <div className={styles.importantElements}>
+                            <div className={styles.importantText1}>
+                                노력하기
+                            </div>
+
+                            <div className={styles.importantText2}>
+                                #노오오오오오오력
+                            </div>
+                        </div>
+
+                        <div className={styles.importantElements}>
+                            <div className={styles.importantText1}>
+                                새로운 것 배우기
+                            </div>
+
+                            <div className={styles.importantText2}>
+                                #응애_나_주니어_개발자
+                            </div>
+                        </div>
+
+                        <div className={styles.importantElements}>
+                            <div className={styles.importantText1}>
+                                팀원들과 소통하기
+                            </div>
+
+                            <div className={styles.importantText2}>
+                                #브로드캐스트통신
+                            </div>
+                        </div>
+
+                        <div className={styles.importantElements}>
+                            <div className={styles.importantText1}>
+                                다른 팀원의 분야 이해하기
+                            </div>
+
+                            <div className={styles.importantText2}>
+                                #스프링_하시는분들_리스펙
+                            </div>
+                        </div>
+
+                        <div className={styles.importantElements}>
+                            <div className={styles.importantText1}>
+                                다른 사람 코드 잘 이해하기
+                            </div>
+
+                            <div className={styles.importantText2}>
+                                #import_some_code
+                            </div>
+                        </div>
+
+                        <div className={styles.importantElements}>
+                            <div className={styles.importantText1}>
+                                구글링 잘하기
+                            </div>
+
+                            <div className={styles.importantText2}>
+                                #스택오버플로우도잘하기
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className={styles.questionAnswer}>
+                    <div className={styles.question}>
+                        <div className={styles.questionArrow} />
+
+                        <div className={styles.questionText}>
+                            자바스크립트에 대해서 어떻게 생각하나?
+                        </div>
+                    </div>
+
+                    <div className={styles.jsImageContainer}>
+                        <img className={styles.jsImage1} src={"/profile/js1.png"} />
+                        <img className={styles.jsImage2} src={"/profile/js2.png"} />
+                    </div>
+
+                    <div className={styles.hashtag}>
+                        <div className={styles.hastagElements}>
+                            #sort()에_낚였을때_모니터_부실뻔함
+                        </div>
+
+                        <div className={styles.hastagElements}>
+                            #더이상설명이필요한가?
+                        </div>
+                    </div>
+                </div>
+
+                <div className={styles.questionAnswer}>
+                    <div className={styles.question}>
+                        <div className={styles.questionArrow} />
+
+                        <div className={styles.questionText}>
+                            개발할 때 사용하는 장비에 대해서 소개해달라.
+                        </div>
+                    </div>
+
+                    <div className={styles.equipmentContainer}>
+                        <div className={styles.equipmentElements}>
+                            <img className={styles.equipmentImage} src={"/profile/equipment1.png"} />
+
+                            <div className={styles.equipmentText1}>
+                                마우스
+                            </div>
+
+                            <div className={styles.equipmentText2}>
+                                Logitech Vertical Lift
+                            </div>
+                        </div>
+
+                        <div className={styles.equipmentElements}>
+                            <img className={styles.equipmentImage} src={"/profile/equipment2.png"} />
+
+                            <div className={styles.equipmentText1}>
+                                키보드
+                            </div>
+
+                            <div className={styles.equipmentText2}>
+                                Keychron K8 Retro
+                            </div>
+                        </div>
+
+                        <div className={styles.equipmentElements}>
+                            <img className={styles.equipmentImage} src={"/profile/equipment3.png"} />
+
+                            <div className={styles.equipmentText1}>
+                                모니터
+                            </div>
+
+                            <div className={styles.equipmentText2}>
+                                삼성 F27T350
+                            </div>
+                        </div>
+
+                        <div className={styles.equipmentElements}>
+                            <img className={styles.equipmentImage} src={"/profile/equipment4.png"} />
+
+                            <div className={styles.equipmentText1}>
+                                모니터암
+                            </div>
+
+                            <div className={styles.equipmentText2}>
+                                카멜 CA-1D
+                            </div>
+                        </div>
+
+                        <div className={styles.equipmentElements}>
+                            <img className={styles.equipmentImage} src={"/profile/equipment5.png"} />
+
+                            <div className={styles.equipmentText1}>
+                                아이스 아메리카노
+                            </div>
+
+                            <div className={styles.equipmentText2}>
+                                아이스 구정물
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     )
