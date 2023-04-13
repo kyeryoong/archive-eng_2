@@ -169,6 +169,10 @@ export default function Profile() {
                         <div className={styles.hastagElements}>
                             #휘황찬란프엔
                         </div>
+
+                        <div className={styles.hastagElements}>
+                            #보기좋은떡이_먹기도좋다
+                        </div>
                     </div>
                 </div>
 
