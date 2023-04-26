@@ -2,12 +2,21 @@ import { useState } from "react";
 
 import Image from "next/image";
 
+import achievementsDatabase from "@/database/achievementsDatabase";
+
 import styles from "../styles/Achievements.module.css";
 
 
 
 export default function Achievements() {
     const [hover, setHover] = useState<number>(0);
+
+    const [showContainer, setShowContainer] = useState<boolean>(false);
+    const [achievementIndex, setAchievementIndex] = useState<number>(0);
+    const [imageIndex, setImageIndex] = useState<number>(0);
+
+    const data: any = achievementsDatabase;
+
 
 
     return (
@@ -37,7 +46,14 @@ export default function Achievements() {
                     </div>
                 </div>
 
-                <div className={hover === 1 ? styles.moreButtonShow : styles.moreButtonHide}>
+                <div
+                    className={hover === 1 ? styles.moreButtonShow : styles.moreButtonHide}
+                    onClick={() => {
+                        setShowContainer(true);
+                        setAchievementIndex(1);
+                        setImageIndex(1);
+                    }}
+                >
                     더보기
                 </div>
             </div>
@@ -67,7 +83,14 @@ export default function Achievements() {
                     </div>
                 </div>
 
-                <div className={hover === 2 ? styles.moreButtonShow : styles.moreButtonHide}>
+                <div
+                    className={hover === 2 ? styles.moreButtonShow : styles.moreButtonHide}
+                    onClick={() => {
+                        setShowContainer(true);
+                        setAchievementIndex(2);
+                        setImageIndex(1);
+                    }}
+                >
                     더보기
                 </div>
             </div>
@@ -85,11 +108,11 @@ export default function Achievements() {
 
                 <div className={styles.achievementName}>
                     <div className={styles.achievementNameTop}>
-                        2019 광주 FINA 세계수영선수권대회
+                        광주 FINA 세계수영선수권대회
                     </div>
 
                     <div className={styles.achievementNameCenter}>
-                        2019 Gwangju FINA World Championships
+                        Gwangju FINA World Championships
                     </div>
 
                     <div className={styles.achievementNameBottom}>
@@ -97,7 +120,14 @@ export default function Achievements() {
                     </div>
                 </div>
 
-                <div className={hover === 3 ? styles.moreButtonShow : styles.moreButtonHide}>
+                <div
+                    className={hover === 3 ? styles.moreButtonShow : styles.moreButtonHide}
+                    onClick={() => {
+                        setShowContainer(true);
+                        setAchievementIndex(3);
+                        setImageIndex(1);
+                    }}
+                >
                     더보기
                 </div>
             </div>
@@ -127,8 +157,53 @@ export default function Achievements() {
                     </div>
                 </div>
 
-                <div className={hover === 4 ? styles.moreButtonShow : styles.moreButtonHide}>
+                <div
+                    className={hover === 4 ? styles.moreButtonShow : styles.moreButtonHide}
+                    onClick={() => {
+                        setShowContainer(true);
+                        setAchievementIndex(4);
+                        setImageIndex(1);
+                    }}
+                >
                     더보기
+                </div>
+            </div>
+
+            <div className={showContainer ? styles.backgroundShow : styles.backgroundHide}>
+                <div className={showContainer ? styles.backgroundContainerShow : styles.backgroundContainerHide}>
+                    <img src={"/achievements/image/" + achievementIndex + "/" + imageIndex + ".jpg"} alt="" className={styles.backgroundContainerImage} />
+
+                    <img src={"/close.png"} alt="" className={styles.backgroundContainerClose} onClick={() => { setShowContainer(false); }} />
+
+                    <div className={styles.backgroundContainerBottom}>
+                        <div className={styles.pagination}>
+                            {
+                                data.data?.[achievementIndex - 1]?.map((elem: any, index: number) => (
+                                    <div className={index + 1 === imageIndex ? styles.paginationSelected : styles.paginationNotSelected} onClick={() => setImageIndex(index + 1)}>
+                                        {index + 1}
+                                    </div>
+                                ))
+                            }
+                        </div>
+
+                        <div className={styles.title}>
+                            {data.metaData?.[achievementIndex - 1]?.title}
+                        </div>
+
+                        <div className={styles.date}>
+                            {data.metaData?.[achievementIndex - 1]?.start}
+                            &nbsp;~&nbsp;
+                            {data.metaData?.[achievementIndex - 1]?.finish}
+                        </div>
+
+                        <div className={styles.mainText}>
+                            {data.data?.[achievementIndex - 1]?.[imageIndex - 1]?.mainText}
+                        </div>
+
+                        <div className={styles.subText}>
+                            {data.data?.[achievementIndex - 1]?.[imageIndex - 1]?.subText}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

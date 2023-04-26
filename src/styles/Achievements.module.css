@@ -105,6 +105,141 @@
     opacity: 0;
 }
 
+.backgroundShow {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    z-index: 4;
+}
+
+.backgroundHide {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background-color: rgba(0, 0, 0, 0);
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    z-index: -1;
+}
+
+.backgroundContainerShow {
+    width: fit-content;
+    height: fit-content;
+    position: relative;
+    top: 0px;
+    opacity: 1;
+    display: grid;
+    grid-template-rows: repeat(2, fit-content(100%));
+    z-index: 4;
+}
+
+.backgroundContainerHide {
+    width: fit-content;
+    height: fit-content;
+    position: relative;
+    top: -200px;
+    opacity: 0;
+    display: grid;
+    grid-template-rows: repeat(2, fit-content(100%));
+    z-index: 4;
+}
+
+.backgroundContainerClose {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: -50px;
+    right: 0px;
+    filter: invert();
+    cursor: pointer;
+    z-index: 4;
+}
+
+.backgroundContainerImage {
+    width: 800px;
+    height: 400px;
+    border-radius: 10px 10px 0px 0px;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    object-fit: cover;
+}
+
+.backgroundContainerBottom {
+    height: fit-content;
+    position: relative;
+    padding: 40px;
+    border-radius: 0px 0px 10px 10px;
+    background-color: white;
+}
+
+.pagination {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    margin-bottom: 20px;
+}
+
+.paginationSelected {
+    width: 90px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 15px;
+    text-align: center;
+    background-color: black;
+    color: white;
+}
+
+.paginationNotSelected {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 15px;
+    text-align: center;
+    background-color: rgb(220, 220, 220);
+    color: white;
+    cursor: pointer;
+}
+
+.paginationNotSelected:hover {
+    background-color: black;
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: black;
+    word-break: keep-all;
+}
+
+.date {
+    border-bottom: 1px solid rgb(220, 220, 220);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    margin-top: 5px;
+}
+
+.mainText {
+    font-size: 1.5rem;
+    word-break: keep-all;
+}
+
+.subText {
+    height: 50px;
+    color: rgb(150, 150, 150);
+    margin-top: 5px;
+    word-break: keep-all;
+}
+
 
 @media (max-width: 1400px) {
     .container {
@@ -176,5 +311,53 @@
         line-height: 40px;
         bottom: 2.5vh;
         left: 5vw;
+    }
+
+    .backgroundContainerImage {
+        width: min(800px, 90vw);
+        height: min(300px, 45vw);
+    }
+
+    .backgroundContainerBottom {
+        width: min(800px, 90vw);
+        padding: min(40px, 5vw);
+    }
+
+    .pagination {
+        margin-bottom: 10px;
+    }
+
+    .paginationSelected {
+        font-size: 0.85rem;
+        width: 60px;
+        height: 20px;
+        line-height: 20px;
+        border-radius: 10px;
+    }
+
+    .paginationNotSelected {
+        font-size: 0.85rem;
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        border-radius: 10px;
+    }
+
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .date {
+        font-size: 0.8rem;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+    }
+
+    .mainText {
+        font-size: 1rem;
+    }
+
+    .subText {
+        font-size: 0.8rem;
     }
 }

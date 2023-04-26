@@ -1,9 +1,6 @@
 .errorContainer {
     width: 100vw;
     height: 100vh;
-    position: absolute;
-    top: 0px;
-    left: 0px;
     background-color: black;
     display: grid;
     align-content: center;
