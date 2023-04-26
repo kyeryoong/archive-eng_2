@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import Image from "next/image";
 
-import achievementsDatabase from "@/database/achievementsDatabase";
+import { achievementsDatabase } from "../../database/achievementsDatabase";
 
 import styles from "../styles/Achievements.module.css";
 
@@ -15,6 +15,9 @@ export default function Achievements() {
     const [achievementIndex, setAchievementIndex] = useState<number>(0);
     const [imageIndex, setImageIndex] = useState<number>(0);
 
+    const [imageHover, setImageHover] = useState<boolean>(false);
+    const [imageFull, setImageFull] = useState<boolean>(false);
+
     const data: any = achievementsDatabase;
 
 
@@ -26,9 +29,8 @@ export default function Achievements() {
                 onMouseEnter={() => setHover(1)}
                 onMouseLeave={() => setHover(0)}
             >
-                <Image
+                <img
                     src="/achievements/image/hice.jpg" alt=""
-                    width={3000} height={3000}
                     className={hover === 1 ? styles.achievementImageSelected : styles.achievementImageNotSelected}
                 />
 
@@ -63,9 +65,8 @@ export default function Achievements() {
                 onMouseEnter={() => setHover(2)}
                 onMouseLeave={() => setHover(0)}
             >
-                <Image
+                <img
                     src="/achievements/image/hackerton.jpg" alt=""
-                    width={3000} height={3000}
                     className={hover === 2 ? styles.achievementImageSelected : styles.achievementImageNotSelected}
                 />
 
@@ -100,9 +101,8 @@ export default function Achievements() {
                 onMouseEnter={() => setHover(3)}
                 onMouseLeave={() => setHover(0)}
             >
-                <Image
+                <img
                     src="/achievements/image/fina.jpg" alt=""
-                    width={3000} height={3000}
                     className={hover === 3 ? styles.achievementImageSelected : styles.achievementImageNotSelected}
                 />
 
@@ -137,9 +137,8 @@ export default function Achievements() {
                 onMouseEnter={() => setHover(4)}
                 onMouseLeave={() => setHover(0)}
             >
-                <Image
+                <img
                     src="/achievements/image/tidings.jpg" alt=""
-                    width={3000} height={3000}
                     className={hover === 4 ? styles.achievementImageSelected : styles.achievementImageNotSelected}
                 />
 
@@ -171,37 +170,61 @@ export default function Achievements() {
 
             <div className={showContainer ? styles.backgroundShow : styles.backgroundHide}>
                 <div className={showContainer ? styles.backgroundContainerShow : styles.backgroundContainerHide}>
-                    <img src={"/achievements/image/" + achievementIndex + "/" + imageIndex + ".jpg"} alt="" className={styles.backgroundContainerImage} />
+                    <img
+                        src={"/achievements/image/" + achievementIndex + "/" + imageIndex + ".jpg"}
+                        alt=""
+                        className={imageFull ? styles.imageFull : styles.imageNormal}
+                        onMouseEnter={() => setImageHover(true)}
+                        onMouseLeave={() => setImageHover(false)}
+                    />
 
-                    <img src={"/close.png"} alt="" className={styles.backgroundContainerClose} onClick={() => { setShowContainer(false); }} />
-
-                    <div className={styles.backgroundContainerBottom}>
-                        <div className={styles.pagination}>
-                            {
-                                data.data?.[achievementIndex - 1]?.map((elem: any, index: number) => (
-                                    <div className={index + 1 === imageIndex ? styles.paginationSelected : styles.paginationNotSelected} onClick={() => setImageIndex(index + 1)}>
-                                        {index + 1}
-                                    </div>
-                                ))
-                            }
+                    <div className={styles.expandButtonWrapper} onClick={() => setImageFull((prev) => !prev)}>
+                        <div className={styles.expandButtonText}>
+                            {imageFull ? "작게 보기" : "크게 보기"}
                         </div>
 
-                        <div className={styles.title}>
-                            {data.metaData?.[achievementIndex - 1]?.title}
+                        <img src={imageFull ? "/minimize.png" : "/maximize.png"} alt="" className={styles.expandButtonImage} />
+                    </div>
+
+                    <div
+                        className={styles.closeButtonWrapper}
+                        onClick={() => {
+                            setShowContainer(false);
+                            setTimeout(() => setImageFull(false), 500);
+                        }}
+                    >
+                        <img src={"/close.png"} alt="" className={styles.closeButtonImage} />
+                    </div>
+
+                    <div className={imageFull ? styles.descriptionHide : styles.descriptionNormal}>
+                        <div>
+                            <div className={styles.pagination}>
+                                {
+                                    data.data?.[achievementIndex - 1]?.map((elem: any, index: number) => (
+                                        <div key={index} className={index + 1 === imageIndex ? styles.paginationSelected : styles.paginationNotSelected} onClick={() => setImageIndex(index + 1)} />
+                                    ))
+                                }
+                            </div>
+
+                            <div className={styles.title}>
+                                {data.metaData?.[achievementIndex - 1]?.title}
+                            </div>
+
+                            <div className={styles.date}>
+                                {data.metaData?.[achievementIndex - 1]?.start}
+                                &nbsp;~&nbsp;
+                                {data.metaData?.[achievementIndex - 1]?.finish}
+                            </div>
                         </div>
 
-                        <div className={styles.date}>
-                            {data.metaData?.[achievementIndex - 1]?.start}
-                            &nbsp;~&nbsp;
-                            {data.metaData?.[achievementIndex - 1]?.finish}
-                        </div>
+                        <div>
+                            <div className={styles.mainText}>
+                                {data.data?.[achievementIndex - 1]?.[imageIndex - 1]?.mainText}
+                            </div>
 
-                        <div className={styles.mainText}>
-                            {data.data?.[achievementIndex - 1]?.[imageIndex - 1]?.mainText}
-                        </div>
-
-                        <div className={styles.subText}>
-                            {data.data?.[achievementIndex - 1]?.[imageIndex - 1]?.subText}
+                            <div className={styles.subText}>
+                                {data.data?.[achievementIndex - 1]?.[imageIndex - 1]?.subText}
+                            </div>
                         </div>
                     </div>
                 </div>

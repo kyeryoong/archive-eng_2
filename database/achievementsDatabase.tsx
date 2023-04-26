@@ -15,26 +15,26 @@ interface achievementsProps {
 }
 
 
-const achievementsDatabase: achievementsProps = {
+export const achievementsDatabase: achievementsProps = {
     metaData: [
         {
             title: "홍익대학교 컴퓨터공학과 졸업전시회",
             start: "2022.11.24",
             finish: "2022.11.25"
         },
-    
+
         {
             title: "마이 핀테크 서비스 해커톤",
             start: "2022.06.24",
             finish: "2022.06.26"
         },
-    
+
         {
             title: "광주 FINA 세계수영선수권대회",
             start: "2019.07.05",
             finish: "2019.07.28"
         },
-    
+
         {
             title: "홍익대학교 영자신문사",
             start: "2021.04.14",
@@ -50,18 +50,13 @@ const achievementsDatabase: achievementsProps = {
             },
 
             {
-                mainText: "카드바이저팀 전시 부스",
+                mainText: "카드바이저팀 부스",
                 subText: "팀원들이 각자 노트북과 태블릿을 챙겨가지고 왔다. 모니터는 교수님께 부탁드려서 빌렸다."
             },
 
             {
-                mainText: "카드바이저팀 공식 팜플렛",
+                mainText: "카드바이저팀 팜플렛",
                 subText: "크기가 제한적이라 팜플렛을 만드는게 너무 힘들었다."
-            },
-
-            {
-                mainText: "우수 졸업작품 발표회",
-                subText: "수업 시간에도 항상 처음으로 발표했는데, 여기서도 맨 처음 발표하게 되었다."
             },
 
             {
@@ -87,12 +82,12 @@ const achievementsDatabase: achievementsProps = {
 
         [
             {
-                mainText: "해커톤 진행 장소",
+                mainText: "진행 장소",
                 subText: "무박 3일동안 지낼 곳이다."
             },
 
             {
-                mainText: "해커톤 대회 일정표",
+                mainText: "대회 일정표",
                 subText: "아침, 점심, 저녁, 야식까지 아주 알차게 잘 나온다!"
             },
 
@@ -109,6 +104,11 @@ const achievementsDatabase: achievementsProps = {
             {
                 mainText: "상금 50만원",
                 subText: "50만원 너무 달달하고."
+            },
+
+            {
+                mainText: "자랑스러운 팀원들과 함께",
+                subText: "함께했기에, 3일 동안 버틸 수 있었다."
             }
         ],
 
@@ -124,13 +124,18 @@ const achievementsDatabase: achievementsProps = {
             },
 
             {
-                mainText: "기자 회견장",
+                mainText: "믹스트 존",
                 subText: "가끔 선수들이 지나가는 것도 볼 수 있다."
             },
 
             {
                 mainText: "실내 수영장",
                 subText: "선수들이 실제로 경기를 진행하는 곳 이다."
+            },
+
+            {
+                mainText: "프레스룸",
+                subText: "방송국과 언론사의 기자들이 모여있는 모습이다."
             }
         ],
 
@@ -162,5 +167,3 @@ const achievementsDatabase: achievementsProps = {
         ]
     ]
 }
-
-export default achievementsDatabase;

@@ -153,20 +153,88 @@
     z-index: 4;
 }
 
-.backgroundContainerClose {
-    width: 30px;
-    height: 30px;
+.expandButtonWrapper {
+    width: 115px;
+    max-width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 20px;
+    background-color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
     position: absolute;
-    top: -50px;
-    right: 0px;
-    filter: invert();
+    top: 20px;
+    right: 70px;
     cursor: pointer;
-    z-index: 4;
+    white-space: nowrap;
+    overflow: hidden;
+    box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.2);
+    -webkit-box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.2);
 }
 
-.backgroundContainerImage {
-    width: 800px;
-    height: 400px;
+.expandButtonWrapper:hover {
+    max-width: 115px;
+}
+
+.expandButtonImage {
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    filter: invert(0);
+}
+
+.expandButtonWrapper:hover>.expandButtonImage {
+    filter: invert(1);
+}
+
+.expandButtonWrapper:hover {
+    background-color: black;
+    color: white;
+}
+
+.expandButtonText {
+    width: 80px;
+    height: 40px;
+    line-height: 40px;
+    position: absolute;
+    left: 30px;
+    color: white;
+}
+
+.closeButtonWrapper {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: white;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.2);
+    -webkit-box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.2);
+}
+
+.closeButtonWrapper:hover {
+    background-color: black;
+}
+
+.closeButtonImage {
+    width: 40px;
+    height: 40px;
+    padding: 12px;
+    filter: invert(0);
+}
+
+.closeButtonWrapper:hover>.closeButtonImage {
+    filter: invert(1);
+}
+
+.imageNormal {
+    width: 720px;
+    height: 500px;
     border-radius: 10px 10px 0px 0px;
     position: relative;
     top: 0px;
@@ -174,36 +242,60 @@
     object-fit: cover;
 }
 
-.backgroundContainerBottom {
-    height: fit-content;
+.imageFull {
+    width: 720px;
+    height: 750px;
+    border-radius: 10px;
+    background-color: white;
+    object-fit: contain;
+}
+
+.descriptionNormal {
+    width: 720px;
+    height: 250px;
     position: relative;
+    display: flex;
+    flex-direction: column;
     padding: 40px;
     border-radius: 0px 0px 10px 10px;
     background-color: white;
+    overflow: hidden;
+}
+
+.descriptionHide {
+    width: 720px;
+    height: 0px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 0px 40px 0px 40px;
+    border-radius: 0px 0px 10px 10px;
+    background-color: white;
+    overflow: hidden;
 }
 
 .pagination {
     display: flex;
     flex-direction: row;
-    gap: 5px;
+    gap: 10px;
     margin-bottom: 20px;
 }
 
 .paginationSelected {
-    width: 90px;
-    height: 30px;
-    line-height: 30px;
-    border-radius: 15px;
+    width: 48px;
+    height: 12px;
+    line-height: 12px;
+    border-radius: 6px;
     text-align: center;
     background-color: black;
     color: white;
 }
 
 .paginationNotSelected {
-    width: 30px;
-    height: 30px;
-    line-height: 30px;
-    border-radius: 15px;
+    width: 12px;
+    height: 12px;
+    line-height: 12px;
+    border-radius: 6px;
     text-align: center;
     background-color: rgb(220, 220, 220);
     color: white;
@@ -215,29 +307,31 @@
 }
 
 .title {
-    font-size: 2rem;
+    font-size: 1.2rem;
     font-weight: 700;
     color: black;
     word-break: keep-all;
 }
 
 .date {
-    border-bottom: 1px solid rgb(220, 220, 220);
-    padding-bottom: 20px;
-    margin-bottom: 20px;
-    margin-top: 5px;
+    font-size: 1rem;
+    font-weight: 300;
 }
 
 .mainText {
-    font-size: 1.5rem;
+    font-size: 2rem;
+    font-weight: 300;
     word-break: keep-all;
+    text-align: right;
+    margin-top: 20px;
 }
 
 .subText {
-    height: 50px;
-    color: rgb(150, 150, 150);
-    margin-top: 5px;
+    font-size: 1rem;
+    font-weight: 300;
     word-break: keep-all;
+    text-align: right;
+    color: rgb(150, 150, 150);
 }
 
 
@@ -313,51 +407,47 @@
         left: 5vw;
     }
 
-    .backgroundContainerImage {
-        width: min(800px, 90vw);
-        height: min(300px, 45vw);
+    .backgroundContainerShow {
+        width: min(90vw, 720px);
     }
 
-    .backgroundContainerBottom {
-        width: min(800px, 90vw);
-        padding: min(40px, 5vw);
+    .backgroundContainerHide {
+        width: min(90vw, 720px);
     }
 
-    .pagination {
-        margin-bottom: 10px;
+    .imageNormal {
+        width: min(90vw, 720px);
     }
 
-    .paginationSelected {
-        font-size: 0.85rem;
-        width: 60px;
-        height: 20px;
-        line-height: 20px;
-        border-radius: 10px;
+    .imageFull {
+        width: min(90vw, 720px);
     }
 
-    .paginationNotSelected {
-        font-size: 0.85rem;
-        width: 20px;
-        height: 20px;
-        line-height: 20px;
-        border-radius: 10px;
+    .descriptionNormal {
+        width: min(90vw, 720px);
+        padding: min(5vw, 40px);
+    }
+
+    .descriptionHide {
+        width: 90vw;
+        max-width: 720px;
+        height: 0px;
+        padding: 0px min(5vw, 40px) 0px min(5vw, 40px);
     }
 
     .title {
-        font-size: 1.5rem;
-    }
-
-    .date {
-        font-size: 0.8rem;
-        padding-bottom: 10px;
-        margin-bottom: 10px;
-    }
-
-    .mainText {
         font-size: 1rem;
     }
 
+    .date {
+        font-size: 0.85rem;
+    }
+
+    .mainText {
+        font-size: 1.2rem;
+    }
+
     .subText {
-        font-size: 0.8rem;
+        font-size: 0.85rem;
     }
 }
