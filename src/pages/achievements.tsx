@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 import Image from "next/image";
 
@@ -11,14 +11,15 @@ import styles from "../styles/Achievements.module.css";
 export default function Achievements() {
     const [hover, setHover] = useState<number>(0);
 
-    const [showContainer, setShowContainer] = useState<boolean>(false);
+    const [showModal, setShowModal] = useState<boolean>(false);
     const [achievementIndex, setAchievementIndex] = useState<number>(0);
     const [imageIndex, setImageIndex] = useState<number>(0);
 
-    const [imageHover, setImageHover] = useState<boolean>(false);
     const [imageFull, setImageFull] = useState<boolean>(false);
 
     const data: any = achievementsDatabase;
+
+    const modalRef = useRef<HTMLDivElement>(null);
 
 
 
@@ -51,7 +52,7 @@ export default function Achievements() {
                 <div
                     className={hover === 1 ? styles.moreButtonShow : styles.moreButtonHide}
                     onClick={() => {
-                        setShowContainer(true);
+                        setShowModal(true);
                         setAchievementIndex(1);
                         setImageIndex(1);
                     }}
@@ -87,7 +88,7 @@ export default function Achievements() {
                 <div
                     className={hover === 2 ? styles.moreButtonShow : styles.moreButtonHide}
                     onClick={() => {
-                        setShowContainer(true);
+                        setShowModal(true);
                         setAchievementIndex(2);
                         setImageIndex(1);
                     }}
@@ -123,7 +124,7 @@ export default function Achievements() {
                 <div
                     className={hover === 3 ? styles.moreButtonShow : styles.moreButtonHide}
                     onClick={() => {
-                        setShowContainer(true);
+                        setShowModal(true);
                         setAchievementIndex(3);
                         setImageIndex(1);
                     }}
@@ -159,7 +160,7 @@ export default function Achievements() {
                 <div
                     className={hover === 4 ? styles.moreButtonShow : styles.moreButtonHide}
                     onClick={() => {
-                        setShowContainer(true);
+                        setShowModal(true);
                         setAchievementIndex(4);
                         setImageIndex(1);
                     }}
@@ -168,63 +169,88 @@ export default function Achievements() {
                 </div>
             </div>
 
-            <div className={showContainer ? styles.backgroundShow : styles.backgroundHide}>
-                <div className={showContainer ? styles.backgroundContainerShow : styles.backgroundContainerHide}>
-                    <img
-                        src={"/achievements/image/" + achievementIndex + "/" + imageIndex + ".jpg"}
-                        alt=""
-                        className={imageFull ? styles.imageFull : styles.imageNormal}
-                        onMouseEnter={() => setImageHover(true)}
-                        onMouseLeave={() => setImageHover(false)}
-                    />
+            <div
+                className={showModal ? styles.backgroundShow : styles.backgroundHide}
+                ref={modalRef}
+                onClick={(event: any) => {
+                    if (event.target == modalRef.current) {
+                        setShowModal(false);
+                    }
+                }}
+            >
+                <div className={showModal ? styles.modalShow : styles.modalHide}>
+                    <div className={imageFull ? styles.modalTopFull : styles.modalTopNormal}>
+                        <img
+                            src={"/achievements/image/" + achievementIndex + "/" + imageIndex + ".jpg"}
+                            alt=""
+                            className={imageFull ? styles.imageFull : styles.imageNormal}
+                        />
 
-                    <div className={styles.expandButtonWrapper} onClick={() => setImageFull((prev) => !prev)}>
-                        <div className={styles.expandButtonText}>
-                            {imageFull ? "작게 보기" : "크게 보기"}
+                        <div className={styles.expandButton} onClick={() => setImageFull((prev) => !prev)}>
+                            <div className={styles.expandButtonText}>
+                                {imageFull ? "작게 보기" : "크게 보기"}
+                            </div>
+
+                            <img src={imageFull ? "/minimize.png" : "/maximize.png"} alt="" className={styles.expandButtonImage} />
                         </div>
 
-                        <img src={imageFull ? "/minimize.png" : "/maximize.png"} alt="" className={styles.expandButtonImage} />
-                    </div>
+                        <div
+                            className={styles.closeButton}
+                            onClick={() => {
+                                setShowModal(false);
+                            }}
+                        >
+                            <img src={"/close.png"} alt="" className={styles.closeButtonImage} />
+                        </div>
 
-                    <div
-                        className={styles.closeButtonWrapper}
-                        onClick={() => {
-                            setShowContainer(false);
-                            setTimeout(() => setImageFull(false), 500);
-                        }}
-                    >
-                        <img src={"/close.png"} alt="" className={styles.closeButtonImage} />
-                    </div>
-
-                    <div className={imageFull ? styles.descriptionHide : styles.descriptionNormal}>
-                        <div>
-                            <div className={styles.pagination}>
-                                {
-                                    data.data?.[achievementIndex - 1]?.map((elem: any, index: number) => (
-                                        <div key={index} className={index + 1 === imageIndex ? styles.paginationSelected : styles.paginationNotSelected} onClick={() => setImageIndex(index + 1)} />
-                                    ))
+                        <img
+                            src={"/left.png"}
+                            className={styles.imageLeftButton}
+                            style={imageIndex == 1 || imageFull ? { opacity: "0", cursor: "default" } : {}}
+                            onClick={() => {
+                                if (imageIndex !== 1 && !imageFull) {
+                                    setImageIndex((prev) => prev - 1);
                                 }
-                            </div>
+                            }}
+                        />
 
-                            <div className={styles.title}>
-                                {data.metaData?.[achievementIndex - 1]?.title}
-                            </div>
+                        <img
+                            src={"/right.png"}
+                            className={styles.imageRightButton}
+                            style={imageIndex == data.data?.[achievementIndex - 1]?.length || imageFull ? { opacity: "0", cursor: "default" } : {}}
+                            onClick={() => {
+                                if (imageIndex !== data.data?.[achievementIndex - 1]?.length && !imageFull) {
+                                    setImageIndex((prev) => prev + 1);
+                                }
+                            }}
+                        />
 
-                            <div className={styles.date}>
-                                {data.metaData?.[achievementIndex - 1]?.start}
-                                &nbsp;~&nbsp;
-                                {data.metaData?.[achievementIndex - 1]?.finish}
-                            </div>
+                        <div className={styles.pagination} style={imageFull ? {opacity: "0", bottom: "-20px"} : {}}>
+                            {
+                                data.data?.[achievementIndex - 1]?.map((elem: any, index: number) => (
+                                    <div key={index} className={index + 1 === imageIndex ? styles.paginationSelected : styles.paginationNotSelected} onClick={() => setImageIndex(index + 1)} />
+                                ))
+                            }
+                        </div>
+                    </div>
+
+                    <div className={imageFull ? styles.modalBottomHide : styles.modalBottomShow}>
+                        <div className={styles.title}>
+                            {data.metaData?.[achievementIndex - 1]?.title}
                         </div>
 
-                        <div>
-                            <div className={styles.mainText}>
-                                {data.data?.[achievementIndex - 1]?.[imageIndex - 1]?.mainText}
-                            </div>
+                        <div className={styles.date}>
+                            {data.metaData?.[achievementIndex - 1]?.start}
+                            &nbsp;~&nbsp;
+                            {data.metaData?.[achievementIndex - 1]?.finish}
+                        </div>
 
-                            <div className={styles.subText}>
-                                {data.data?.[achievementIndex - 1]?.[imageIndex - 1]?.subText}
-                            </div>
+                        <div className={styles.mainText}>
+                            {data.data?.[achievementIndex - 1]?.[imageIndex - 1]?.mainText}
+                        </div>
+
+                        <div className={styles.subText}>
+                            {data.data?.[achievementIndex - 1]?.[imageIndex - 1]?.subText}
                         </div>
                     </div>
                 </div>
