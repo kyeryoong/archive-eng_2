@@ -198,6 +198,7 @@ export default function Achievements() {
                             className={styles.closeButton}
                             onClick={() => {
                                 setShowModal(false);
+                                setImageFull(false);
                             }}
                         >
                             <img src={"/close.png"} alt="" className={styles.closeButtonImage} />
