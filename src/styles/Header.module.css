@@ -73,71 +73,185 @@
     bottom: 45%;
 }
 
-.menuContainerClicked {
+.backgroundShow {
     width: 100vw;
     height: 100vh;
-    padding-left: 15vw;
-    padding-right: 15vw;
-    padding-top: 15vh;
-    padding-bottom: 15vh;
     background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: fixed;
     top: 0px;
     opacity: 1;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 5vw;
-    align-items: center;
-    justify-items: stretch;
     transition: 0.5s;
     z-index: 2;
 }
 
-.menuContainerNotClicked {
+.backgroundHide {
     width: 100vw;
     height: 100vh;
-    padding-left: 15vw;
-    padding-right: 15vw;
-    padding-top: 15vh;
-    padding-bottom: 15vh;
     background-color: rgba(0, 0, 0, 0);
-    position: fixed;
-    top: -100vh;
-    opacity: 0;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 5vw;
+    display: flex;
     align-items: center;
-    justify-items: stretch;
+    justify-content: center;
+    position: fixed;
+    top: 0px;
+    opacity: 0;
     transition: 0.5s;
-    z-index: 2;
+    z-index: 0;
 }
 
-.menuElements {
-    cursor: pointer;
-    text-decoration-line: none;
-    z-index: 2;
-}
-
-.menuElementsTop {
-    font-size: 5rem;
-    font-weight: 800;
+.consoleShow {
+    width: 70vw;
+    height: 640px;
     color: white;
+    background-color: rgb(30, 30, 30);
+    border: 1px solid rgb(60, 60, 60);
+    border-radius: 10px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: calc(50vh - 320px);
+    justify-content: space-between;
+    box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.7);
+    -webkit-box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.7);
+    -moz-box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.7);
+}
+
+.consoleHide {
+    width: 70vw;
+    height: 640px;
+    color: white;
+    background-color: rgb(30, 30, 30);
+    border: 1px solid rgb(60, 60, 60);
+    border-radius: 10px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0px;
+    justify-content: space-between;
+    box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.7);
+    -webkit-box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.7);
+    -moz-box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.7);
+}
+
+
+.consoleBottom {
+    border-top: 1px solid rgb(60, 60, 60);
+    padding-top: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.log {
+    width: 100%;
+    height: fit-content;
+    max-height: 500px;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    color: rgb(180, 180, 180);
+}
+
+.commandContainer {
+    font-size: 1.2rem;
+    display: grid;
+    grid-template-columns: fit-content(100%) 1fr;
+    margin-left: 5px;
+    color: white;
+}
+
+.commandBox {
+    font-size: 1.2rem;
+    width: 100%;
+    line-height: 24px;
+    border: none;
+    background-color: transparent;
+    color: aqua;
+    caret-color: aqua;
+    margin-left: 5px;
+}
+
+.commandBox:focus {
+    outline: none;
+}
+
+.line {
+    font-size: 1.2rem;
+    line-height: 24px;
+    margin-left: 5px;
+}
+
+.network {
+    display: flex;
+    flex-direction: row;
+}
+
+.connect {
+    width: 2px;
+    border-radius: 1px;
+    background-color: rgb(0, 250, 0);
+    align-self: flex-end;
+    margin-bottom: 3px;
+}
+
+.stable {
+    color: rgb(0, 250, 0);
+    margin-left: 10px;
+}
+
+.connect:nth-child(3) {
+    height: 6px;
+    margin-left: 6px;
+}
+
+.connect:nth-child(4) {
+    height: 10px;
+    margin-left: 3px;
+}
+
+.connect:nth-child(5) {
+    height: 14px;
+    margin-left: 3px;
+}
+
+.time {
+    font-variant-numeric: tabular-nums;
+}
+
+.menu {
+    font-size: 3rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.arrowShow {
+    width: 35px;
+    max-width: 35px;
+    color: aqua;
+    opacity: 1;
     transition: 0.5s;
 }
 
-.menuElementsCenter {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-top: 10px;
+.arrowHide {
+    width: 35px;
+    max-width: 0px;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.menuBlue {
+    color: aqua;
+}
+
+.menuWhite {
     color: white;
 }
-
-.menuElementsBottom {
-    margin-top: 5px;
-    color: rgb(150, 150, 150);
-}
-
 
 
 @media (max-width: 1000px) {
@@ -157,36 +271,39 @@
         position: relative;
     }
 
-    .menuContainerClicked {
-        padding-left: 5vw;
-        padding-right: 5vw;
-        grid-template-columns: none;
-        grid-template-rows: repeat(5, 1fr);
-        gap: 0px;
-        align-items: center;
-        justify-items: stretch;
+    .consoleShow {
+        width: 90vw;
+        padding-left: min(5vw, 30vw);
+        padding-right: min(5vw, 30vw);
     }
 
-    .menuContainerNotClicked {
-        padding-left: 5vw;
-        padding-right: 5vw;
-        grid-template-columns: none;
-        grid-template-rows: repeat(5, 1fr);
-        gap: 0px;
-        align-items: center;
-        justify-items: stretch;
+    .consoleHide {
+        width: 90vw;
+        padding-left: min(5vw, 30vw);
+        padding-right: min(5vw, 30vw);
     }
 
-    .menuElementsTop {
-        font-size: 3rem;
+    .consoleBottom {
+        flex-direction: column;
+        align-content: right;
     }
 
-    .menuElementsCenter {
-        font-size: 1.2rem;
-        margin-top: 5px;
+    .commandContainer {
+        font-size: 1rem;
+        line-height: 20px;
     }
 
-    .menuElementsBottom {
-        margin-top: 0px;
+    .commandBox {
+        font-size: 1rem;
+        line-height: 20px;
+    }
+        
+    .line {
+        font-size: 1rem;
+        line-height: 20px;
+    }
+
+    .menu {
+        font-size: 2rem;
     }
 }

@@ -14,11 +14,11 @@ export default function Footer() {
                     </div>
 
                     <div className={styles.name}>
-                        김영우
+                        Kim Young-Woo
                     </div>
 
                     <div className={styles.name}>
-                        Kim Young-Woo
+                        김영우
                     </div>
                 </div>
 
