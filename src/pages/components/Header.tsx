@@ -260,8 +260,8 @@ export default function Header() {
                     <div>
                         <div className={styles.log} ref={logRef}>
                             {
-                                log.map((current: string) => (
-                                    <div className={styles.line}>{current}</div>
+                                log.map((current: string, index: number) => (
+                                    <div key={index} className={styles.line}>{current}</div>
                                 ))
                             }
 
