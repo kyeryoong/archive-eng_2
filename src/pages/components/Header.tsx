@@ -62,9 +62,11 @@ export default function Header() {
 
     const commandRef: any = useRef();
 
-    useEffect(() => {
-        commandRef.current.focus();
-    }, [])
+    if (isClicked) {
+        useEffect(() => {
+            commandRef.current.focus();
+        })
+    }
 
     setTimeout(() => {
         setTimestamp(Date.now());
