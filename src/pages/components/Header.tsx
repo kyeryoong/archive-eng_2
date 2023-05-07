@@ -64,7 +64,7 @@ export default function Header() {
 
     useEffect(() => {
         commandRef.current.focus();
-    })
+    }, [])
 
     setTimeout(() => {
         setTimestamp(Date.now());
