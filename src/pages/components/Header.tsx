@@ -280,7 +280,7 @@ export default function Header() {
                                     type="text"
                                     className={styles.commandBox}
                                     value={command}
-                                    onChange={(event) => setCommand(event.target.value.replace(/[^A-Za-z]/ig, ""))}
+                                    onChange={(event) => setCommand(event.target.value.replace(/[^A-Za-z ]/ig, ""))}
                                     spellCheck={false}
                                     ref={commandRef}
                                 />
