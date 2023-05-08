@@ -6,26 +6,223 @@
     padding-top: 150px;
 }
 
+.pageContainer {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: -150px;
+    left: 0px;
+}
+
+.page {
+    width: 100vw;
+    height: 100vh;
+    padding-left: 15vw;
+    padding-right: 15vw;
+    position: relative;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.arrow {
+    position: absolute;
+    bottom: min(100px, 5vh);
+    color: rgb(100, 100, 100);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.arrowImage {
+    filter: invert(1) brightness(0.3);
+    transform: rotate(270deg);
+    margin-top: 10px;
+    margin-bottom: 0px;
+    animation: float 1s linear infinite;
+}
+
+@keyframes float {
+    0% {
+        margin-top: 10px;
+        margin-bottom: 0px;
+    }
+
+    50% {
+        margin-top: 0px;
+        margin-bottom: 10px;
+    }
+
+    100% {
+        margin-top: 10px;
+        margin-bottom: 0px;
+    }
+}
+
+.imageContainer {
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    overflow: hidden;
+    position: relative;
+}
+
+.image1Show {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.image1Hide {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: -100%;
+    left: 0px;
+}
+
+.image2Show {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.image2Hide {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 100%;
+    left: 0px;
+}
+
+.name {
+    font-size: 2rem;
+    font-weight: 300;
+    color: white;
+    text-align: center;
+}
+
 .question {
+    font-size: 2rem;
+    width: 70vw;
+    color: rgb(150, 150, 150);
+    word-break: keep-all;
+}
+
+.answer {
     font-size: 1.5rem;
+    width: 70vw;
+    color: white;
+    word-break: keep-all;
+}
+
+.hashtagContainer {
+    width: 70vw;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    gap: 20px;
+}
+
+.hashtag {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: rgb(100, 100, 100);
+}
+
+.line {
+    width: 70vw;
+    height: 1px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background: linear-gradient(to left,
+            rgb(50, 50, 50),
+            rgb(200, 200, 200),
+            rgb(50, 50, 50)
+        );
+    background-size: 200% 200%;
+    animation: glow 3s linear infinite;
+}
+
+@keyframes glow {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 200% 50%;
+    }
+}
+
+.keyFactorContainer {
+    width: 70vw;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.keyFactor {
+    font-size: 1.2rem;
+    width: fit-content;
+    padding: 15px 20px 15px 20px;
+    border-radius: 50px;
+    color: white;
+    background-color: rgb(50, 50, 50);
+}
+
+.gap {
+    width: 15vw;
+}
+
+.equipmentPage {
+    width: 100vw;
+    height: 100vh;
+    padding-top: 20vh;
+}
+
+.equipmentHeader {
+    font-size: 2rem;
     width: 100vw;
     padding-left: 15vw;
     padding-right: 15vw;
-    margin-bottom: 30px;
-    color: white;
+    color: rgb(150, 150, 150);
+    word-break: keep-all;
+}
+
+.equipmentContainer {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(7, fit-content(100%));
+    gap: 20px;
+    overflow: scroll;
 }
 
 .equipmentElements {
-    width: calc(max(360px, 20vw) - 20px);
-    height: max(450px, 25vw);
+    width: min(400px, 90vw);
+    height: calc(min(400px, 90vw) + 120px);
     border-radius: 10px;
+    margin-top: 20px;
+    margin-right: 20px;
     background: linear-gradient(-45deg, rgb(40, 40, 40) 10%, rgb(15, 15, 15) 90%);
 }
 
 .equipmentImage {
-    width: calc(max(360px, 20vw) - 20px);
-    height: calc(max(360px, 20vw) - 20px);
-    padding: 30px;
+    width: min(400px, 90vw);
+    height: min(400px, 90vw);
+    padding: min(30px, 5vw);
 }
 
 .equipmentText {
@@ -41,4 +238,54 @@
     padding-left: 30px;
     padding-right: 30px;
     color: rgb(100, 100, 100);
+}
+
+
+@media (max-width: 1000px) {
+    .page {
+        padding-left: 5vw;
+        padding-right: 5vw;
+    }
+
+    .question {
+        font-size: 1.5rem;
+        width: 90vw;
+    }
+
+    .answer {
+        font-size: 1.2rem;
+        width: 90vw;
+    }
+
+    .line {
+        width: 90vw;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        padding-left: 5vw;
+        padding-right: 5vw;
+    }
+
+    .hashtagContainer {
+        width: 90vw; 
+        flex-direction: column;
+        gap: 3px;
+    }
+
+    .hashtag {
+        text-align: right;
+    }
+
+    .keyFactor {
+        font-size: 0.85rem;
+        padding: 10px 15px 10px 15px;
+    }
+
+    .equipmentHeader {
+        padding-left: 5vw;
+        padding-right: 5vw;
+    }
+
+    .gap {
+        width: 5vw;
+    }
 }

@@ -4,7 +4,6 @@
     min-height: 100vh;
     background-color: black;
     padding-top: 150px;
-    padding-bottom: 150px;
     padding-left: 15vw;
     padding-right: 15vw;
 }
@@ -55,49 +54,24 @@
     margin-top: 10px;
 }
 
-.skillIconNotClicked {
+.skillImageColor {
     width: 120px;
     height: 120px;
     position: absolute;
-    right: 0;
-    bottom: 0;
+    right: 0px;
+    bottom: 0px;
+    filter: brightness(1) invert(0);
 }
 
-.skillIconClicked {
+.skillImageWhite {
     width: 120px;
     height: 120px;
     position: absolute;
-    right: 0;
-    bottom: 50px;
+    right: 0px;
+    bottom: 0px;
+    filter: brightness(0) invert(1);
 }
 
-.skillGoToButton {
-    width: 200px;
-    height: 40px;
-    line-height: 40px;
-    border-radius: 5px;
-    display: grid;
-    grid-template-columns: 1fr fit-content(100%);
-    cursor: pointer;
-}
-
-.skillGoToButtonText {
-    font-size: 0.8rem;
-    text-align: left;
-    color: white;
-    padding-left: 30px;
-}
-
-.skillGoToButtonText::before {
-    content: "Go to ";
-}
-
-.skillGoToButtonIcon {
-    width: 40px;
-    height: 40px;
-    padding: 10px;
-    margin-right: 20px;
-}
 
 @media (max-width: 2000px) {
     .skillsSubContainer {

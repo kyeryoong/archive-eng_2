@@ -29,7 +29,7 @@
             #FF6663
         );
     background-size: 200% 200%;
-    animation: animateGlow 5s linear infinite;
+    animation: glow 5s linear infinite;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -74,10 +74,10 @@
             #FF6663
         );
     background-size: 200% 200%;
-    animation: animateGlow 1.5s linear infinite;
+    animation: glow 1.5s linear infinite;
 }
 
-@keyframes animateGlow {
+@keyframes glow {
     0% {
         background-position: 0% 50%;
     }

@@ -2,9 +2,9 @@ import { useState, useRef } from "react";
 
 import Image from "next/image";
 
-import { achievementsDatabase } from "../../database/achievementsDatabase";
+import { achievementsDatabase } from "../../../database/achievementsDatabase";
 
-import styles from "../styles/Achievements.module.css";
+import styles from "../../styles/Achievements.module.css";
 
 
 

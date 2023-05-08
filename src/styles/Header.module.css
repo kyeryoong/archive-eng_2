@@ -135,6 +135,7 @@
     box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.7);
     -webkit-box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.7);
     -moz-box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.7);
+    pointer-events: none;
 }
 
 
@@ -170,11 +171,13 @@
     font-size: 1.2rem;
     width: 100%;
     line-height: 24px;
+    padding: 0px;
     border: none;
     background-color: transparent;
     color: aqua;
     caret-color: aqua;
     margin-left: 5px;
+    overflow: hidden;
 }
 
 .commandBox:focus {

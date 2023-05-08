@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import Link from "next/link"
 import Image from "next/image";
 
-import styles from "../../styles/Header.module.css";
+import styles from "../styles/Header.module.css";
 
 
 
@@ -31,7 +31,6 @@ export default function Header() {
     ]
 
     const fortune: string[] = [
-        "안에서 새는 메모리, 밖에서도 샌다.",
         "커피 한 잔. 코드 한 줄. 코피 한 줄.",
         "궁금한점은 GPT로 부탁드려요. 제발.",
         "개발은 B(버그)와 D(디버깅)사이의 C(카페인)이다.",
@@ -40,7 +39,15 @@ export default function Header() {
         "완벽한 줄 알았다. 실행하기 전까지는.",
         "인생은 Graph, 사랑은 DFS, 우정은 BFS.",
         "개발자들이 가장 좋아하는 운동은? 머신러닝.",
-        "잘되면 내탓, 안되면 프레임워크 탓."
+        "잘되면 내 탓, 안되면 프레임워크 탓.",
+        "땀이 필요한 순간은 운동할 때만이 아니다;",
+        "요즘 실력좋은 개발자들은 null리고 null렸다.",
+        "if(출근) { return 퇴근; }",
+        "어제 짠 코드는, 오늘의 레거시.",
+        "코드가 아름다운 것은, 어디엔가 버그를 숨기고 있기 때문이야.",
+        "코드 한 줄에 추억과, 에러 한 줄에 눈물과, 디버그 한 줄에 사랑과, 리뷰 한 줄에 쓸쓸함과, 머지 한 줄에 행복과, 푸시 한 줄에 개발자.",
+        "쓰는(write)자의 고통이 쓰는(use)자의 행복이 되길",
+        '버그의 꽃말은 "그거 기능이에요".'
     ]
 
 
