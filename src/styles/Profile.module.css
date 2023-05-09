@@ -6,14 +6,6 @@
     padding-top: 150px;
 }
 
-.pageContainer {
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    top: 0px;
-    left: 0px;
-}
-
 .page {
     width: 100vw;
     height: 100vh;
