@@ -58,8 +58,7 @@ export default function Profile() {
                         position: "fixed", 
                         top: "0px",
                         left: "0px",
-                        backgroundColor: "black",
-                        zIndex: "2" 
+                        backgroundColor: "black"
                     }}
 
                 >
