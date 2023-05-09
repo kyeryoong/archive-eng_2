@@ -34,12 +34,40 @@ function Equipment({ index, text, subText }: EquipmentProps) {
 }
 
 
+
 export default function Profile() {
     const [index, setIndex] = useState<number>(0);
 
     setTimeout(() => {
         setIndex((index + 1) % 2);
     }, 5000)
+
+
+    interface BaseProps {
+        fontFamily: string,
+        fontWeight: string,
+        color?: string,
+        fontStyle?: string,
+        cursor?: string
+    }
+
+    const base: BaseProps = {
+        fontFamily: "Jetbrains Mono",
+        fontWeight: "600"
+    }
+
+    const darkgray: BaseProps = { ...base, color: "#5C6370", fontStyle: "italic" }
+    const purple: BaseProps = { ...base, color: "#C678DD" }
+    const gray: BaseProps = { ...base, color: "#ABB2BF" }
+    const green: BaseProps = { ...base, color: "#98C379" }
+    const skyblue: BaseProps = { ...base, color: "#56B6C2" }
+    const yellow: BaseProps = { ...base, color: "#E5C07B" }
+    const red: BaseProps = { ...base, color: "#E06C75" }
+
+    const hovered: BaseProps = { ...base, color: "aqua", cursor: "pointer" }
+
+    const [emailHover, setEmailHover] = useState<boolean>(false);
+    const [githubHover, setGithubHover] = useState<boolean>(false);
 
 
     return (
@@ -52,10 +80,10 @@ export default function Profile() {
                     modules={[Mousewheel]}
                     autoHeight={true}
                     speed={1000}
-                    style={{ 
+                    style={{
                         width: "100vw",
-                        height:"100vh",
-                        position: "fixed", 
+                        height: "100vh",
+                        position: "fixed",
                         top: "0px",
                         left: "0px",
                         backgroundColor: "black",
@@ -79,9 +107,60 @@ export default function Profile() {
 
                                 <div className={styles.arrow}>
                                     아래로 스크롤 해주세요
-
                                     <Image className={styles.arrowImage} alt="" src={"/left.png"} width={30} height={30} />
                                 </div>
+                            </div>
+                        </div>
+                    </SwiperSlide>
+
+                    <SwiperSlide>
+                        <div className={styles.page}>
+                            <div className={styles.info}>
+                                <span style={darkgray}>// Let me introduce myself.</span>
+                                <br /><br />
+
+                                <span style={purple}>let</span>&nbsp;&nbsp;
+                                <span style={gray}>youngwoo</span>&nbsp;&nbsp;
+
+                                <span style={skyblue}>=</span>&nbsp;&nbsp;
+
+                                <span style={yellow}>&#123;</span>
+                                <br />
+
+                                <div>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <span style={red}>name</span>
+                                    <span style={skyblue}>:</span>&nbsp;&nbsp;
+                                    <span style={green}>"Kim Young-Woo"</span>
+                                    <span style={gray}>,</span>
+                                </div>
+
+                                <div style={{position: "relative"}}>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <span style={red}>email</span>
+                                    <span style={skyblue}>:</span>&nbsp;&nbsp;
+                                    <span 
+                                        style={emailHover ? hovered : green} 
+                                        onMouseEnter={() => setEmailHover(true)} 
+                                        onMouseLeave={() => setEmailHover(false)}
+                                        onClick={() => window.open("mailto:kyeryoong@gmail.com?subject=안녕하세요, archive-eng을 통해서 이메일 드립니다.")}
+                                    >"kyeryoong@gmail.com"</span>
+                                    <span style={gray}>,</span>
+                                </div>
+
+                                <div style={{position: "relative"}}>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <span style={red}>github</span>
+                                    <span style={skyblue}>:</span>&nbsp;&nbsp;
+                                    <span 
+                                        style={githubHover ? hovered : green} 
+                                        onMouseEnter={() => setGithubHover(true)} 
+                                        onMouseLeave={() => setGithubHover(false)}
+                                        onClick={() => window.open("https://github.com/kyeryoong")}
+                                    >"github.com/kyeryoong"</span>
+                                </div>
+
+                                <span style={yellow}>&#125;</span>
                             </div>
                         </div>
                     </SwiperSlide>
@@ -141,10 +220,6 @@ export default function Profile() {
                             <div className={styles.keyFactorContainer}>
                                 <div className={styles.keyFactor}>
                                     새로운 것 배우기
-                                </div>
-
-                                <div className={styles.keyFactor}>
-                                    끊임없이 공부하기
                                 </div>
 
                                 <div className={styles.keyFactor}>
