@@ -116,7 +116,7 @@ export default function Profile() {
                     <SwiperSlide>
                         <div className={styles.page}>
                             <div className={styles.info}>
-                                <span style={darkgray}>// Let me introduce myself.</span>
+                                <span style={darkgray}>&#47;&#47; Let me introduce myself.</span>
                                 <br /><br />
 
                                 <span style={purple}>let</span>&nbsp;&nbsp;
@@ -131,7 +131,7 @@ export default function Profile() {
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     <span style={red}>name</span>
                                     <span style={skyblue}>:</span>&nbsp;&nbsp;
-                                    <span style={green}>"Kim Young-Woo"</span>
+                                    <span style={green}>&#34;Kim Young-Woo&#34;</span>
                                     <span style={gray}>,</span>
                                 </div>
 
@@ -144,7 +144,7 @@ export default function Profile() {
                                         onMouseEnter={() => setEmailHover(true)} 
                                         onMouseLeave={() => setEmailHover(false)}
                                         onClick={() => window.open("mailto:kyeryoong@gmail.com?subject=안녕하세요, archive-eng을 통해서 이메일 드립니다.")}
-                                    >"kyeryoong@gmail.com"</span>
+                                    >&#34;kyeryoong@gmail.com&#34;</span>
                                     <span style={gray}>,</span>
                                 </div>
 
@@ -157,7 +157,7 @@ export default function Profile() {
                                         onMouseEnter={() => setGithubHover(true)} 
                                         onMouseLeave={() => setGithubHover(false)}
                                         onClick={() => window.open("https://github.com/kyeryoong")}
-                                    >"github.com/kyeryoong"</span>
+                                    >&#34;github.com/kyeryoong&#34;</span>
                                 </div>
 
                                 <span style={yellow}>&#125;</span>
