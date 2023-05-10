@@ -173,7 +173,7 @@ export default function Articles() {
 
                     <div className={styles.modalBottom}>
                         <div className={styles.modalTitle}>
-                        {articlesData[index - 1].title}
+                        {articlesData[index - 1]?.title}
                         </div>
 
                         <div className={styles.modalInfo}>
@@ -190,7 +190,7 @@ export default function Articles() {
                             </div>
 
                             <div className={styles.modalInfoValue}>
-                                {articlesData[index - 1].reviser}
+                                {articlesData[index - 1]?.reviser}
                             </div>
 
                             <div className={styles.modalInfoHeader}>
@@ -198,7 +198,7 @@ export default function Articles() {
                             </div>
 
                             <div className={styles.modalInfoValue}>
-                                {articlesData[index - 1].chiefEditor}
+                                {articlesData[index - 1]?.chiefEditor}
                             </div>
                         </div>
 
