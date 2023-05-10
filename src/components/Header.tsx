@@ -12,6 +12,7 @@ export default function Header() {
     const router = useRouter();
 
     const [isClicked, setIsClicked] = useState<boolean>(false);
+    const consoleRef = useRef<any>();
 
     const [index, setIndex] = useState<number>(0);
 
@@ -265,8 +266,16 @@ export default function Header() {
             </div>
 
 
-            <div className={isClicked ? styles.backgroundShow : styles.backgroundHide}>
-                <div className={isClicked ? styles.consoleShow : styles.consoleHide}>
+            <div 
+                className={isClicked ? styles.backgroundShow : styles.backgroundHide}
+                ref={consoleRef}
+                onClick={(event: any) => {
+                    if (event.target == consoleRef.current) {
+                        setIsClicked(false);
+                    }
+                }}
+            >
+                <div className={isClicked ? styles.consoleShow : styles.consoleHide} >
                     <div>
                         <div className={styles.log} ref={logRef}>
                             {

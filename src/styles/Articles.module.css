@@ -161,7 +161,12 @@
     top: 0px;
     left: 0px;
     background-color: rgba(0, 0, 0, 0.8);
-    z-index: 4;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    opacity: 1;
+    transition: 0.5s;
+    z-index: 6;
 }
 
 .backgroundHide {
@@ -171,88 +176,117 @@
     top: 0px;
     left: 0px;
     background-color: rgba(0, 0, 0, 0);
-    z-index: -1;
-}
-
-.backgroundContainerShow {
-    width: 800px;
-    height: 700px;
-    position: fixed;
-    top: calc(50vh - 350px);
-    left: calc(50vw - 400px);
     display: grid;
-    grid-template-rows: repeat(2, fit-content(100%));
-    z-index: 4;
+    align-items: center;
+    justify-items: center;
+    opacity: 0;
+    transition: 0.5s;
+    z-index: 6;
+    pointer-events: none;
 }
 
-.backgroundContainerHide {
-    width: 800px;
-    height: 700px;
-    position: fixed;
-    top: -100vh;
-    left: calc(50vw - 400px);
-    display: grid;
-    grid-template-rows: repeat(2, fit-content(100%));
-    z-index: 4;
-}
-
-.backgroundContainerClose {
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: -50px;
-    right: 0px;
-    filter: invert();
-    cursor: pointer;
-    z-index: 4;
-}
-
-.backgroundContainerImage {
-    width: 800px;
-    height: 350px;
-    border-radius: 10px 10px 0px 0px;
+.modalShow {
+    width: fit-content;
     position: relative;
     top: 0px;
-    left: 0px;
-    object-fit: cover;
+    opacity: 1;
 }
 
-.backgroundContainerBottom {
-    height: 350px;
+.modalHide {
+    width: fit-content;
+    height: fit-content;
     position: relative;
+    top: -200px;
+    opacity: 0;
+}
+
+.modalBottom {
+    width: 700px;
+    height: 350px;
+    display: grid;
+    grid-template-rows: fit-content(100%) fit-content(100%) 1fr;
     padding: 40px;
     border-radius: 0px 0px 10px 10px;
     background-color: white;
+    overflow: hidden;
 }
 
-.backgroundContainerBottomTitle {
-    font-size: 2.5rem;
+.modalImage {
+    width: 700px;
+    height: 350px;
+    border-radius: 10px 10px 0px 0px;
+    margin-bottom: -5px;
+}
+
+.closeButton {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: white;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+.closeButton:hover {
+    background-color: black;
+}
+
+.closeButtonImage {
+    width: 40px;
+    height: 40px;
+    padding: 12px;
+    filter: invert(0);
+}
+
+.closeButton:hover>.closeButtonImage {
+    filter: invert(1);
+}
+
+.modalTitle {
+    font-size: 2rem;
     font-weight: 700;
-    line-height: 40px;
-    color: black;
+    word-break: keep-all;
     margin-bottom: 20px;
 }
 
-.nameContainer {
-    height: 20px;
+.modalInfo {
     display: grid;
-    grid-template-columns: repeat(2, fit-content(100%));
-    margin-bottom: 10px;
+    grid-template-columns: fit-content(100%) 1fr;
+    gap: 5px 0px;
 }
 
-.nameHeader {
-    width: 87px;
-    height: 20px;
-    line-height: 20px;
-    color: gray;
+.modalInfoHeader {
+    color: rgb(150, 150, 150);
 }
 
-.nameText {
-    height: 20px;
-    line-height: 20px;
-    margin-left: 10px;
-    padding-left: 10px;
+.modalInfoValue {
     border-left: 1px solid rgb(200, 200, 200);
+    margin-left: 20px;
+    padding-left: 20px;
+}
+
+.modalButton {
+    font-size: 1.2rem;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    align-self: end;
+    margin-top: 40px;
+    border-radius: 5px;
+    color: black;
+    background-color: rgb(220, 220, 220);
+    cursor: pointer;
+}
+
+.modalButton:hover {
+    color: white;
+    background-color: black;
 }
 
 
@@ -282,7 +316,6 @@
 @media (max-width: 1000px) {
     .container {
         padding-top: 150px;
-
         padding-left: 5vw;
         padding-right: 5vw;
     }
@@ -314,60 +347,40 @@
         padding: min(5vw, 30px);
     }
 
-    .backgroundContainerShow {
+    .modalBottom {
         width: 90vw;
-        height: 70vh;
-        top: 15vh;
-        left: 5vw;
-        display: grid;
+        max-width: 700px;
+        height: fit-content;
+        max-height: 350px;
+        padding: min(5vw, 40px);
     }
-    
-    .backgroundContainerHide {
+
+    .modalImage {
         width: 90vw;
-        height: 70vh;
-        top: -100vh;
-        left: 5vw;
-        display: grid;
+        max-width: 700px;
+        height: 75vw;
+        max-height: 350px;
     }
 
-    .backgroundContainerClose {
-        width: 20px;
-        height: 20px;
-        top: -40px;
+    .modalTitle {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
     }
 
-    .backgroundContainerImage {
-        width: 90vw;
-        height: 35vh;
-    }
-    
-    .backgroundContainerBottom {
-        height: 35vh;
-        padding: 5vw;
-    }
-
-    .backgroundContainerBottomTitle {
-        font-size: 2rem;
-        line-height: 30px;
-    }
-
-    .nameContainer {
+    .modalInfoHeader {
         font-size: 0.85rem;
-        height: 15px;
-        margin-bottom: 5px;
     }
-    
-    .nameHeader {
+
+    .modalInfoValue {
         font-size: 0.85rem;
-        width: 80px;
-        height: 15px;
-        line-height: 15px;
+        margin-left: 10px;
+        padding-left: 10px;
     }
-    
-    .nameText {
-        font-size: 0.85rem;
-        height: 15px;
-        line-height: 15px;
+
+    .modalButton {
+        font-size: 1rem;
+        height: 50px;
+        line-height: 50px;
     }
 }
 
