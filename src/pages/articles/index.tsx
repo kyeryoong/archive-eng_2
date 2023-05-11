@@ -156,7 +156,9 @@ export default function Articles() {
                 }}
             >
                 <div className={showModal ? styles.modalShow : styles.modalHide}>
-                    <img
+                    <Image
+                        width={700}
+                        height={350}
                         src={"/articles/images/" + index + ".png"}
                         alt=""
                         className={styles.modalImage}
@@ -168,7 +170,13 @@ export default function Articles() {
                             setShowModal(false);
                         }}
                     >
-                        <img src={"/close.png"} alt="" className={styles.closeButtonImage} />
+                        <Image
+                            width={40}
+                            height={40}
+                            src={"/close.png"} 
+                            alt="" 
+                            className={styles.closeButtonImage} 
+                        />
                     </div>
 
                     <div className={styles.modalBottom}>

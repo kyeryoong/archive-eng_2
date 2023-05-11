@@ -182,13 +182,17 @@
 
 .demoImageContainer {
     width: 70vw;
+    height: 40vw;
     text-align: center;
 }
 
 .demoImage {
     width: 70vw;
+    height: 40vw;
     border-radius: 10px;
 }
+
+
 
 
 
@@ -270,11 +274,11 @@
         padding-left: 5px;
         padding-right: 15px;
     }
-    
+
     .repositoryIcon {
         width: 40px;
         height: 40px;
-    }   
+    }
 
     .techContainer {
         grid-template-columns: none;
@@ -293,7 +297,7 @@
         margin-right: 5px;
         white-space: nowrap;
     }
-    
+
     .techIcon {
         width: 30px;
         height: 30px;
@@ -305,9 +309,11 @@
 
     .demoImageContainer {
         width: 90vw;
+        height: 52vw;
     }
-    
+
     .demoImage {
         width: 90vw;
+        height: 52vw;
     }
 }

@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import styles from "../styles/Footer.module.css";
 
 
@@ -28,9 +30,9 @@ export default function Footer() {
                     </div>
 
                     <div className={styles.buttonsContainer}>
-                        <img src={"/home/email.png"} className={styles.buttonImage} onClick={() => window.open("mailto:kyeryoong@gmail.com?subject=안녕하세요, archive-eng을 통해서 이메일 드립니다.")} />
-                        <img src={"/home/github.png"} className={styles.buttonImage} onClick={() => window.open("https://github.com/kyeryoong")} />
-                        <img src={"/home/linkedin.png"} className={styles.buttonImage} onClick={() => window.open("https://www.linkedin.com/in/kyeryoong/")} />
+                        <Image width={30} height={30} alt="" src={"/home/email.png"} className={styles.buttonImage} onClick={() => window.open("mailto:kyeryoong@gmail.com?subject=안녕하세요, archive-eng을 통해서 이메일 드립니다.")} />
+                        <Image width={30} height={30} alt="" src={"/home/github.png"} className={styles.buttonImage} onClick={() => window.open("https://github.com/kyeryoong")} />
+                        <Image width={30} height={30} alt="" src={"/home/linkedin.png"} className={styles.buttonImage} onClick={() => window.open("https://www.linkedin.com/in/kyeryoong/")} />
                     </div>
                 </div>
             </div>

@@ -30,8 +30,11 @@ export default function Achievements() {
                 onMouseEnter={() => setHover(1)}
                 onMouseLeave={() => setHover(0)}
             >
-                <img
-                    src="/achievements/image/hice.jpg" alt=""
+                <Image
+                    width={1500}
+                    height={1500}
+                    src="/achievements/image/hice.jpg"
+                    alt=""
                     className={hover === 1 ? styles.achievementImageSelected : styles.achievementImageNotSelected}
                 />
 
@@ -66,8 +69,11 @@ export default function Achievements() {
                 onMouseEnter={() => setHover(2)}
                 onMouseLeave={() => setHover(0)}
             >
-                <img
-                    src="/achievements/image/hackerton.jpg" alt=""
+                <Image
+                    width={1500}
+                    height={1500}
+                    src="/achievements/image/hackerton.jpg"
+                    alt=""
                     className={hover === 2 ? styles.achievementImageSelected : styles.achievementImageNotSelected}
                 />
 
@@ -102,8 +108,11 @@ export default function Achievements() {
                 onMouseEnter={() => setHover(3)}
                 onMouseLeave={() => setHover(0)}
             >
-                <img
-                    src="/achievements/image/fina.jpg" alt=""
+                <Image
+                    width={1500}
+                    height={1500}
+                    src="/achievements/image/fina.jpg"
+                    alt=""
                     className={hover === 3 ? styles.achievementImageSelected : styles.achievementImageNotSelected}
                 />
 
@@ -138,8 +147,11 @@ export default function Achievements() {
                 onMouseEnter={() => setHover(4)}
                 onMouseLeave={() => setHover(0)}
             >
-                <img
-                    src="/achievements/image/tidings.jpg" alt=""
+                <Image
+                    width={1500}
+                    height={1500}
+                    src="/achievements/image/tidings.jpg"
+                    alt=""
                     className={hover === 4 ? styles.achievementImageSelected : styles.achievementImageNotSelected}
                 />
 
@@ -180,7 +192,9 @@ export default function Achievements() {
             >
                 <div className={showModal ? styles.modalShow : styles.modalHide}>
                     <div className={imageFull ? styles.modalTopFull : styles.modalTopNormal}>
-                        <img
+                        <Image
+                            width={1500}
+                            height={1500}
                             src={"/achievements/image/" + achievementIndex + "/" + imageIndex + ".jpg"}
                             alt=""
                             className={imageFull ? styles.imageFull : styles.imageNormal}
@@ -191,7 +205,13 @@ export default function Achievements() {
                                 {imageFull ? "작게 보기" : "크게 보기"}
                             </div>
 
-                            <img src={imageFull ? "/minimize.png" : "/maximize.png"} alt="" className={styles.expandButtonImage} />
+                            <Image
+                                width={40}
+                                height={40}
+                                src={imageFull ? "/minimize.png" : "/maximize.png"}
+                                alt=""
+                                className={styles.expandButtonImage}
+                            />
                         </div>
 
                         <div
@@ -201,10 +221,19 @@ export default function Achievements() {
                                 setImageFull(false);
                             }}
                         >
-                            <img src={"/close.png"} alt="" className={styles.closeButtonImage} />
+                            <Image
+                                width={40}
+                                height={40}
+                                src={"/close.png"}
+                                alt=""
+                                className={styles.closeButtonImage}
+                            />
                         </div>
 
-                        <img
+                        <Image
+                            width={40}
+                            height={40}
+                            alt=""
                             src={"/left.png"}
                             className={styles.imageLeftButton}
                             style={imageIndex == 1 || imageFull ? { opacity: "0", cursor: "default" } : {}}
@@ -215,7 +244,10 @@ export default function Achievements() {
                             }}
                         />
 
-                        <img
+                        <Image
+                            width={40}
+                            height={40}
+                            alt=""
                             src={"/right.png"}
                             className={styles.imageRightButton}
                             style={imageIndex == data.data?.[achievementIndex - 1]?.length || imageFull ? { opacity: "0", cursor: "default" } : {}}
@@ -226,7 +258,7 @@ export default function Achievements() {
                             }}
                         />
 
-                        <div className={styles.pagination} style={imageFull ? {opacity: "0", bottom: "-20px"} : {}}>
+                        <div className={styles.pagination} style={imageFull ? { opacity: "0", bottom: "-20px" } : {}}>
                             {
                                 data.data?.[achievementIndex - 1]?.map((elem: any, index: number) => (
                                     <div key={index} className={index + 1 === imageIndex ? styles.paginationSelected : styles.paginationNotSelected} onClick={() => setImageIndex(index + 1)} />

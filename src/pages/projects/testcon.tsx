@@ -1,9 +1,12 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 
+import Image from "next/image";
+
 import styles from "../../styles/Testcon.module.css";
 import "swiper/css";
 import "swiper/css/navigation";
+
 
 
 interface MemberProps {
@@ -28,11 +31,17 @@ interface TechProps {
 
 
 
-export default function Testcon () {
+export default function Testcon() {
     function Member({ name, id, position, url }: MemberProps) {
         return (
             <div className={styles.member}>
-                <img src={`https://avatars.githubusercontent.com/u/${url}`} className={styles.memberImage} />
+                <Image
+                    width={60}
+                    height={60}
+                    src={`https://avatars.githubusercontent.com/u/${url}`}
+                    alt=""
+                    className={styles.memberImage}
+                />
 
                 <div className={styles.memberInfo}>
                     <div className={styles.memberInfoName}>
@@ -58,7 +67,13 @@ export default function Testcon () {
     function Repository({ name, url }: RepositoryProps) {
         return (
             <div className={styles.repository} onClick={() => window.open("https://github.com" + url)}>
-                <img src="/skills/GitHub.png" className={styles.repositoryIcon} />
+                <Image
+                    width={50}
+                    height={50}
+                    src="/skills/GitHub.png"
+                    alt=""
+                    className={styles.repositoryIcon}
+                />
 
                 <div className={styles.repositoryName}>
                     {name}
@@ -90,7 +105,13 @@ export default function Testcon () {
                                 rgb(${rgb1[0] - 50}, ${rgb1[1] - 50}, ${rgb1[2] - 50}) 80%`
                     }
             }>
-                <img src={`/skills/${name}.png`} className={styles.techIcon} />
+                <Image
+                    width={40}
+                    height={40}
+                    src={`/skills/${name}.png`}
+                    alt=""
+                    className={styles.techIcon}
+                />
 
                 <div className={styles.techName} style={{ color: color }}>
                     {newName ? newName : name}&nbsp;&nbsp;&nbsp;
@@ -112,7 +133,13 @@ export default function Testcon () {
                     테스트콘
                 </div>
 
-                <img src="/projects/testcon/logo.png" className={styles.titleImage} />
+                <Image
+                    width={450}
+                    height={200}
+                    src="/projects/testcon/logo.png"
+                    alt=""
+                    className={styles.titleImage}
+                />
             </div>
 
             <div className={styles.containerBottom}>
@@ -221,29 +248,29 @@ export default function Testcon () {
                         className={styles.demoImageContainer}
                         navigation={true}
                         modules={[Navigation]}
-                                centeredSlides={true}
+                        centeredSlides={true}
                     >
-                        <SwiperSlide><img src="/projects/testcon/01.png" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><img src="/projects/testcon/02.png" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><img src="/projects/testcon/11.png" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><img src="/projects/testcon/12.png" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><img src="/projects/testcon/21.png" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><img src="/projects/testcon/22.png" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><img src="/projects/testcon/23.png" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><img src="/projects/testcon/24.png" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><img src="/projects/testcon/25.png" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><img src="/projects/testcon/26.png" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><img src="/projects/testcon/27.png" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><img src="/projects/testcon/28.png" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><img src="/projects/testcon/29.png" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><img src="/projects/testcon/31.png" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><img src="/projects/testcon/32.png" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><img src="/projects/testcon/33.png" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><img src="/projects/testcon/34.png" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><img src="/projects/testcon/35.png" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><img src="/projects/testcon/36.png" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><img src="/projects/testcon/37.png" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><img src="/projects/testcon/38.png" className={styles.demoImage} /></SwiperSlide>
+                        <SwiperSlide><Image width={2100} height={1200} src="/projects/testcon/01.png" alt="" className={styles.demoImage} /></SwiperSlide>
+                        <SwiperSlide><Image width={2100} height={1200} src="/projects/testcon/02.png" alt="" className={styles.demoImage} /></SwiperSlide>
+                        <SwiperSlide><Image width={2100} height={1200} src="/projects/testcon/11.png" alt="" className={styles.demoImage} /></SwiperSlide>
+                        <SwiperSlide><Image width={2100} height={1200} src="/projects/testcon/12.png" alt="" className={styles.demoImage} /></SwiperSlide>
+                        <SwiperSlide><Image width={2100} height={1200} src="/projects/testcon/21.png" alt="" className={styles.demoImage} /></SwiperSlide>
+                        <SwiperSlide><Image width={2100} height={1200} src="/projects/testcon/22.png" alt="" className={styles.demoImage} /></SwiperSlide>
+                        <SwiperSlide><Image width={2100} height={1200} src="/projects/testcon/23.png" alt="" className={styles.demoImage} /></SwiperSlide>
+                        <SwiperSlide><Image width={2100} height={1200} src="/projects/testcon/24.png" alt="" className={styles.demoImage} /></SwiperSlide>
+                        <SwiperSlide><Image width={2100} height={1200} src="/projects/testcon/25.png" alt="" className={styles.demoImage} /></SwiperSlide>
+                        <SwiperSlide><Image width={2100} height={1200} src="/projects/testcon/26.png" alt="" className={styles.demoImage} /></SwiperSlide>
+                        <SwiperSlide><Image width={2100} height={1200} src="/projects/testcon/27.png" alt="" className={styles.demoImage} /></SwiperSlide>
+                        <SwiperSlide><Image width={2100} height={1200} src="/projects/testcon/28.png" alt="" className={styles.demoImage} /></SwiperSlide>
+                        <SwiperSlide><Image width={2100} height={1200} src="/projects/testcon/29.png" alt="" className={styles.demoImage} /></SwiperSlide>
+                        <SwiperSlide><Image width={2100} height={1200} src="/projects/testcon/31.png" alt="" className={styles.demoImage} /></SwiperSlide>
+                        <SwiperSlide><Image width={2100} height={1200} src="/projects/testcon/32.png" alt="" className={styles.demoImage} /></SwiperSlide>
+                        <SwiperSlide><Image width={2100} height={1200} src="/projects/testcon/33.png" alt="" className={styles.demoImage} /></SwiperSlide>
+                        <SwiperSlide><Image width={2100} height={1200} src="/projects/testcon/34.png" alt="" className={styles.demoImage} /></SwiperSlide>
+                        <SwiperSlide><Image width={2100} height={1200} src="/projects/testcon/35.png" alt="" className={styles.demoImage} /></SwiperSlide>
+                        <SwiperSlide><Image width={2100} height={1200} src="/projects/testcon/36.png" alt="" className={styles.demoImage} /></SwiperSlide>
+                        <SwiperSlide><Image width={2100} height={1200} src="/projects/testcon/37.png" alt="" className={styles.demoImage} /></SwiperSlide>
+                        <SwiperSlide><Image width={2100} height={1200} src="/projects/testcon/38.png" alt="" className={styles.demoImage} /></SwiperSlide>
                     </Swiper>
                 </div>
             </div>

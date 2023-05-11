@@ -1,6 +1,8 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 
+import Image from "next/image";
+
 import styles from "../../styles/Cardvisor.module.css";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -33,7 +35,13 @@ export default function Cardvisor() {
     function Member({ name, id, position, url }: MemberProps) {
         return (
             <div className={styles.member}>
-                <img src={`https://avatars.githubusercontent.com/u/${url}`} className={styles.memberImage} />
+                <Image
+                    width={60}
+                    height={60}
+                    src={`https://avatars.githubusercontent.com/u/${url}`}
+                    alt=""
+                    className={styles.memberImage}
+                />
 
                 <div className={styles.memberInfo}>
                     <div className={styles.memberInfoName}>
@@ -59,7 +67,13 @@ export default function Cardvisor() {
     function Repository({ name, url }: RepositoryProps) {
         return (
             <div className={styles.repository} onClick={() => window.open("https://github.com" + url)}>
-                <img src="/skills/GitHub.png" className={styles.repositoryIcon} />
+                <Image
+                    width={50}
+                    height={50}
+                    src="/skills/GitHub.png"
+                    alt=""
+                    className={styles.repositoryIcon}
+                />
 
                 <div className={styles.repositoryName}>
                     {name}
@@ -91,7 +105,13 @@ export default function Cardvisor() {
                                 rgb(${rgb1[0] - 50}, ${rgb1[1] - 50}, ${rgb1[2] - 50}) 80%`
                     }
             }>
-                <img src={`/skills/${name}.png`} className={styles.techIcon} />
+                <Image
+                    width={40}
+                    height={40}
+                    src={`/skills/${name}.png`}
+                    alt=""
+                    className={styles.techIcon}
+                />
 
                 <div className={styles.techName} style={{ color: color }}>
                     {newName ? newName : name}&nbsp;&nbsp;&nbsp;
@@ -113,7 +133,13 @@ export default function Cardvisor() {
                     카드바이저
                 </div>
 
-                <img src="/projects/cardvisor/logo.png" className={styles.titleImage} />
+                <Image
+                    width={600}
+                    height={200}
+                    src="/projects/cardvisor/logo.png"
+                    alt=""
+                    className={styles.titleImage}
+                />
             </div>
 
             <div className={styles.containerBottom}>
@@ -240,17 +266,17 @@ export default function Cardvisor() {
                         className={styles.demoImageContainer}
                         navigation={true}
                         modules={[Navigation]}
-                                centeredSlides={true}
+                        centeredSlides={true}
                     >
-                        <SwiperSlide><img src="/projects/cardvisor/1.png" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><img src="/projects/cardvisor/2.png" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><img src="/projects/cardvisor/3.png" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><img src="/projects/cardvisor/4.png" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><img src="/projects/cardvisor/5.png" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><img src="/projects/cardvisor/6.png" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><img src="/projects/cardvisor/7.png" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><img src="/projects/cardvisor/8.png" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><img src="/projects/cardvisor/9.png" className={styles.demoImage} /></SwiperSlide>
+                        <SwiperSlide><Image width={2100} height={1200} src="/projects/cardvisor/1.png" alt="" className={styles.demoImage} /></SwiperSlide>
+                        <SwiperSlide><Image width={2100} height={1200} src="/projects/cardvisor/2.png" alt="" className={styles.demoImage} /></SwiperSlide>
+                        <SwiperSlide><Image width={2100} height={1200} src="/projects/cardvisor/3.png" alt="" className={styles.demoImage} /></SwiperSlide>
+                        <SwiperSlide><Image width={2100} height={1200} src="/projects/cardvisor/4.png" alt="" className={styles.demoImage} /></SwiperSlide>
+                        <SwiperSlide><Image width={2100} height={1200} src="/projects/cardvisor/5.png" alt="" className={styles.demoImage} /></SwiperSlide>
+                        <SwiperSlide><Image width={2100} height={1200} src="/projects/cardvisor/6.png" alt="" className={styles.demoImage} /></SwiperSlide>
+                        <SwiperSlide><Image width={2100} height={1200} src="/projects/cardvisor/7.png" alt="" className={styles.demoImage} /></SwiperSlide>
+                        <SwiperSlide><Image width={2100} height={1200} src="/projects/cardvisor/8.png" alt="" className={styles.demoImage} /></SwiperSlide>
+                        <SwiperSlide><Image width={2100} height={1200} src="/projects/cardvisor/9.png" alt="" className={styles.demoImage} /></SwiperSlide>
                     </Swiper>
                 </div>
             </div>
