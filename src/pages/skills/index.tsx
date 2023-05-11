@@ -153,7 +153,7 @@ export default function Skills() {
                     description="JavaScript library for Managing State of User Interfaces"
                 />
                 <Skill
-                    name="Next JS" newName="Next.js"
+                    name="Nextjs" newName="Next.js"
                     color="white"
                     rgb1={[70, 70, 70]}
                     description="React-based Framework for Building Web Applications"

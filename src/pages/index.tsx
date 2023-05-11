@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
 
+import { NextApiRequest, NextApiResponse } from "next";
+import { connectDB } from "../../util/database";
+
 import styles from "../styles/Home.module.css";
 
 
@@ -108,12 +111,10 @@ function TypingAnimation({ mainWords, subWords }: { mainWords: string[], subWord
 export default function Home() {
     return (
         <div className={styles.container}>
-            <div>
-                <TypingAnimation
-                    mainWords={["#FE", "#ASAP", "#FBWE"]}
-                    subWords={["Frontend Developer", "ASAP", "For Better Web Experience"]}
-                />
-            </div>
+            <TypingAnimation
+                mainWords={["#FE", "#ASAP", "#FBWE"]}
+                subWords={["Frontend Developer", "ASAP", "For Better Web Experience"]}
+            />
 
             <div className={styles.line} />
 
