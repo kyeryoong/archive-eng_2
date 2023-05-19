@@ -52,7 +52,7 @@ export default function Profile() {
     }
 
     const base: BaseProps = {
-        fontFamily: "Jetbrains Mono",
+        fontFamily: "JetBrains Mono",
         fontWeight: "600"
     }
 
@@ -132,6 +132,14 @@ export default function Profile() {
                                     <span style={red}>name</span>
                                     <span style={skyblue}>:</span>&nbsp;&nbsp;
                                     <span style={green}>&#34;Kim Young-Woo&#34;</span>
+                                    <span style={gray}>,</span>
+                                </div>
+
+                                <div>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <span style={red}>birth</span>
+                                    <span style={skyblue}>:</span>&nbsp;&nbsp;
+                                    <span style={green}>&#34;1995-07-29&#34;</span>
                                     <span style={gray}>,</span>
                                 </div>
 

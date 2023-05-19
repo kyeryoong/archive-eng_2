@@ -1,7 +1,9 @@
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
 
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&display=swap');
+
 * {
-    font-family: "-apple-system", "Pretendard";
+    font-family: "-apple-system", "Pretendard", "JetBrains Mono";
     font-weight: 500;
 
     box-sizing: border-box;

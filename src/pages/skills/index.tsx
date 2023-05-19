@@ -150,7 +150,7 @@ export default function Skills() {
                     name="Redux"
                     color="white"
                     rgb1={[118, 74, 188]}
-                    description="JavaScript library for Managing State of User Interfaces"
+                    description="JavaScript Library for Managing State of User Interfaces"
                 />
                 <Skill
                     name="Nextjs" newName="Next.js"
