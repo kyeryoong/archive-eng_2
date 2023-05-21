@@ -122,8 +122,10 @@ export default function Profile() {
 
                                         <div className={styles.textContainer}>
                                             <div className={textIndex === 1 ? styles.text1 : (textIndex === 2 ? styles.text2 : styles.text3)}>
-                                                {textArray.map((elem: string) => (
-                                                    <div className={styles.textElements}>{elem}</div>
+                                                {textArray.map((elem: string, index: number) => (
+                                                    <div className={styles.textElements} key={index}>
+                                                        {elem}
+                                                    </div>
                                                 ))}
                                             </div>
                                         </div>
