@@ -56,13 +56,15 @@ export default function Profile() {
         fontWeight: "600"
     }
 
-    const darkgray: BaseProps = { ...base, color: "#5C6370", fontStyle: "italic" }
-    const purple: BaseProps = { ...base, color: "#C678DD" }
-    const gray: BaseProps = { ...base, color: "#ABB2BF" }
-    const green: BaseProps = { ...base, color: "#98C379" }
-    const skyblue: BaseProps = { ...base, color: "#56B6C2" }
-    const yellow: BaseProps = { ...base, color: "#E5C07B" }
-    const red: BaseProps = { ...base, color: "#E06C75" }
+    const red: BaseProps = { ...base, color: "#F92672" }
+    const orange: BaseProps = { ...base, color: "#FD971F" }
+    const yellow: BaseProps = { ...base, color: "#E6DB74" }
+    const green: BaseProps = { ...base, color: "#A6E22E" }
+    const blue: BaseProps = { ...base, color: "#66D9EF", fontStyle: "italic"  }
+    const purple: BaseProps = { ...base, color: "#AE81FF" }
+    const gray: BaseProps = { ...base, color: "#919288" }
+    const darkgray: BaseProps = { ...base, color: "#6E7066", fontStyle: "italic" }   
+    const white: BaseProps = { ...base, color: "#FFFFFF" }
 
     const hovered: BaseProps = { ...base, color: "aqua", cursor: "pointer" }
 
@@ -119,56 +121,68 @@ export default function Profile() {
                                 <span style={darkgray}>&#47;&#47; Let me introduce myself.</span>
                                 <br /><br />
 
-                                <span style={purple}>let</span>&nbsp;&nbsp;
-                                <span style={gray}>youngwoo</span>&nbsp;&nbsp;
-
-                                <span style={skyblue}>=</span>&nbsp;&nbsp;
-
-                                <span style={yellow}>&#123;</span>
+                                <span style={blue}>let</span>&nbsp;&nbsp;
+                                <span style={white}>youngwoo</span>&nbsp;&nbsp;
+                                <span style={red}>=</span>&nbsp;&nbsp;
+                                <span style={red}>&#123;</span>
                                 <br />
 
                                 <div>
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <span style={red}>name</span>
-                                    <span style={skyblue}>:</span>&nbsp;&nbsp;
-                                    <span style={green}>&#34;Kim Young-Woo&#34;</span>
+                                    <span style={white}>name</span>
+                                    <span style={gray}>:</span>&nbsp;&nbsp;
+                                    <span style={gray}>&#34;</span>
+                                    <span style={yellow}>Kim Young-Woo</span>
+                                    <span style={gray}>&#34;</span>
                                     <span style={gray}>,</span>
                                 </div>
 
                                 <div>
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <span style={red}>birth</span>
-                                    <span style={skyblue}>:</span>&nbsp;&nbsp;
-                                    <span style={green}>&#34;1995-07-29&#34;</span>
+                                    <span style={white}>birth</span>
+                                    <span style={gray}>:</span>&nbsp;&nbsp;
+                                    <span style={red}>new</span>&nbsp;&nbsp;
+                                    <span style={green}>Date</span>&nbsp;&nbsp;
+                                    <span style={orange}>(</span>
+                                    <span style={purple}>1995</span>
+                                    <span style={gray}>,</span>&nbsp;
+                                    <span style={purple}>7</span>
+                                    <span style={gray}>,</span>&nbsp;
+                                    <span style={purple}>29</span>
+                                    <span style={orange}>)</span>
                                     <span style={gray}>,</span>
                                 </div>
 
                                 <div style={{position: "relative"}}>
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <span style={red}>email</span>
-                                    <span style={skyblue}>:</span>&nbsp;&nbsp;
+                                    <span style={white}>email</span>
+                                    <span style={gray}>:</span>&nbsp;&nbsp;
+                                    <span style={gray}>&#34;</span>
                                     <span 
-                                        style={emailHover ? hovered : green} 
+                                        style={emailHover ? hovered : yellow} 
                                         onMouseEnter={() => setEmailHover(true)} 
                                         onMouseLeave={() => setEmailHover(false)}
                                         onClick={() => window.open("mailto:kyeryoong@gmail.com?subject=안녕하세요, archive-eng을 통해서 이메일 드립니다.")}
-                                    >&#34;kyeryoong@gmail.com&#34;</span>
+                                    >kyeryoong@gmail.com</span>
+                                    <span style={gray}>&#34;</span>
                                     <span style={gray}>,</span>
                                 </div>
 
                                 <div style={{position: "relative"}}>
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <span style={red}>github</span>
-                                    <span style={skyblue}>:</span>&nbsp;&nbsp;
+                                    <span style={white}>github</span>
+                                    <span style={gray}>:</span>&nbsp;&nbsp;
+                                    <span style={gray}>&#34;</span>
                                     <span 
-                                        style={githubHover ? hovered : green} 
+                                        style={githubHover ? hovered : yellow} 
                                         onMouseEnter={() => setGithubHover(true)} 
                                         onMouseLeave={() => setGithubHover(false)}
                                         onClick={() => window.open("https://github.com/kyeryoong")}
-                                    >&#34;github.com/kyeryoong&#34;</span>
+                                    >github.com/kyeryoong</span>
+                                    <span style={gray}>&#34;</span>
                                 </div>
 
-                                <span style={yellow}>&#125;</span>
+                                <span style={red}>&#125;</span>
                             </div>
                         </div>
                     </SwiperSlide>
