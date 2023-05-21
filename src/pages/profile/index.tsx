@@ -36,11 +36,23 @@ function Equipment({ index, text, subText }: EquipmentProps) {
 
 
 export default function Profile() {
-    const [index, setIndex] = useState<number>(0);
+    const [imageIndex, setImageIndex] = useState<number>(0);
+    const [textIndex, setTextIndex] = useState<number>(0);
 
     setTimeout(() => {
-        setIndex((index + 1) % 2);
+        setImageIndex((imageIndex + 1) % 2);
     }, 5000)
+
+    setTimeout(() => {
+        setTextIndex((textIndex + 1) % 3);
+    }, 3000)
+
+    const textArray: string[] = [
+        "프론트엔드 개발자",
+        "MERN 스택 개발자를 꿈꾸는",
+        "주니어 개발자"
+    ]
+
 
 
     interface BaseProps {
@@ -60,16 +72,17 @@ export default function Profile() {
     const orange: BaseProps = { ...base, color: "#FD971F" }
     const yellow: BaseProps = { ...base, color: "#E6DB74" }
     const green: BaseProps = { ...base, color: "#A6E22E" }
-    const blue: BaseProps = { ...base, color: "#66D9EF", fontStyle: "italic"  }
+    const blue: BaseProps = { ...base, color: "#66D9EF", fontStyle: "italic" }
     const purple: BaseProps = { ...base, color: "#AE81FF" }
     const gray: BaseProps = { ...base, color: "#919288" }
-    const darkgray: BaseProps = { ...base, color: "#6E7066", fontStyle: "italic" }   
+    const darkgray: BaseProps = { ...base, color: "#6E7066", fontStyle: "italic" }
     const white: BaseProps = { ...base, color: "#FFFFFF" }
 
     const hovered: BaseProps = { ...base, color: "aqua", cursor: "pointer" }
 
     const [emailHover, setEmailHover] = useState<boolean>(false);
     const [githubHover, setGithubHover] = useState<boolean>(false);
+
 
 
     return (
@@ -96,15 +109,29 @@ export default function Profile() {
                     <SwiperSlide>
                         <div className={styles.page}>
                             <div className={styles.profile}>
-                                <div className={styles.imageContainer}>
-                                    <Image className={index === 0 ? styles.image1Show : styles.image1Hide} alt="" src={"/profile/profile1.jpg"} width={200} height={200} />
-                                    <Image className={index === 1 ? styles.image2Show : styles.image2Hide} alt="" src={"/profile/profile2.jpg"} width={200} height={200} />
-                                </div>
+                                <div className={styles.profileContainer}>
+                                    <div className={styles.imageContainer}>
+                                        <Image className={imageIndex === 0 ? styles.image1Show : styles.image1Hide} alt="" src={"/profile/profile1.jpg"} width={200} height={200} />
+                                        <Image className={imageIndex === 1 ? styles.image2Show : styles.image2Hide} alt="" src={"/profile/profile2.jpg"} width={200} height={200} />
+                                    </div>
 
-                                <div className={styles.name}>
-                                    안녕하세요.<br />
-                                    프론트 엔드 개발자<br />
-                                    김영우 입니다.
+                                    <div className={styles.textWrapper}>
+                                        <div className={styles.textNormal}>
+                                            안녕하세요,
+                                        </div>
+
+                                        <div className={styles.textContainer}>
+                                            <div className={textIndex === 1 ? styles.text1 : (textIndex === 2 ? styles.text2 : styles.text3)}>
+                                                {textArray.map((elem: string) => (
+                                                    <div className={styles.textElements}>{elem}</div>
+                                                ))}
+                                            </div>
+                                        </div>
+
+                                        <div className={styles.textNormal}>
+                                            김영우 입니다.
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <div className={styles.arrow}>
@@ -153,14 +180,14 @@ export default function Profile() {
                                     <span style={gray}>,</span>
                                 </div>
 
-                                <div style={{position: "relative"}}>
+                                <div style={{ position: "relative" }}>
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     <span style={white}>email</span>
                                     <span style={gray}>:</span>&nbsp;&nbsp;
                                     <span style={gray}>&#34;</span>
-                                    <span 
-                                        style={emailHover ? hovered : yellow} 
-                                        onMouseEnter={() => setEmailHover(true)} 
+                                    <span
+                                        style={emailHover ? hovered : yellow}
+                                        onMouseEnter={() => setEmailHover(true)}
                                         onMouseLeave={() => setEmailHover(false)}
                                         onClick={() => window.open("mailto:kyeryoong@gmail.com?subject=안녕하세요, archive-eng을 통해서 이메일 드립니다.")}
                                     >kyeryoong@gmail.com</span>
@@ -168,14 +195,14 @@ export default function Profile() {
                                     <span style={gray}>,</span>
                                 </div>
 
-                                <div style={{position: "relative"}}>
+                                <div style={{ position: "relative" }}>
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     <span style={white}>github</span>
                                     <span style={gray}>:</span>&nbsp;&nbsp;
                                     <span style={gray}>&#34;</span>
-                                    <span 
-                                        style={githubHover ? hovered : yellow} 
-                                        onMouseEnter={() => setGithubHover(true)} 
+                                    <span
+                                        style={githubHover ? hovered : yellow}
+                                        onMouseEnter={() => setGithubHover(true)}
                                         onMouseLeave={() => setGithubHover(false)}
                                         onClick={() => window.open("https://github.com/kyeryoong")}
                                     >github.com/kyeryoong</span>

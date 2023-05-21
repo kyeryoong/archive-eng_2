@@ -1,14 +1,25 @@
-import Head from 'next/head'
-import type { AppProps } from 'next/app'
+import Head from "next/head";
+import type { AppProps } from "next/app";
 
-import '@/styles/globals.css'
+import "@/styles/globals.css";
 
-import Header from '../components/Header'
-import Footer from '../components/Footer'
+import { useEffect } from "react";
+
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+
 
 
 
 export default function App({ Component, pageProps }: AppProps) {
+    useEffect(() => {
+        let darkLight: string | null = localStorage.getItem("darkLight");
+
+        if (darkLight === null) {
+            localStorage.setItem("darkLight", "dark");
+        }
+    }, [])
+
     return (
         <div className="container">
             <Head>

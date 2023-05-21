@@ -59,51 +59,98 @@
     }
 }
 
+.profileContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 50px;
+}
+
 .imageContainer {
-    width: 200px;
-    height: 200px;
-    border-radius: 100px;
+    width: 120px;
+    height: 120px;
+    border-radius: 60px;
     overflow: hidden;
     position: relative;
 }
 
 .image1Show {
-    width: 200px;
-    height: 200px;
+    width: 120px;
+    height: 120px;
     position: absolute;
     top: 0px;
     left: 0px;
 }
 
 .image1Hide {
-    width: 200px;
-    height: 200px;
+    width: 120px;
+    height: 120px;
     position: absolute;
     top: -100%;
     left: 0px;
 }
 
 .image2Show {
-    width: 200px;
-    height: 200px;
+    width: 120px;
+    height: 120px;
     position: absolute;
     top: 0px;
     left: 0px;
 }
 
 .image2Hide {
-    width: 200px;
-    height: 200px;
+    width: 120px;
+    height: 120px;
     position: absolute;
     top: 100%;
     left: 0px;
 }
 
-.name {
-    font-size: 2rem;
+.textWrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.textNormal {
+    font-size: 2vw;
     font-weight: 300;
+    height: 4vw;
+    line-height: 4vw;
     color: white;
-    text-align: center;
+}
+
+.textContainer {
+    width: 28vw;
+    height: 4vw;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgb(60, 60, 60), rgb(20, 20, 20));
+    border-radius: 5px;
+}
+
+.text1 {
+    position: absolute;
+    top: 0px;
+}
+
+.text2 {
+    position: absolute;
+    top: -100%;
+}
+
+.text3 {
+    position: absolute;
+    top: -200%;
+}
+
+.textElements {
+    font-size: 2vw;
+    width: 28vw;
+    height: 4vw;
+    line-height: 4vw;
+    color: white;
+    padding-left: 1.5vw;
 }
 
 .info {
@@ -235,6 +282,40 @@
     padding-left: 30px;
     padding-right: 30px;
     color: rgb(100, 100, 100);
+}
+
+
+
+@media (max-width: 1420px) {
+    .profileContainer {
+        flex-direction: column;
+    }
+
+    .textContainer {
+        width: max(28vw, 18rem);
+        height: max(4vw, 2.6rem);
+    }
+
+    .textWrapper {
+        flex-direction: column;
+        gap: 0px;
+    }
+
+    .textNormal {
+        font-size: max(2vw, 1.3rem);
+        height: max(4vw, 2.6rem);
+        line-height: max(4vw, 2.6rem);
+        text-align: center;
+    }
+
+    .textElements {
+        font-size: max(2vw, 1.3rem);
+        width: max(28vw, 18rem);
+        height: max(4vw, 2.6rem);
+        line-height: max(4vw, 2.6rem);
+        text-align: center;
+        padding-left: 0vw;
+    }
 }
 
 

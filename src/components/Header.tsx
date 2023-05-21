@@ -236,6 +236,26 @@ export default function Header() {
 
 
 
+    function toggleDarkLight() {
+        let darkLight: string | null = localStorage.getItem("darkLight");
+
+        if (darkLight !== null) {
+            if (darkLight === "dark") {
+                localStorage.setItem("darkLight", "light");
+            }
+
+            else {
+                localStorage.setItem("darkLight", "dark");
+            }
+        }
+
+        else {
+            localStorage.setItem("darkLight", "dark");
+        }
+    }
+
+
+
     return (
         <div>
             <div className={styles.container}>
@@ -248,6 +268,10 @@ export default function Header() {
                         archive-eng
                     </div>
                 </Link>
+
+                <div onClick={toggleDarkLight} className={styles.toggleContainer}>
+
+                </div>
 
                 <div
                     className={styles.button}
