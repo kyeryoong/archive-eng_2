@@ -110,21 +110,21 @@ export default function Home() {
     const [visitors, setVisitors] = useState<number>(-1);
 
     async function getLikes() {
-        const res = await fetch("http://localhost:3000/api/getlikes");
+        const res = await fetch("/api/getlikes");
         const data = await res.json();
 
         setLikes(data);
     }
 
     async function getVisitors() {
-        const res = await fetch("http://localhost:3000/api/getvisitors");
+        const res = await fetch("/api/getvisitors");
         const data = await res.json();
 
         setVisitors(data);
     }
 
     async function increaseVisitors() {
-        await fetch("http://localhost:3000/api/increasevisitors");
+        await fetch("/api/increasevisitors");
     }
 
     useEffect(() => {
