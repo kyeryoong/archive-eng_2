@@ -1,8 +1,5 @@
 import { useState, useEffect } from "react";
 
-import { NextApiRequest, NextApiResponse } from "next";
-import { connectDB } from "../../util/database";
-
 import styles from "./index.module.css";
 
 
@@ -109,6 +106,33 @@ function TypingAnimation({ mainWords, subWords }: { mainWords: string[], subWord
 
 
 export default function Home() {
+    const [likes, setLikes] = useState<number>(-1);
+    const [visitors, setVisitors] = useState<number>(-1);
+
+    async function getLikes() {
+        const res = await fetch("http://localhost:3000/api/getlikes");
+        const data = await res.json();
+
+        setLikes(data);
+    }
+
+    async function getVisitors() {
+        const res = await fetch("http://localhost:3000/api/getvisitors");
+        const data = await res.json();
+
+        setVisitors(data);
+    }
+
+    async function increaseVisitors() {
+        await fetch("http://localhost:3000/api/increasevisitors");
+    }
+
+    useEffect(() => {
+        getLikes();
+    }, [])
+
+
+
     return (
         <div className={styles.container}>
             <TypingAnimation
@@ -129,6 +153,35 @@ export default function Home() {
             <div className={styles.subText}>
                 김영우
             </div>
+
+            {
+                likes > -1
+
+                &&
+
+                <div
+                    className={styles.likesContainer}
+                    onClick={async () => {
+                        await fetch("http://localhost:3000/api/increaselikes");
+
+                        if (likes !== undefined) {
+                            setLikes((prev) => prev + 1);
+                        }
+                    }}
+                >
+                    <div>
+                        ♥
+                    </div>
+
+                    <div>
+                        {likes}
+                    </div>
+                </div>
+            }
+
+            {
+
+            }
         </div>
     )
 }
