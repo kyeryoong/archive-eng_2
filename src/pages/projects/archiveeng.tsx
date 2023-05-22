@@ -118,8 +118,8 @@ export default function Archiveeng() {
                     <div className={styles.infoText}>
                         archive-eng은 프론트 엔드 개발자 김영우의 포트폴리오 사이트입니다.
                         archive-eng은 archive와 eng을 합한 것이며, eng은 다음과 같이 두 가지 뜻을 내포하고 있습니다.
-                        첫 번째로는, 전공 분야인 컴퓨터"공학"의 engineering의 의미를 담고 있습니다.
-                        두 번째로는, 영자 신문사와 통역 자원봉사 활동과 관련된 "영어"의 english를 뜻하기도 합니다.
+                        첫 번째로는, 전공 분야인 컴퓨터&#34;공학&#34;의 engineering의 의미를 담고 있습니다.
+                        두 번째로는, 영자 신문사와 통역 자원봉사 활동과 관련된 &#34;영어&#34;의 english를 뜻하기도 합니다.
                         4년 동안 학부 생활을 하면서 했던 다양한 활동들, 진행했던 프로젝트, 수상 내역들을 모아놓았습니다.
                         그리고, 이 사이트는 Notion이나 PDF 파일 대신 포트폴리오 제출 용도로 제작되었습니다.
                     </div>
