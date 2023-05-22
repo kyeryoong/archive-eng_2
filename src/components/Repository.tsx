@@ -17,7 +17,7 @@ export default function Repository({ name, url }: RepositoryProps) {
             <Image
                 width={50}
                 height={50}
-                src="/skills/GitHub.png"
+                src="/skills/GitHub_1.png"
                 alt=""
                 className={styles.repositoryIcon}
             />
