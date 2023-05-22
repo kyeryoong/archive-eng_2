@@ -101,7 +101,7 @@ export default function Testcon() {
                         [1, "개발 팀원", scrollTo2],
                         [3, "소스 코드", scrollTo3],
                         [4, "사용 기술", scrollTo4],
-                        [5, "결과물 보기", scrollTo5],
+                        [6, "결과물 보기", scrollTo5],
                     ].map((elem: any[], index: number) => (
                         <div key={index} className={currentRef === index ? styles.navigatorButtonOn : styles.navigatorButtonOff} onClick={elem[2]}>
                             <Image width={25} height={25} src={`/projects/${elem[0]}.png`} alt="" className={currentRef === index ? styles.navigatorIconOn : styles.navigatorIconOff} />
