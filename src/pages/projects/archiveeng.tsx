@@ -1,6 +1,4 @@
 import { useState, useEffect, useRef } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper";
 
 import Image from "next/image";
 
@@ -9,13 +7,11 @@ import Member from "@/components/Member";
 import Repository from "@/components/Repository";
 import Tech from "@/components/Tech";
 
-import styles from "./testcon.module.css";
-import "swiper/css";
-import "swiper/css/navigation";
+import styles from "./archiveeng.module.css";
 
 
 
-export default function Testcon() {
+export default function Archiveeng() {
     const [position, setPosition] = useState<number>(0);
 
     function onScroll() {
@@ -37,6 +33,8 @@ export default function Testcon() {
     const ref3 = useRef<HTMLDivElement>(null);
     const ref4 = useRef<HTMLDivElement>(null);
     const ref5 = useRef<HTMLDivElement>(null);
+    const ref6 = useRef<HTMLDivElement>(null);
+    const ref7 = useRef<HTMLDivElement>(null);
 
     function scrollTo1() {
         ref1.current?.scrollIntoView({ behavior: "smooth" });
@@ -54,18 +52,13 @@ export default function Testcon() {
         ref4.current?.scrollIntoView({ behavior: "smooth" });
     }
 
-    function scrollTo5() {
-        ref5.current?.scrollIntoView({ behavior: "smooth" });
-    }
 
-    
 
     let refPositions: number[] = [
         ref1.current?.getBoundingClientRect().top !== undefined ? Math.abs(ref1.current?.getBoundingClientRect().top) : 0,
         ref2.current?.getBoundingClientRect().top !== undefined ? Math.abs(ref2.current?.getBoundingClientRect().top) : 0,
         ref3.current?.getBoundingClientRect().top !== undefined ? Math.abs(ref3.current?.getBoundingClientRect().top) : 0,
-        ref4.current?.getBoundingClientRect().top !== undefined ? Math.abs(ref4.current?.getBoundingClientRect().top) : 0,
-        ref5.current?.getBoundingClientRect().top !== undefined ? Math.abs(ref5.current?.getBoundingClientRect().top) : 0,
+        ref4.current?.getBoundingClientRect().top !== undefined ? Math.abs(ref4.current?.getBoundingClientRect().top) : 0
     ]
 
     let currentRef: number = refPositions.findIndex((elem) => elem === Math.min(...refPositions));
@@ -76,32 +69,31 @@ export default function Testcon() {
         <div className={styles.container}>
             <div className={styles.containerTop}>
                 <div className={styles.title1}>
-                    온라인 시험 플랫폼
+                    포트폴리오 사이트
                 </div>
 
                 <div className={styles.title2}>
-                    테스트콘
+                    아카이빙
                 </div>
 
                 <Image
                     width={600}
                     height={200}
-                    src="/projects/testcon/logo.png"
+                    src="/projects/archiveeng/logo.png"
                     alt=""
                     className={styles.titleImage}
                 />
             </div>
 
 
-            
+
             <div className={styles.navigator} style={position > 400 ? { top: `150px` } : { top: `calc(550px - ${position}px)` }}>
                 {
                     [
                         [0, "개요", scrollTo1],
                         [1, "개발 팀원", scrollTo2],
                         [3, "소스 코드", scrollTo3],
-                        [4, "사용 기술", scrollTo4],
-                        [5, "결과물 보기", scrollTo5],
+                        [4, "사용 기술", scrollTo4]
                     ].map((elem: any[], index: number) => (
                         <div key={index} className={currentRef === index ? styles.navigatorButtonOn : styles.navigatorButtonOff} onClick={elem[2]}>
                             <Image width={25} height={25} src={`/projects/${elem[0]}.png`} alt="" className={currentRef === index ? styles.navigatorIconOn : styles.navigatorIconOff} />
@@ -113,7 +105,7 @@ export default function Testcon() {
 
 
 
-            <Demo url={"testcon.site"} />
+            <Demo url={"archiveeng.com"} />
 
 
 
@@ -124,12 +116,12 @@ export default function Testcon() {
                     </div>
 
                     <div className={styles.infoText}>
-                        오늘날 종이보다는 PDF나 워드 파일, 두꺼운 책보다는 얇은 태블릿으로 공부하는 사람들이 많아지고 있습니다.
-                        그리고, 컴퓨터로 시험을 보는(CBT Computer-Based Test) 경우를 심심치 않게 발견할 수 있습니다.
-                        예를 들자면, 2023년부터 한국산업인력공단이 주관하는 기사 시험 같은 경우, 필기를 CBT 방식으로 전환하여 시행하고 있습니다.
-                        그리고, 코로나19로 인해 많은 대학교에서 온라인 시험 플랫폼을 활용하여 시험을 진행하는 경우를 많이 볼 수 있었습니다.
-                        취업 준비생들에게 친숙한 AI 온라인 역량검사나 코딩 테스트도 모두 컴퓨터로 진행됩니다.
-                        이처럼 온라인으로 시험을 보는 시대가 도래한 만큼, 개인 프로젝트로 온라인 시험 플랫폼 테스트콘을 제작하게 되었습니다.
+                        archive-eng은 프론트 엔드 개발자 김영우의 포트폴리오 사이트입니다.
+                        archive-eng은 archive와 eng을 합한 것이며, eng은 다음과 같이 두 가지 뜻을 내포하고 있습니다.
+                        첫 번째로는, 전공 분야인 컴퓨터"공학"의 engineering의 의미를 담고 있습니다.
+                        두 번째로는, 영자 신문사와 통역 자원봉사 활동과 관련된 "영어"의 english를 뜻하기도 합니다.
+                        4년 동안 학부 생활을 하면서 했던 다양한 활동들, 진행했던 프로젝트, 수상 내역들을 모아놓았습니다.
+                        그리고, 이 사이트는 Notion이나 PDF 파일 대신 포트폴리오 제출 용도로 제작되었습니다.
                     </div>
                 </div>
 
@@ -153,7 +145,7 @@ export default function Testcon() {
                     </div>
 
                     <div className={styles.repositoryContainer}>
-                        <Repository name="GitHub 페이지" url="/kyeryoong/testcon" />
+                        <Repository name="GitHub 페이지" url="/kyeryoong/archive-eng" />
                     </div>
                 </div>
 
@@ -173,17 +165,17 @@ export default function Testcon() {
                             <Tech name="HTML" iconColor="white" textColor="white" rgb1={[241, 101, 41]} />
                             <Tech name="CSS" iconColor="white" textColor="white" rgb1={[41, 101, 241]} />
                             <Tech name="TypeScript" iconColor="white" textColor="white" rgb1={[49, 120, 198]} />
-                            <Tech name="React" iconColor="white" textColor="white" rgb1={[97, 218, 251]} />
+                            <Tech name="Next js" newName="Next.js" iconColor="white" textColor="white" rgb1={[70, 70, 70]} />
                         </div>
                     </div>
 
                     <div className={styles.techContainer}>
                         <div className={styles.techHeader}>
-                            백 엔드
+                            상태 관리
                         </div>
 
                         <div className={styles.techList}>
-                            <Tech name="Firebase" iconColor="original" textColor="white" rgb1={[5, 155, 229]} />
+                            <Tech name="Redux" iconColor="white" textColor="white" rgb1={[118, 74, 188]} />
                         </div>
                     </div>
 
@@ -193,7 +185,7 @@ export default function Testcon() {
                         </div>
 
                         <div className={styles.techList}>
-                            <Tech name="Firebase" newName="Firestore" iconColor="original" textColor="white" rgb1={[5, 155, 229]} />
+                            <Tech name="Mongo DB" iconColor="white" textColor="white" rgb1={[0, 104, 74]} />
                         </div>
                     </div>
 
@@ -203,8 +195,7 @@ export default function Testcon() {
                         </div>
 
                         <div className={styles.techList}>
-                            <Tech name="Firebase" iconColor="original" textColor="white" rgb1={[5, 155, 229]} />
-                            <Tech name="GitHub Actions" iconColor="white" textColor="white" rgb1={[32, 136, 225]} />
+                            <Tech name="Vercel" iconColor="white" textColor="white" rgb1={[70, 70, 70]} />
                         </div>
                     </div>
 
@@ -218,42 +209,6 @@ export default function Testcon() {
                             <Tech name="GitHub" iconColor="white" textColor="white" rgb1={[70, 70, 70]} />
                         </div>
                     </div>
-                </div>
-
-
-
-                <div className={styles.infoContainer} ref={ref5}>
-                    <div className={styles.infoHeader}>
-                        결과물 보기
-                    </div>
-
-                    <Swiper
-                        className={styles.demoImageContainer}
-                        navigation={true}
-                        modules={[Navigation]}
-                        centeredSlides={true}
-                    >
-                        <SwiperSlide><Image width={2100} height={1200} src="/projects/testcon/01.png" alt="" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><Image width={2100} height={1200} src="/projects/testcon/11.png" alt="" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><Image width={2100} height={1200} src="/projects/testcon/12.png" alt="" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><Image width={2100} height={1200} src="/projects/testcon/21.png" alt="" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><Image width={2100} height={1200} src="/projects/testcon/22.png" alt="" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><Image width={2100} height={1200} src="/projects/testcon/23.png" alt="" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><Image width={2100} height={1200} src="/projects/testcon/24.png" alt="" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><Image width={2100} height={1200} src="/projects/testcon/25.png" alt="" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><Image width={2100} height={1200} src="/projects/testcon/26.png" alt="" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><Image width={2100} height={1200} src="/projects/testcon/27.png" alt="" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><Image width={2100} height={1200} src="/projects/testcon/28.png" alt="" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><Image width={2100} height={1200} src="/projects/testcon/29.png" alt="" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><Image width={2100} height={1200} src="/projects/testcon/31.png" alt="" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><Image width={2100} height={1200} src="/projects/testcon/32.png" alt="" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><Image width={2100} height={1200} src="/projects/testcon/33.png" alt="" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><Image width={2100} height={1200} src="/projects/testcon/34.png" alt="" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><Image width={2100} height={1200} src="/projects/testcon/35.png" alt="" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><Image width={2100} height={1200} src="/projects/testcon/36.png" alt="" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><Image width={2100} height={1200} src="/projects/testcon/37.png" alt="" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><Image width={2100} height={1200} src="/projects/testcon/38.png" alt="" className={styles.demoImage} /></SwiperSlide>
-                    </Swiper>
                 </div>
             </div>
         </div>

@@ -11,13 +11,13 @@
 .projectContainer {
     display: flex;
     flex-wrap: wrap;
-    gap: 40px;
+    gap: 50px;
     margin-top: 20px;
 }
 
 .projectElement {
-    width: 500px;
-    height: 500px;
+    width: 400px;
+    height: 400px;
     border-radius: 10px;
     padding: 40px;
     cursor: pointer;
@@ -30,21 +30,21 @@
 }
 
 .projectTitle1 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: white;
     word-break: keep-all;
 }
 
 .projectTitle2 {
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 700;
     color: white;
     word-break: keep-all;
 }
 
 .projectIcon {
-    width: 240px;
-    height: 240px;
+    width: 200px;
+    height: 200px;
     object-fit: contain;
     align-self: center;
     justify-self: center;

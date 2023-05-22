@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { NextApiRequest, NextApiResponse } from "next";
 import { connectDB } from "../../util/database";
 
-import styles from "../styles/Home.module.css";
+import styles from "./index.module.css";
 
 
 

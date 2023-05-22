@@ -3,7 +3,7 @@ import { articlesDatabase, articleProps } from "../../../database/articlesDataba
 
 import Image from "next/image";
 
-import styles from "../../styles/Articles.module.css";
+import styles from "./index.module.css";
 
 
 

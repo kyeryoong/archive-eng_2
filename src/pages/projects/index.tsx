@@ -1,7 +1,7 @@
 import Link from "next/link"
 import Image from "next/image";
 
-import styles from "../../styles/Projects.module.css";
+import styles from "./index.module.css";
 
 
 
@@ -46,6 +46,27 @@ export default function Project() {
 
                         <Image
                             src="/projects/testcon/icon.png" alt=""
+                            width={600} height={600}
+                            className={styles.projectIcon}
+                        />
+                    </div>
+                </Link>
+
+                <Link href="/projects/archiveeng">
+                    <div
+                        className={styles.projectElement}
+                        style={{ background: "linear-gradient(135deg, rgb(70, 70, 70) 20%, rgb(20, 20, 20) 80%)" }}
+                    >
+                        <div className={styles.projectTitle1}>
+                            포트폴리오 사이트
+                        </div>
+
+                        <div className={styles.projectTitle2}>
+                            아카이빙
+                        </div>
+
+                        <Image
+                            src="/projects/archiveeng/icon.png" alt=""
                             width={600} height={600}
                             className={styles.projectIcon}
                         />

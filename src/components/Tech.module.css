@@ -1,0 +1,38 @@
+.tech {
+    width: fit-content;
+    border-radius: 5px;
+    display: grid;
+    grid-template-columns: repeat(2, fit-content(100%));
+    align-items: center;
+    margin-right: 10px;
+    white-space: nowrap;
+}
+
+.techIcon {
+    width: 40px;
+    height: 40px;
+}
+
+.techName {
+    font-size: 1rem;
+}
+
+
+
+@media (max-width: 1000px) {
+    .tech {
+        border-radius: 3px;
+        align-items: center;
+        margin-right: 5px;
+        white-space: nowrap;
+    }
+
+    .techIcon {
+        width: 30px;
+        height: 30px;
+    }
+
+    .techName {
+        font-size: 0.8rem;
+    }
+}

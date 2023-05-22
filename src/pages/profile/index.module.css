@@ -9,8 +9,8 @@
 .page {
     width: 100vw;
     height: 100vh;
-    padding-left: 15vw;
-    padding-right: 15vw;
+    padding-left: 5vw;
+    padding-right: 5vw;
     position: relative;
     display: grid;
     align-content: center;
@@ -109,14 +109,13 @@
 .textWrapper {
     display: flex;
     flex-direction: row;
+    align-items: center;
     gap: 20px;
 }
 
 .textNormal {
     font-size: 2vw;
     font-weight: 300;
-    height: 4vw;
-    line-height: 4vw;
     color: white;
 }
 
@@ -242,6 +241,7 @@
     width: 100vw;
     padding-left: 15vw;
     padding-right: 15vw;
+    margin-bottom: 30px;
     color: rgb(150, 150, 150);
     word-break: keep-all;
 }
@@ -258,7 +258,6 @@
     width: min(400px, 90vw);
     height: calc(min(400px, 90vw) + 120px);
     border-radius: 10px;
-    margin-top: 20px;
     margin-right: 20px;
     background: linear-gradient(-45deg, rgb(40, 40, 40) 10%, rgb(15, 15, 15) 90%);
 }
@@ -286,57 +285,56 @@
 
 
 
-@media (max-width: 1420px) {
-    .profileContainer {
-        flex-direction: column;
-    }
-
-    .textContainer {
-        width: max(28vw, 18rem);
-        height: max(4vw, 2.6rem);
-    }
-
-    .textWrapper {
-        flex-direction: column;
-        gap: 0px;
-    }
-
-    .textNormal {
-        font-size: max(2vw, 1.3rem);
-        height: max(4vw, 2.6rem);
-        line-height: max(4vw, 2.6rem);
-        text-align: center;
-    }
-
-    .textElements {
-        font-size: max(2vw, 1.3rem);
-        width: max(28vw, 18rem);
-        height: max(4vw, 2.6rem);
-        line-height: max(4vw, 2.6rem);
-        text-align: center;
-        padding-left: 0vw;
-    }
-}
-
-
 @media (max-width: 1000px) {
     .page {
         padding-left: 5vw;
         padding-right: 5vw;
     }
 
+    .profileContainer {
+        flex-direction: column;
+    }
+
+    .textWrapper {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .textNormal {
+        font-size: max(3vw, 1.5rem);
+        text-align: center;
+    }
+
+    .textContainer {
+        width: max(42vw, 300px);
+        height: max(6vw, 3rem);
+    }
+
+    .textElements {
+        font-size: max(3vw, 1.5rem);
+        width: max(42vw, 300px);
+        height: max(6vw, 3rem);
+        line-height: max(6vw, 3rem);
+        text-align: center;
+        padding-left: 0vw;
+    }
+
     .info {
-        font-size: min(4.5vw, 2.5rem);
+        font-size: min(4.5vw, 2rem);
     }
 
     .question {
-        font-size: 1.5rem;
+        font-size: min(6vw, 2rem);
         width: 90vw;
     }
 
     .answer {
-        font-size: 1.2rem;
+        font-size: min(4.5vw, 1.5rem);
         width: 90vw;
+    }
+
+    .answer>br {
+        display: none;
     }
 
     .line {
@@ -354,17 +352,28 @@
     }
 
     .hashtag {
+        font-size: min(4.5vw, 1.5rem);
         text-align: right;
     }
 
     .keyFactor {
-        font-size: 0.85rem;
+        font-size: min(4vw, 1.2rem);
         padding: 10px 15px 10px 15px;
     }
 
     .equipmentHeader {
+        font-size: min(6vw, 2rem);
         padding-left: 5vw;
         padding-right: 5vw;
+        margin-bottom: 10px;
+    }
+    
+    .equipmentText {
+        font-size: min(4.5vw, 1.5rem);
+    }
+
+    .equipmentSubText {
+        font-size: min(4.8vw, 1.2rem);
     }
 
     .gap {

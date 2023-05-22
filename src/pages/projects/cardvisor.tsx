@@ -1,124 +1,85 @@
+import { useState, useEffect, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 
 import Image from "next/image";
 
-import styles from "../../styles/Cardvisor.module.css";
+import Member from "@/components/Member";
+import Repository from "@/components/Repository";
+import Tech from "@/components/Tech";
+
+import styles from "./cardvisor.module.css";
 import "swiper/css";
 import "swiper/css/navigation";
 
 
 
-interface MemberProps {
-    name: string,
-    id: string,
-    position: string,
-    url: number
-}
-
-interface RepositoryProps {
-    name: string,
-    url: string
-}
-
-interface TechProps {
-    name: string,
-    newName?: string,
-    color: "white" | "black",
-    rgb1: number[],
-    rgb2?: number[]
-}
-
-
-
 export default function Cardvisor() {
-    function Member({ name, id, position, url }: MemberProps) {
-        return (
-            <div className={styles.member}>
-                <Image
-                    width={60}
-                    height={60}
-                    src={`https://avatars.githubusercontent.com/u/${url}`}
-                    alt=""
-                    className={styles.memberImage}
-                />
+    const [position, setPosition] = useState<number>(0);
 
-                <div className={styles.memberInfo}>
-                    <div className={styles.memberInfoName}>
-                        <div className={styles.memberInfoName1}>
-                            {name}
-                        </div>
+    function onScroll() {
+        setPosition(window.scrollY);
+    }
 
-                        <div className={styles.memberInfoName2}>
-                            @{id}
-                        </div>
-                    </div>
+    useEffect(() => {
+        window.addEventListener("scroll", onScroll);
 
-                    <div className={styles.memberInfoPosition}>
-                        {position}
-                    </div>
-                </div>
-            </div>
-        )
+        return () => {
+            window.removeEventListener("scroll", onScroll);
+        }
+    }, [])
+
+
+
+    const ref1 = useRef<HTMLDivElement>(null);
+    const ref2 = useRef<HTMLDivElement>(null);
+    const ref3 = useRef<HTMLDivElement>(null);
+    const ref4 = useRef<HTMLDivElement>(null);
+    const ref5 = useRef<HTMLDivElement>(null);
+    const ref6 = useRef<HTMLDivElement>(null);
+    const ref7 = useRef<HTMLDivElement>(null);
+
+    function scrollTo1() {
+        ref1.current?.scrollIntoView({ behavior: "smooth" });
+    }
+
+    function scrollTo2() {
+        ref2.current?.scrollIntoView({ behavior: "smooth" });
+    }
+
+    function scrollTo3() {
+        ref3.current?.scrollIntoView({ behavior: "smooth" });
+    }
+
+    function scrollTo4() {
+        ref4.current?.scrollIntoView({ behavior: "smooth" });
+    }
+
+    function scrollTo5() {
+        ref5.current?.scrollIntoView({ behavior: "smooth" });
+    }
+
+    function scrollTo6() {
+        ref6.current?.scrollIntoView({ behavior: "smooth" });
+    }
+
+    function scrollTo7() {
+        ref7.current?.scrollIntoView({ behavior: "smooth" });
     }
 
 
 
-    function Repository({ name, url }: RepositoryProps) {
-        return (
-            <div className={styles.repository} onClick={() => window.open("https://github.com" + url)}>
-                <Image
-                    width={50}
-                    height={50}
-                    src="/skills/GitHub.png"
-                    alt=""
-                    className={styles.repositoryIcon}
-                />
+    let refPositions: number[] = [
+        ref1.current?.getBoundingClientRect().top !== undefined ? Math.abs(ref1.current?.getBoundingClientRect().top) : 0,
+        ref2.current?.getBoundingClientRect().top !== undefined ? Math.abs(ref2.current?.getBoundingClientRect().top) : 0,
+        ref3.current?.getBoundingClientRect().top !== undefined ? Math.abs(ref3.current?.getBoundingClientRect().top) : 0,
+        ref4.current?.getBoundingClientRect().top !== undefined ? Math.abs(ref4.current?.getBoundingClientRect().top) : 0,
+        ref5.current?.getBoundingClientRect().top !== undefined ? Math.abs(ref5.current?.getBoundingClientRect().top) : 0,
+        ref6.current?.getBoundingClientRect().top !== undefined ? Math.abs(ref6.current?.getBoundingClientRect().top) : 0,
+        ref7.current?.getBoundingClientRect().top !== undefined ? Math.abs(ref7.current?.getBoundingClientRect().top) : 0
+    ]
 
-                <div className={styles.repositoryName}>
-                    {name}
-                </div>
-            </div>
-        )
-    }
-
-
-
-    function Tech({ name, newName, color, rgb1, rgb2 }: TechProps) {
-        return (
-            <div className={styles.tech} style={
-                rgb2
-
-                    ?
-
-                    {
-                        background: `linear-gradient(135deg, 
-                                rgb(${rgb1[0]}, ${rgb1[1]}, ${rgb1[2]}) 20%, 
-                                rgb(${rgb2[0]}, ${rgb2[1]}, ${rgb2[2]}) 80%`
-                    }
-
-                    :
-
-                    {
-                        background: `linear-gradient(135deg, 
-                                rgb(${rgb1[0]}, ${rgb1[1]}, ${rgb1[2]}) 20%, 
-                                rgb(${rgb1[0] - 50}, ${rgb1[1] - 50}, ${rgb1[2] - 50}) 80%`
-                    }
-            }>
-                <Image
-                    width={40}
-                    height={40}
-                    src={`/skills/${name}.png`}
-                    alt=""
-                    className={styles.techIcon}
-                />
-
-                <div className={styles.techName} style={{ color: color }}>
-                    {newName ? newName : name}&nbsp;&nbsp;&nbsp;
-                </div>
-            </div>
-        )
-    }
+    let currentRef: number = refPositions.findIndex((elem) => elem === Math.min(...refPositions));
 
 
 
@@ -142,10 +103,33 @@ export default function Cardvisor() {
                 />
             </div>
 
+
+
+            <div className={styles.navigator} style={position > 400 ? { top: `150px` } : { top: `calc(550px - ${position}px)` }}>
+                {
+                    [
+                        [0, "개요", scrollTo1],
+                        [1, "개발 팀원", scrollTo2],
+                        [2, "성과", scrollTo3],
+                        [3, "소스 코드", scrollTo4],
+                        [4, "사용 기술", scrollTo5],
+                        [5, "구조", scrollTo6],
+                        [6, "결과물 보기", scrollTo7],
+                    ].map((elem: any[], index: number) => (
+                        <div key={index} className={currentRef === index ? styles.navigatorButtonOn : styles.navigatorButtonOff} onClick={elem[2]}>
+                            <Image width={25} height={25} src={`/projects/${elem[0]}.png`} alt="" className={currentRef === index ? styles.navigatorIconOn : styles.navigatorIconOff} />
+                            <div className={currentRef === index ? styles.navigatorTextOn : styles.navigatorTextOff}>{elem[1]}</div>
+                        </div>
+                    ))
+                }
+            </div>
+
+
+
             <div className={styles.containerBottom}>
-                <div className={styles.infoContainer}>
+                <div className={styles.infoContainer} ref={ref1}>
                     <div className={styles.infoHeader}>
-                        프로젝트 소개
+                        개요
                     </div>
 
                     <div className={styles.infoText}>
@@ -155,7 +139,9 @@ export default function Cardvisor() {
                     </div>
                 </div>
 
-                <div className={styles.infoContainer}>
+
+
+                <div className={styles.infoContainer} ref={ref2}>
                     <div className={styles.infoHeader}>
                         개발 팀원
                     </div>
@@ -167,9 +153,37 @@ export default function Cardvisor() {
                     </div>
                 </div>
 
-                <div className={styles.infoContainer}>
+
+
+                <div className={styles.infoContainer} ref={ref3}>
                     <div className={styles.infoHeader}>
-                        프로젝트 리포지토리
+                        성과
+                    </div>
+
+                    <div className={styles.achievementContainer}>
+                        <div className={styles.infoText}>
+                            2022 홍익대학교 컴퓨터공학과 졸업 전시회 - 최우수상
+                        </div>
+
+                        <div className={styles.infoText}>
+                            마이 핀테크 서비스 해커톤 - 우수상(학생부)
+                        </div>
+
+                        <div className={styles.infoText}>
+                            졸업 전시회 기간 약 300명 소프트웨어 체험
+                        </div>
+
+                        <div className={styles.infoText}>
+                            창직종합설계프로젝트 1,2 - 지도 교수 선정 우수 작품
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div className={styles.infoContainer} ref={ref4}>
+                    <div className={styles.infoHeader}>
+                        소스 코드
                     </div>
 
                     <div className={styles.repositoryContainer}>
@@ -178,7 +192,9 @@ export default function Cardvisor() {
                     </div>
                 </div>
 
-                <div className={styles.infoContainer}>
+
+
+                <div className={styles.infoContainer} ref={ref5}>
                     <div className={styles.infoHeader}>
                         사용 기술
                     </div>
@@ -189,10 +205,10 @@ export default function Cardvisor() {
                         </div>
 
                         <div className={styles.techList}>
-                            <Tech name="HTML" color="white" rgb1={[241, 101, 41]} />
-                            <Tech name="CSS" color="white" rgb1={[41, 101, 241]} />
-                            <Tech name="JavaScript" color="black" rgb1={[240, 219, 79]} />
-                            <Tech name="React" color="white" rgb1={[97, 218, 251]} />
+                            <Tech name="HTML" iconColor="white" textColor="white" rgb1={[241, 101, 41]} />
+                            <Tech name="CSS" iconColor="white" textColor="white" rgb1={[41, 101, 241]} />
+                            <Tech name="JavaScript" iconColor="black" textColor="black" rgb1={[240, 219, 79]} />
+                            <Tech name="React" iconColor="white" textColor="white" rgb1={[97, 218, 251]} />
                         </div>
                     </div>
 
@@ -202,9 +218,9 @@ export default function Cardvisor() {
                         </div>
 
                         <div className={styles.techList}>
-                            <Tech name="Java" color="white" rgb1={[225, 31, 33]} rgb2={[13, 110, 182]} />
-                            <Tech name="Spring Boot" color="white" rgb1={[109, 179, 63]} />
-                            <Tech name="Spring Security" color="white" rgb1={[109, 179, 63]} />
+                            <Tech name="Java" iconColor="white" textColor="white" rgb1={[225, 31, 33]} rgb2={[13, 110, 182]} />
+                            <Tech name="Spring Boot" iconColor="white" textColor="white" rgb1={[109, 179, 63]} />
+                            <Tech name="Spring Security" iconColor="white" textColor="white" rgb1={[109, 179, 63]} />
                         </div>
                     </div>
 
@@ -214,8 +230,8 @@ export default function Cardvisor() {
                         </div>
 
                         <div className={styles.techList}>
-                            <Tech name="MySQL" color="white" rgb1={[83, 130, 161]} rgb2={[255, 165, 24]} />
-                            <Tech name="Amazon RDS" color="white" rgb1={[76, 114, 242]} />
+                            <Tech name="MySQL" iconColor="white" textColor="white" rgb1={[83, 130, 161]} rgb2={[255, 165, 24]} />
+                            <Tech name="Amazon RDS" iconColor="white" textColor="white" rgb1={[76, 114, 242]} />
                         </div>
                     </div>
 
@@ -225,12 +241,24 @@ export default function Cardvisor() {
                         </div>
 
                         <div className={styles.techList}>
-                            <Tech name="Python" color="white" rgb1={[74, 138, 189]} rgb2={[255, 223, 89]} />
-                            <Tech name="Selenium" color="white" rgb1={[67, 176, 42]} />
-                            <Tech name="Pandas" color="white" rgb1={[41, 24, 108]} />
-                            <Tech name="Scikit-Learn" color="white" rgb1={[52, 153, 202]} rgb2={[248, 153, 57]} />
+                            <Tech name="Python" iconColor="white" textColor="white" rgb1={[74, 138, 189]} rgb2={[255, 223, 89]} />
+                            <Tech name="Selenium" iconColor="white" textColor="white" rgb1={[67, 176, 42]} />
+                            <Tech name="Pandas" iconColor="white" textColor="white" rgb1={[41, 24, 108]} />
                         </div>
                     </div>
+
+                    <div className={styles.techContainer}>
+                        <div className={styles.techHeader}>
+                            추천 알고리즘
+                        </div>
+
+                        <div className={styles.techList}>
+                            <Tech name="Python" iconColor="white" textColor="white" rgb1={[74, 138, 189]} rgb2={[255, 223, 89]} />
+                            <Tech name="Flask" iconColor="white" textColor="white" rgb1={[70, 70, 70]} />
+                            <Tech name="Scikit-Learn" iconColor="original" textColor="white" rgb1={[52, 153, 202]} rgb2={[248, 153, 57]} />
+                        </div>
+                    </div>
+
 
                     <div className={styles.techContainer}>
                         <div className={styles.techHeader}>
@@ -238,9 +266,9 @@ export default function Cardvisor() {
                         </div>
 
                         <div className={styles.techList}>
-                            <Tech name="Amazon EC2" color="white" rgb1={[255, 153, 0]} />
-                            <Tech name="Amazon Route 53" color="white" rgb1={[159, 100, 253]} />
-                            <Tech name="NGINX" color="white" rgb1={[0, 150, 57]} />
+                            <Tech name="Amazon EC2" iconColor="white" textColor="white" rgb1={[255, 153, 0]} />
+                            <Tech name="Amazon Route 53" iconColor="white" textColor="white" rgb1={[159, 100, 253]} />
+                            <Tech name="NGINX" iconColor="white" textColor="white" rgb1={[0, 150, 57]} />
                         </div>
                     </div>
 
@@ -250,16 +278,34 @@ export default function Cardvisor() {
                         </div>
 
                         <div className={styles.techList}>
-                            <Tech name="Git" color="white" rgb1={[240, 80, 50]} />
-                            <Tech name="GitHub" color="white" rgb1={[70, 70, 70]} />
-                            <Tech name="Notion" color="black" rgb1={[220, 220, 220]} />
+                            <Tech name="Git" iconColor="white" textColor="white" rgb1={[240, 80, 50]} />
+                            <Tech name="GitHub" iconColor="white" textColor="white" rgb1={[70, 70, 70]} />
+                            <Tech name="Notion" iconColor="black" textColor="black" rgb1={[220, 220, 220]} />
                         </div>
                     </div>
                 </div>
 
-                <div className={styles.infoContainer}>
+
+
+                <div className={styles.infoContainer} ref={ref6}>
                     <div className={styles.infoHeader}>
-                        프로젝트 보기
+                        구조
+                    </div>
+
+                    <Image
+                        width={2000}
+                        height={1000}
+                        src="/projects/cardvisor/diagram.png"
+                        alt=""
+                        className={styles.diagram}
+                    />
+                </div>
+
+
+
+                <div className={styles.infoContainer} ref={ref7}>
+                    <div className={styles.infoHeader}>
+                        결과물 보기
                     </div>
 
                     <Swiper

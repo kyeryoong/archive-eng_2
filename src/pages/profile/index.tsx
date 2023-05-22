@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Mousewheel } from "swiper";
 
-import styles from "../../styles/Profile.module.css";
+import styles from "./index.module.css";
 import "swiper/css";
 import "swiper/css/free-mode";
 
@@ -171,7 +171,7 @@ export default function Profile() {
                                     <span style={white}>birth</span>
                                     <span style={gray}>:</span>&nbsp;&nbsp;
                                     <span style={red}>new</span>&nbsp;&nbsp;
-                                    <span style={green}>Date</span>&nbsp;&nbsp;
+                                    <span style={green}>Date</span>
                                     <span style={orange}>(</span>
                                     <span style={purple}>1995</span>
                                     <span style={gray}>,</span>&nbsp;

@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import styles from "../styles/404.module.css";
+import styles from "./404.module.css";
 
 
 

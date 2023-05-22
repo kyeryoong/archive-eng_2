@@ -4,7 +4,7 @@ import Image from "next/image";
 
 import { achievementsDatabase } from "../../../database/achievementsDatabase";
 
-import styles from "../../styles/Achievements.module.css";
+import styles from "./index.module.css";
 
 
 

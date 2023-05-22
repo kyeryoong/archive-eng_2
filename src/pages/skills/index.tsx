@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import Image from "next/image";
 
-import styles from "../../styles/Skills.module.css";
+import styles from "./index.module.css";
 
 
 
@@ -71,7 +71,7 @@ function Skill({ name, newName, color, rgb1, rgb2, description }: SkillProps) {
 
             <Image
                 className={containerHover ? styles.skillImageColor : styles.skillImageWhite}
-                src={"/skills/" + name + ".png"}
+                src={"/skills/" + name + "_1.png"}
                 alt=""
                 width={200}
                 height={200}
@@ -153,7 +153,7 @@ export default function Skills() {
                     description="JavaScript Library for Managing State of User Interfaces"
                 />
                 <Skill
-                    name="Nextjs" newName="Next.js"
+                    name="Next js" newName="Next.js"
                     color="white"
                     rgb1={[70, 70, 70]}
                     description="React-based Framework for Building Web Applications"
