@@ -162,7 +162,7 @@ export default function Home() {
                 <div
                     className={styles.likesContainer}
                     onClick={async () => {
-                        await fetch("http://localhost:3000/api/increaselikes");
+                        await fetch("/api/increaselikes");
 
                         if (likes !== undefined) {
                             setLikes((prev) => prev + 1);
