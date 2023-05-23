@@ -16,11 +16,7 @@ export default function Header() {
 
     const [index, setIndex] = useState<number>(0);
 
-    const [timestamp, setTimestamp] = useState<number>(Date.now());
-
     const [menu, setMenu] = useState<boolean>(true);
-
-
 
     const [command, setCommand] = useState<string>("");
 
@@ -75,13 +71,6 @@ export default function Header() {
             commandRef.current.focus();
         }
     })
-
-
-    setTimeout(() => {
-        setTimestamp(Date.now());
-    }, 1000)
-
-    var time: Date = new Date(timestamp);
 
 
 
@@ -407,8 +396,7 @@ export default function Header() {
                         </div>
 
                         <div className={styles.time}>
-                            {time.getFullYear()}-{time.getMonth() + 1}-{time.getDate()}&nbsp;&nbsp;
-                            {String(time.getHours()).padStart(2, "0")}:{String(time.getMinutes()).padStart(2, "0")}:{String(time.getSeconds()).padStart(2, "0")}
+
                         </div>
                     </div>
                 </div>
