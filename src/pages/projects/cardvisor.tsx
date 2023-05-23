@@ -105,7 +105,7 @@ export default function Cardvisor() {
 
 
 
-            <div className={styles.navigator} style={position > 400 ? { top: `150px` } : { top: `calc(550px - ${position}px)` }}>
+            <div className={styles.navigator} style={position > 400 ? { top: `150px` } : { top: `calc(550px - ${position}px)`, transition: "0s" }}>
                 {
                     [
                         [0, "개요", scrollTo1],
@@ -314,15 +314,13 @@ export default function Cardvisor() {
                         modules={[Navigation]}
                         centeredSlides={true}
                     >
-                        <SwiperSlide><Image width={2100} height={1200} src="/projects/cardvisor/1.png" alt="" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><Image width={2100} height={1200} src="/projects/cardvisor/2.png" alt="" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><Image width={2100} height={1200} src="/projects/cardvisor/3.png" alt="" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><Image width={2100} height={1200} src="/projects/cardvisor/4.png" alt="" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><Image width={2100} height={1200} src="/projects/cardvisor/5.png" alt="" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><Image width={2100} height={1200} src="/projects/cardvisor/6.png" alt="" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><Image width={2100} height={1200} src="/projects/cardvisor/7.png" alt="" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><Image width={2100} height={1200} src="/projects/cardvisor/8.png" alt="" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><Image width={2100} height={1200} src="/projects/cardvisor/9.png" alt="" className={styles.demoImage} /></SwiperSlide>
+                        {
+                            ["1", "2", "3", "4", "5", "6", "7", "8", "9"].map((elem: string, index: number) => (
+                                <SwiperSlide key={index}>
+                                    <Image width={2100} height={1200} src={`/projects/cardvisor/${elem}.png`} alt="" className={styles.demoImage} />
+                                </SwiperSlide>
+                            ))
+                        }
                     </Swiper>
                 </div>
             </div>

@@ -58,7 +58,7 @@ export default function Testcon() {
         ref5.current?.scrollIntoView({ behavior: "smooth" });
     }
 
-    
+
 
     let refPositions: number[] = [
         ref1.current?.getBoundingClientRect().top !== undefined ? Math.abs(ref1.current?.getBoundingClientRect().top) : 0,
@@ -93,8 +93,8 @@ export default function Testcon() {
             </div>
 
 
-            
-            <div className={styles.navigator} style={position > 400 ? { top: `150px` } : { top: `calc(550px - ${position}px)` }}>
+
+            <div className={styles.navigator} style={position > 400 ? { top: `150px` } : { top: `calc(550px - ${position}px)`, transition: "0s" }}>
                 {
                     [
                         [0, "개요", scrollTo1],
@@ -233,26 +233,14 @@ export default function Testcon() {
                         modules={[Navigation]}
                         centeredSlides={true}
                     >
-                        <SwiperSlide><Image width={2100} height={1200} src="/projects/testcon/01.png" alt="" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><Image width={2100} height={1200} src="/projects/testcon/11.png" alt="" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><Image width={2100} height={1200} src="/projects/testcon/12.png" alt="" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><Image width={2100} height={1200} src="/projects/testcon/21.png" alt="" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><Image width={2100} height={1200} src="/projects/testcon/22.png" alt="" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><Image width={2100} height={1200} src="/projects/testcon/23.png" alt="" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><Image width={2100} height={1200} src="/projects/testcon/24.png" alt="" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><Image width={2100} height={1200} src="/projects/testcon/25.png" alt="" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><Image width={2100} height={1200} src="/projects/testcon/26.png" alt="" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><Image width={2100} height={1200} src="/projects/testcon/27.png" alt="" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><Image width={2100} height={1200} src="/projects/testcon/28.png" alt="" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><Image width={2100} height={1200} src="/projects/testcon/29.png" alt="" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><Image width={2100} height={1200} src="/projects/testcon/31.png" alt="" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><Image width={2100} height={1200} src="/projects/testcon/32.png" alt="" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><Image width={2100} height={1200} src="/projects/testcon/33.png" alt="" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><Image width={2100} height={1200} src="/projects/testcon/34.png" alt="" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><Image width={2100} height={1200} src="/projects/testcon/35.png" alt="" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><Image width={2100} height={1200} src="/projects/testcon/36.png" alt="" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><Image width={2100} height={1200} src="/projects/testcon/37.png" alt="" className={styles.demoImage} /></SwiperSlide>
-                        <SwiperSlide><Image width={2100} height={1200} src="/projects/testcon/38.png" alt="" className={styles.demoImage} /></SwiperSlide>
+                        {
+                            ["01", "11", "12", "21", "22", "23", "24", "25", "26", "27", "28", "29", "31", "32", "33", "34", "35", "36", "37", "38"].map((elem: string, index: number) => (
+                                <SwiperSlide key={index}>
+                                    <Image width={2100} height={1200} src={`/projects/testcon/${elem}.png`} alt="" className={styles.demoImage} />
+                                </SwiperSlide>
+                            ))
+                        }
+
                     </Swiper>
                 </div>
             </div>

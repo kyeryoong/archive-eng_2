@@ -87,7 +87,7 @@ export default function Archiveeng() {
 
 
 
-            <div className={styles.navigator} style={position > 400 ? { top: `150px` } : { top: `calc(550px - ${position}px)` }}>
+            <div className={styles.navigator} style={position > 400 ? { top: `150px` } : { top: `calc(550px - ${position}px)`, transition: "0s" }}>
                 {
                     [
                         [0, "개요", scrollTo1],
@@ -185,7 +185,7 @@ export default function Archiveeng() {
                         </div>
 
                         <div className={styles.techList}>
-                            <Tech name="Mongo DB" iconColor="white" textColor="white" rgb1={[0, 104, 74]} />
+                            <Tech name="MongoDB" iconColor="white" textColor="white" rgb1={[0, 104, 74]} />
                         </div>
                     </div>
 

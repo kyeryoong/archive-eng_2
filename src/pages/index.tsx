@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 
+import Image from "next/image";
+
 import styles from "./index.module.css";
 
 
@@ -122,13 +124,12 @@ export default function Home() {
         }
     }
 
-    async function increaseLikes() {
+    async function getVisitors() {
         try {
-            await fetch("/api/increaselikes");
+            const res = await fetch("/api/getvisitors");
+            const data = await res.json();
 
-            if (likes !== undefined) {
-                setLikes((prev) => prev + 1);
-            }
+            setVisitors(data);
         }
 
         catch (error) {
@@ -136,12 +137,11 @@ export default function Home() {
         }
     }
 
-    async function getVisitors() {
+    async function increaseLikes() {
         try {
-            const res = await fetch("/api/getvisitors");
-            const data = await res.json();
-    
-            setVisitors(data);
+            setLikes((prev) => prev + 1);
+
+            await fetch("/api/increaselikes");
         }
 
         catch (error) {
@@ -151,21 +151,27 @@ export default function Home() {
 
     async function increaseVisitors() {
         try {
+            setVisitors((prev) => prev + 1);
+
             await fetch("/api/increasevisitors");
         }
-        
+
         catch (error) {
             console.error(error);
         }
     }
 
-
-
     useEffect(() => {
         getLikes();
+        getVisitors();
+
+        if (window.location.hostname !== "localhost") {
+            increaseVisitors();
+        }
+
     }, [])
 
-
+    
 
     return (
         <div className={styles.container}>
@@ -189,17 +195,37 @@ export default function Home() {
             </div>
 
             {
-                likes > -1
+                (likes > -1 && visitors > -1)
 
                 &&
 
-                <div className={styles.likesContainer} onClick={increaseLikes}>
-                    <div>
-                        ♥
+                <div className={styles.counterContainer}>
+                    <div className={styles.likesButton} onClick={increaseLikes}>
+                        <Image
+                            width={16}
+                            height={16}
+                            alt=""
+                            src={"/likes.png"}
+                            className={styles.counterIcon}
+                        />
+
+                        <div>
+                            {likes}
+                        </div>
                     </div>
 
-                    <div>
-                        {likes}
+                    <div className={styles.visitorsButton}>
+                        <Image
+                            width={16}
+                            height={16}
+                            alt=""
+                            src={"/visitors.png"}
+                            className={styles.counterIcon}
+                        />
+
+                        <div>
+                            {visitors}
+                        </div>
                     </div>
                 </div>
             }

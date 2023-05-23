@@ -50,10 +50,10 @@ export default function Demo({ url }: DemoProps) {
                 해당 사이트에 접속하면, 현재 개발 중인 프로젝트를 직접 체험해 볼 수 있습니다.
             </div>
 
-            <div className={styles.notice}>
+            <ul className={styles.notice}>
                 <li>해당 프로젝트는 아직 개발 중입니다.</li>
                 <li>모든 기능이 정상적으로 작동하지 않을 수 있습니다.</li>
-            </div>
+            </ul>
 
             <div
                 className={styles.demoButton}

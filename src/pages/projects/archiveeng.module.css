@@ -37,9 +37,8 @@
     right: 15vw;
 }
 
-
 .navigator {
-    width: 200px;
+    width: 250px;
     height: fit-content;
     border-radius: 5px;
     padding: 20px;
@@ -107,7 +106,7 @@
     height: fit-content;
     min-height: 100vh;
     padding-left: 15vw;
-    padding-right: calc(15vw + 250px);
+    padding-right: calc(15vw + 300px);
 }
 
 .infoContainer {
@@ -165,6 +164,17 @@
 
 
 
+@media (max-width: 1300px) {
+    .containerBottom {
+        padding-left: 15vw;
+        padding-right: 15vw;
+    }
+
+    .navigator {
+        right: -300px;
+    }
+}
+
 
 
 @media (max-width: 1000px) {
@@ -194,10 +204,6 @@
     .containerBottom {
         padding-left: 5vw;
         padding-right: 5vw;
-    }
-
-    .navigator {
-        right: -300px;
     }
 
     .infoText {

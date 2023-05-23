@@ -1,5 +1,5 @@
-import { useEffect, useState, useRef } from "react";
-import { articlesDatabase, articleProps } from "../../../database/articlesDatabase";
+import { useState, useEffect, useRef } from "react";
+import { ArticleProps } from "../api/getarticles";
 
 import Image from "next/image";
 
@@ -11,29 +11,49 @@ export default function Articles() {
     const [index, setIndex] = useState<number>(0);
 
     const [showModal, setShowModal] = useState<boolean>(false);
-
     const modalRef = useRef<HTMLDivElement>(null);
+
+    const [articlesData, setArticlesData] = useState<ArticleProps[]>([]);
+    const [searchedData, setSearchedData] = useState<ArticleProps[]>([]);
 
     const [searchTitle, setSearchTitle] = useState<string>("");
     const [searchSection, setSearchSection] = useState<string[]>([]);
 
-    const [articlesData, setArticlesData] = useState<articleProps | any>(articlesDatabase);
+    async function getArticlesData() {
+        try {
+            const res = await fetch("/api/getarticles");
+            const data = await res.json();
+
+            setArticlesData(data);
+            setSearchedData(data);
+        }
+
+        catch (error) {
+            console.error(error);
+        }
+    }
+
+    useEffect(() => {
+        getArticlesData();
+    }, [])
+
+
 
     useEffect(() => {
         if (searchTitle !== "" && searchSection.length !== 0) {
-            setArticlesData(articlesDatabase.filter((elem: articleProps) => elem.title.toLowerCase().includes(searchTitle.toLowerCase()) && searchSection.includes(elem.section)));
+            setSearchedData(articlesData.filter((elem: ArticleProps) => elem.title.toLowerCase().includes(searchTitle.toLowerCase()) && searchSection.includes(elem.section)));
         }
 
         else if (searchTitle !== "" && searchSection.length === 0) {
-            setArticlesData(articlesDatabase.filter((elem: articleProps) => elem.title.toLowerCase().includes(searchTitle.toLowerCase())));
+            setSearchedData(articlesData.filter((elem: ArticleProps) => elem.title.toLowerCase().includes(searchTitle.toLowerCase())));
         }
 
         else if (searchTitle === "" && searchSection.length !== 0) {
-            setArticlesData(articlesDatabase.filter((elem: articleProps) => searchSection.includes(elem.section)));
+            setSearchedData(articlesData.filter((elem: ArticleProps) => searchSection.includes(elem.section)));
         }
 
         else {
-            setArticlesData(articlesDatabase);
+            setSearchedData(articlesData);
         }
     }, [searchTitle, searchSection])
 
@@ -45,6 +65,7 @@ export default function Articles() {
                 className={searchSection.includes(section) ? styles.searchSectionIncluded : styles.searchSectionNotIncluded}
                 onClick={() => {
                     var temp = searchSection;
+
                     if (searchSection.includes(section)) {
                         temp = temp.filter((elem) => elem !== section);
                     }
@@ -67,7 +88,7 @@ export default function Articles() {
 
 
 
-    function Article({ id, section, title, year, month, chiefEditor, keyword, link }: articleProps) {
+    function Article({ id, section, title }: ArticleProps) {
         return (
             <div
                 className={styles.article}
@@ -116,13 +137,13 @@ export default function Articles() {
             </div>
 
             {
-                articlesData.length > 0
+                searchedData
 
                     ?
 
                     <div className={styles.articlesContainer}>
                         {
-                            articlesData.map((data: articleProps) => (
+                            searchedData.map((data: ArticleProps) => (
                                 <Article
                                     key={data.id}
                                     id={data.id}
@@ -130,6 +151,7 @@ export default function Articles() {
                                     title={data.title}
                                     year={data.year}
                                     month={data.month}
+                                    writer={data.writer}
                                     chiefEditor={data.chiefEditor}
                                     reviser={data.reviser}
                                     keyword={data.keyword}
@@ -173,15 +195,15 @@ export default function Articles() {
                         <Image
                             width={40}
                             height={40}
-                            src={"/close.png"} 
-                            alt="" 
-                            className={styles.closeButtonImage} 
+                            src={"/close.png"}
+                            alt=""
+                            className={styles.closeButtonImage}
                         />
                     </div>
 
                     <div className={styles.modalBottom}>
                         <div className={styles.modalTitle}>
-                        {articlesData[index - 1]?.title}
+                            {articlesData !== undefined && articlesData[index - 1]?.title}
                         </div>
 
                         <div className={styles.modalInfo}>
@@ -190,7 +212,7 @@ export default function Articles() {
                             </div>
 
                             <div className={styles.modalInfoValue}>
-                                Kim Youngwoo
+                                {articlesData[index - 1]?.writer}
                             </div>
 
                             <div className={styles.modalInfoHeader}>

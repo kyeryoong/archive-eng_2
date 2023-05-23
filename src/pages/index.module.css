@@ -88,7 +88,21 @@
     }
 }
 
-.likesContainer {
+.counterContainer {
+    width: 100vw;
+    height: 40px;
+    position: absolute;
+    bottom: 150px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.counterIcon {
+    filter: invert();
+}
+
+.likesButton {
     width: 100px;
     height: 40px;
     line-height: 40px;
@@ -98,17 +112,31 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
     gap: 20px;
-    position: absolute;
-    bottom: 150px;
-    left: calc(50vw - 50px);
     cursor: pointer;
 }
 
-.likesContainer:hover {
+.likesButton:hover {
     background-color: rgb(250, 50, 50);
     transform: scale(1.2);
 }
+
+
+.visitorsButton {
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 5px;
+    color: white;
+    background-color: rgb(20, 20, 20);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
 
 
 
