@@ -110,22 +110,56 @@ export default function Home() {
     const [visitors, setVisitors] = useState<number>(-1);
 
     async function getLikes() {
-        const res = await fetch("/api/getlikes");
-        const data = await res.json();
+        try {
+            const res = await fetch("/api/getlikes");
+            const data = await res.json();
 
-        setLikes(data);
+            setLikes(data);
+        }
+
+        catch (error) {
+            console.error(error);
+        }
+    }
+
+    async function increaseLikes() {
+        try {
+            await fetch("/api/increaselikes");
+
+            if (likes !== undefined) {
+                setLikes((prev) => prev + 1);
+            }
+        }
+
+        catch (error) {
+            console.error(error);
+        }
     }
 
     async function getVisitors() {
-        const res = await fetch("/api/getvisitors");
-        const data = await res.json();
+        try {
+            const res = await fetch("/api/getvisitors");
+            const data = await res.json();
+    
+            setVisitors(data);
+        }
 
-        setVisitors(data);
+        catch (error) {
+            console.error(error);
+        }
     }
 
     async function increaseVisitors() {
-        await fetch("/api/increasevisitors");
+        try {
+            await fetch("/api/increasevisitors");
+        }
+        
+        catch (error) {
+            console.error(error);
+        }
     }
+
+
 
     useEffect(() => {
         getLikes();
@@ -159,16 +193,7 @@ export default function Home() {
 
                 &&
 
-                <div
-                    className={styles.likesContainer}
-                    onClick={async () => {
-                        await fetch("/api/increaselikes");
-
-                        if (likes !== undefined) {
-                            setLikes((prev) => prev + 1);
-                        }
-                    }}
-                >
+                <div className={styles.likesContainer} onClick={increaseLikes}>
                     <div>
                         ♥
                     </div>
@@ -177,10 +202,6 @@ export default function Home() {
                         {likes}
                     </div>
                 </div>
-            }
-
-            {
-
             }
         </div>
     )
