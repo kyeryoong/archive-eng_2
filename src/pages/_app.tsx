@@ -7,7 +7,7 @@ import { useEffect } from "react";
 
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-
+import ChannelService from "@/hooks/ChannelService";
 
 
 
@@ -19,6 +19,20 @@ export default function App({ Component, pageProps }: AppProps) {
             localStorage.setItem("darkLight", "dark");
         }
     }, [])
+
+
+    useEffect(() => {
+        const channelTalk = new ChannelService();
+
+        channelTalk.boot({
+            pluginKey: process.env.NEXT_PUBLIC_CHANNEL_TALK_ID
+        });
+
+        return () => {
+            channelTalk.shutdown();
+        };
+    }, []);
+
 
     return (
         <div className="container">
