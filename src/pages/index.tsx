@@ -168,10 +168,9 @@ export default function Home() {
         if (window.location.hostname !== "localhost") {
             increaseVisitors();
         }
-
     }, [])
 
-    
+
 
     return (
         <div className={styles.container}>
@@ -182,35 +181,19 @@ export default function Home() {
 
             <div className={styles.line} />
 
-            <div className={styles.subText}>
-                @kyeryoong
-            </div>
-
-            <div className={styles.subText}>
-                Kim Young-Woo
-            </div>
-
-            <div className={styles.subText}>
-                김영우
-            </div>
-
-            {
-                (likes > -1 && visitors > -1)
-
-                &&
-
-                <div className={styles.counterContainer}>
+            <div className={styles.containerBottom}>
+                <div className={styles.containerBottomLeft}>
                     <div className={styles.likesButton} onClick={increaseLikes}>
                         <Image
                             width={16}
-                            height={16}
+                            height={15}
                             alt=""
-                            src={"/likes.png"}
-                            className={styles.counterIcon}
+                            src={"/likes.svg"}
+                            className={styles.likesIcon}
                         />
 
                         <div>
-                            {likes}
+                            {(likes > -1 && visitors > -1) ? likes : 0}
                         </div>
                     </div>
 
@@ -220,15 +203,29 @@ export default function Home() {
                             height={16}
                             alt=""
                             src={"/visitors.png"}
-                            className={styles.counterIcon}
+                            className={styles.visitorsIcon}
                         />
 
                         <div>
-                            {visitors}
+                            {(likes > -1 && visitors > -1) ? visitors : 0}
                         </div>
                     </div>
                 </div>
-            }
+
+                <div className={styles.containerBottomRight}>
+                    <div className={styles.subText}>
+                        @kyeryoong
+                    </div>
+
+                    <div className={styles.subText}>
+                        Kim Young-Woo
+                    </div>
+
+                    <div className={styles.subText}>
+                        김영우
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }
