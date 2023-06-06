@@ -1,4 +1,4 @@
-import { useState, useRef, MutableRefObject } from "react";
+import { useState, useRef } from "react";
 import { useRouter } from "next/router";
 
 import Link from "next/link"
@@ -34,7 +34,7 @@ export default function Header() {
 
             <div
                 className={styles.menuButton}
-                style={showMenu ? { right: "40px" } : {}}
+                style={showMenu ? { right: "min(40px, 5vw)" } : {}}
                 onClick={() => {
                     setShowMenu((prev: boolean) => !prev);
                 }}

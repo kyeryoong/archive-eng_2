@@ -179,13 +179,14 @@
     .menuButton {
         width: 30px;
         height: 30px;
-        right: 5vw;
+        right: min(40px, 5vw);
     }
 
     .menuShow {
         width: 100vw;
         top: 0px;
         right: 0px;
+        padding-left: min(40px, 5vw);
         gap: min(25px, 5vw);
     }
     
@@ -193,6 +194,7 @@
         width: 100vw;
         top: 0px;
         right: -100vw;
+        padding-left: min(40px, 5vw);
         gap: min(25px, 5vw);
     }
 
