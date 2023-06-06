@@ -167,7 +167,7 @@
     justify-items: center;
     opacity: 1;
     transition: 0.5s;
-    z-index: 6;
+    z-index: 8;
 }
 
 .backgroundHide {
@@ -182,7 +182,7 @@
     justify-items: center;
     opacity: 0;
     transition: 0.5s;
-    z-index: 6;
+    z-index: 8;
     pointer-events: none;
 }
 

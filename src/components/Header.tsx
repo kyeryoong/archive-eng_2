@@ -1,20 +1,37 @@
-import { useState, useRef } from "react";
-import { useRouter } from "next/router";
+import { useState, useEffect, useRef } from "react";
 
 import Link from "next/link"
 import Image from "next/image";
+
+import { Audio } from "react-loader-spinner";
 
 import styles from "./Header.module.css";
 
 
 
 export default function Header() {
-    const router = useRouter();
-
     const [showMenu, setShowMenu] = useState<boolean>(false);
     const [menuIndex, setMenuIndex] = useState<number>(-1);
-
     const menuRef = useRef<any>();
+
+
+    const TOTAL_MUSICS: number = 3;
+    const [musicIndex, setMusicIndex] = useState<number>(0);
+    const [musicIsPlaying, setMusicIsPlaying] = useState<boolean>(false);
+    const [musicVolume, setMusicVolume] = useState<number>(1);
+
+    let musicRef = useRef<any>();
+
+    useEffect(() => {
+        musicRef.current.volume = 0.05;
+        musicRef.current.play()
+    }, [])
+
+    const musicList: string[] = [
+        "PeriTune - Piano Melancholy3",
+        "WHAT Pictures - Sideways Samba",
+        "PeriTune - PianoRefreshing"
+    ]
 
 
 
@@ -121,6 +138,89 @@ export default function Header() {
                     <div className={menuIndex === 5 ? styles.arrowShow : styles.arrowHide}>{menuIndex === 5 ? ">" : ""}</div>
                     Articles
                 </Link>
+
+
+
+                <div className={styles.musicWrapper}>
+                    <audio
+                        autoPlay
+                        src={`/music/${musicIndex}.mp3`}
+                        ref={musicRef}
+                        onEnded={() => setMusicIndex((prev: number) => (prev + 1) % TOTAL_MUSICS)}
+                    />
+
+                    <Image
+                        src={`/music/${musicIndex}.jpg`} alt=""
+                        width={85} height={85}
+                        className={musicIsPlaying ? styles.albumArtPlay : styles.albumArtPause}
+                    />
+
+                    <div className={styles.musicPlayer}>
+                        <div className={styles.musicIndex}>
+                            {musicList[musicIndex]}
+                        </div>
+
+                        <div className={styles.musicController}>
+                            <Image
+                                src="/music/minus.png" alt=""
+                                width={12} height={12}
+                                className={styles.musicIcon}
+                                onClick={() => {
+                                    if (musicRef.current.volume >= 0.05) {
+                                        musicRef.current.volume -= 0.05;
+                                    }
+                                }}
+                            />
+
+                            <Image
+                                src="/music/previous.png" alt=""
+                                width={12} height={12}
+                                className={styles.musicIcon}
+                                onClick={() => {
+                                    if (musicIndex === 0) { setMusicIndex(TOTAL_MUSICS - 1); }
+                                    else { setMusicIndex((prev: number) => prev - 1); }
+                                    setMusicIsPlaying(true);
+                                }}
+                            />
+
+                            <Image
+                                src={musicIsPlaying ? "/music/pause.png" : "/music/play.png"} alt=""
+                                width={16} height={16}
+                                className={styles.musicIcon}
+                                onClick={() => {
+                                    if (musicIsPlaying) { 
+                                        musicRef.current.pause();
+                                        setMusicIsPlaying(false);
+                                    }
+                                    else { 
+                                        musicRef.current.play(); 
+                                        setMusicIsPlaying(true);
+                                    }
+                                }}
+                            />
+
+                            <Image
+                                src="/music/next.png" alt=""
+                                width={12} height={12}
+                                className={styles.musicIcon}
+                                onClick={() => {
+                                    if (musicIndex === TOTAL_MUSICS - 1) { setMusicIndex(0); }
+                                    else { setMusicIndex((prev: number) => prev + 1); }
+                                    setMusicIsPlaying(true);
+                                }}
+                            />
+
+                            <Image
+                                src="/music/plus.png" alt=""
+                                width={12} height={12}
+                                className={styles.musicIcon}
+                                onClick={() => {
+                                    if (musicRef.current.volume <= 0.95) { musicRef.current.volume += 0.05; }
+                                }}
+                            />
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     )

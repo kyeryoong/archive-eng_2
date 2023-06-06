@@ -34,13 +34,6 @@ export default function App({ Component, pageProps }: AppProps) {
     }, []);
    
 
-    useEffect(() => {
-        if (typeof window !== "undefined") {
-            let myiFrame = document.getElementById("ch-plugin-script-iframe");
-            console.log(myiFrame)
-        }
-    }, [])
-
 
     return (
         <div className="container">
