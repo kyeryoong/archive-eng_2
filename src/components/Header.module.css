@@ -18,56 +18,58 @@
     margin-left: 10px;
 }
 
-.button {
+.menuButton {
     width: 40px;
     height: 40px;
     cursor: pointer;
-    position: relative;
-    justify-self: right;
+    position: fixed;
+    right: 15vw;
+    top: 55px;
+    z-index: 8;
 }
 
-.button span {
+.menuButton span {
     height: 10%;
     border-radius: 10px;
     background-color: white;
     transition: 0.5s;
 }
 
-.button span:nth-of-type(1) {
+.menuButton span:nth-of-type(1) {
     width: 50%;
     position: absolute;
     top: 15%;
 }
 
-.button span:nth-of-type(2) {
+.menuButton span:nth-of-type(2) {
     width: 100%;
     position: absolute;
     top: 45%;
     opacity: 1;
 }
 
-.button span:nth-of-type(3) {
+.menuButton span:nth-of-type(3) {
     width: 75%;
     position: absolute;
     bottom: 15%;
 }
 
-.buttonClicked {
+.menuButtonClicked {
     display: none;
 }
 
-.buttonClicked~span:nth-of-type(1) {
+.menuButtonClicked~span:nth-of-type(1) {
     width: 100%;
     transform: rotate(45deg);
     top: 45%;
 }
 
-.buttonClicked~span:nth-of-type(2) {
+.menuButtonClicked~span:nth-of-type(2) {
     width: 0%;
     opacity: 0;
 }
 
-.buttonClicked~span:nth-of-type(3) {
+.menuButtonClicked~span:nth-of-type(3) {
     width: 100%;
     transform: rotate(-45deg);
     bottom: 45%;
@@ -84,7 +86,7 @@
     top: 0px;
     opacity: 1;
     transition: 0.5s;
-    z-index: 5;
+    z-index: 6;
 }
 
 .backgroundHide {
@@ -98,142 +100,55 @@
     top: 0px;
     opacity: 0;
     transition: 0.5s;
-    z-index: 5;
+    z-index: 6;
     pointer-events: none;
 }
 
-.consoleShow {
-    width: 70vw;
-    height: 640px;
-    color: white;
-    background-color: rgb(30, 30, 30);
-    border: 1px solid rgb(60, 60, 60);
-    border-radius: 10px;
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: calc(50vh - 320px);
-    justify-content: space-between;
-    box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.7);
-    -webkit-box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.7);
-    -moz-box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.7);
-}
-
-.consoleHide {
-    width: 70vw;
-    height: 640px;
-    color: white;
-    background-color: rgb(30, 30, 30);
-    border: 1px solid rgb(60, 60, 60);
-    border-radius: 10px;
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    position: absolute;
+.menuShow {
+    width: 450px;
+    height: 100vh;
+    background-color: rgb(20, 20, 20);
+    position: fixed;
     top: 0px;
-    justify-content: space-between;
-    box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.7);
-    -webkit-box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.7);
-    -moz-box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.7);
-    pointer-events: none;
-}
-
-.consoleBottom {
-    border-top: 1px solid rgb(60, 60, 60);
-    padding-top: 30px;
+    right: 0px;
+    z-index: 7;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 25px;
+    padding-top: 150px;
+    padding-left: 40px;
 }
 
-.log {
-    width: 100%;
-    height: fit-content;
-    max-height: 500px;
-    margin: 0px;
-    padding: 0px;
-    overflow-x: hidden;
-    overflow-y: auto;
-    white-space: pre-wrap;
-    color: rgb(180, 180, 180);
+.menuHide {
+    width: 450px;
+    height: 100vh;
+    background-color: rgb(20, 20, 20);
+    position: fixed;
+    top: 0px;
+    right: -450px;
+    z-index: 7;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding-top: 150px;
+    padding-left: 40px;
 }
 
-.commandContainer {
-    font-size: 1.2rem;
-    display: grid;
-    grid-template-columns: fit-content(100%) 1fr;
-    margin-left: 5px;
+.menuElements {
+    font-size: 2.5rem;
+    font-weight: 600;
     color: white;
+    display: flex;
+    flex-direction: row;
 }
 
-.commandBox {
-    font-size: 1.2rem;
-    width: 100%;
-    line-height: 24px;
-    padding: 0px;
-    border: none;
-    background-color: transparent;
+.menuElements:hover {
     color: aqua;
-    caret-color: aqua;
-    margin-left: 5px;
-    overflow: hidden;
-}
-
-.commandBox:focus {
-    outline: none;
-}
-
-.line {
-    font-size: 1.2rem;
-    line-height: 24px;
-    margin-left: 5px;
-}
-
-.network {
-    display: flex;
-    flex-direction: row;
-}
-
-.connect {
-    width: 2px;
-    border-radius: 1px;
-    background-color: rgb(0, 250, 0);
-    align-self: flex-end;
-    margin-bottom: 3px;
-}
-
-.stable {
-    color: rgb(0, 250, 0);
-    margin-left: 10px;
-}
-
-.connect:nth-child(3) {
-    height: 6px;
-    margin-left: 6px;
-}
-
-.connect:nth-child(4) {
-    height: 10px;
-    margin-left: 3px;
-}
-
-.connect:nth-child(5) {
-    height: 14px;
-    margin-left: 3px;
-}
-
-.time {
-    font-variant-numeric: tabular-nums;
-}
-
-.menu {
-    font-size: 3rem;
-    display: flex;
-    flex-direction: row;
 }
 
 .arrowShow {
+    font-size: 2.5rem;
+    font-weight: 600;
     width: 35px;
     max-width: 35px;
     color: aqua;
@@ -242,18 +157,12 @@
 }
 
 .arrowHide {
+    font-size: 2.5rem;
+    font-weight: 600;
     width: 35px;
     max-width: 0px;
     opacity: 0;
     transition: 0.5s;
-}
-
-.menuBlue {
-    color: aqua;
-}
-
-.menuWhite {
-    color: white;
 }
 
 
@@ -267,47 +176,35 @@
         font-size: 1.2rem;
     }
 
-    .button {
+    .menuButton {
         width: 30px;
         height: 30px;
-        cursor: pointer;
-        position: relative;
+        right: 5vw;
     }
 
-    .consoleShow {
-        width: 90vw;
-        padding-left: min(5vw, 30vw);
-        padding-right: min(5vw, 30vw);
-        top: 150px;
+    .menuShow {
+        width: 100vw;
+        top: 0px;
+        right: 0px;
+        gap: min(25px, 5vw);
+    }
+    
+    .menuHide {
+        width: 100vw;
+        top: 0px;
+        right: -100vw;
+        gap: min(25px, 5vw);
     }
 
-    .consoleHide {
-        width: 90vw;
-        padding-left: min(5vw, 30vw);
-        padding-right: min(5vw, 30vw);
+    .menuElements {
+        font-size: min(2.5rem, 8vw);
     }
 
-    .consoleBottom {
-        flex-direction: column;
-        align-items: flex-end;
+    .arrowShow {
+        font-size: min(2.5rem, 8vw);
     }
-
-    .commandContainer {
-        font-size: 1rem;
-        line-height: 20px;
-    }
-
-    .commandBox {
-        font-size: 1rem;
-        line-height: 20px;
-    }
-        
-    .line {
-        font-size: 1rem;
-        line-height: 20px;
-    }
-
-    .menu {
-        font-size: 2rem;
+    
+    .arrowHide {
+        font-size: min(2.5rem, 8vw);
     }
 }

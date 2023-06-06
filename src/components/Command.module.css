@@ -1,0 +1,194 @@
+
+.consoleShow {
+    width: 70vw;
+    height: 640px;
+    color: white;
+    background-color: rgb(30, 30, 30);
+    border: 1px solid rgb(60, 60, 60);
+    border-radius: 10px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: calc(50vh - 320px);
+    justify-content: space-between;
+    box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.7);
+    -webkit-box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.7);
+    -moz-box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.7);
+}
+
+.consoleHide {
+    width: 70vw;
+    height: 640px;
+    color: white;
+    background-color: rgb(30, 30, 30);
+    border: 1px solid rgb(60, 60, 60);
+    border-radius: 10px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0px;
+    justify-content: space-between;
+    box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.7);
+    -webkit-box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.7);
+    -moz-box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.7);
+    pointer-events: none;
+}
+
+.consoleBottom {
+    border-top: 1px solid rgb(60, 60, 60);
+    padding-top: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.log {
+    width: 100%;
+    height: fit-content;
+    max-height: 500px;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    color: rgb(180, 180, 180);
+}
+
+.commandContainer {
+    font-size: 1.2rem;
+    display: grid;
+    grid-template-columns: fit-content(100%) 1fr;
+    margin-left: 5px;
+    color: white;
+}
+
+.commandBox {
+    font-size: 1.2rem;
+    width: 100%;
+    line-height: 24px;
+    padding: 0px;
+    border: none;
+    background-color: transparent;
+    color: aqua;
+    caret-color: aqua;
+    margin-left: 5px;
+    overflow: hidden;
+}
+
+.commandBox:focus {
+    outline: none;
+}
+
+.line {
+    font-size: 1.2rem;
+    line-height: 24px;
+    margin-left: 5px;
+}
+
+.network {
+    display: flex;
+    flex-direction: row;
+}
+
+.connect {
+    width: 2px;
+    border-radius: 1px;
+    background-color: rgb(0, 250, 0);
+    align-self: flex-end;
+    margin-bottom: 3px;
+}
+
+.stable {
+    color: rgb(0, 250, 0);
+    margin-left: 10px;
+}
+
+.connect:nth-child(3) {
+    height: 6px;
+    margin-left: 6px;
+}
+
+.connect:nth-child(4) {
+    height: 10px;
+    margin-left: 3px;
+}
+
+.connect:nth-child(5) {
+    height: 14px;
+    margin-left: 3px;
+}
+
+.time {
+    font-variant-numeric: tabular-nums;
+}
+
+.menu {
+    font-size: 3rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.arrowShow {
+    width: 35px;
+    max-width: 35px;
+    color: aqua;
+    opacity: 1;
+    transition: 0.5s;
+}
+
+.arrowHide {
+    width: 35px;
+    max-width: 0px;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.menuBlue {
+    color: aqua;
+}
+
+.menuWhite {
+    color: white;
+}
+
+
+@media (max-width: 1000px) {
+    .consoleShow {
+        width: 90vw;
+        padding-left: min(5vw, 30vw);
+        padding-right: min(5vw, 30vw);
+        top: 150px;
+    }
+
+    .consoleHide {
+        width: 90vw;
+        padding-left: min(5vw, 30vw);
+        padding-right: min(5vw, 30vw);
+    }
+
+    .consoleBottom {
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .commandContainer {
+        font-size: 1rem;
+        line-height: 20px;
+    }
+
+    .commandBox {
+        font-size: 1rem;
+        line-height: 20px;
+    }
+        
+    .line {
+        font-size: 1rem;
+        line-height: 20px;
+    }
+
+    .menu {
+        font-size: 2rem;
+    }
+}
