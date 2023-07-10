@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { AchievementsProps } from "../api/getachievements";
+import { AchievementsProps, achievementsData } from "@/data/achievementsData";
 
 import Image from "next/image";
 
@@ -17,31 +17,12 @@ export default function Achievements() {
     const [imageIndex, setImageIndex] = useState<number>(0);
     const [imageFull, setImageFull] = useState<boolean>(false);
 
-    const [achievementsData, setAchievementsData] = useState<AchievementsProps[]>([]);
-
-    async function getAchievementsData() {
-        try {
-            const res = await fetch("/api/getachievements");
-            const data = await res.json();
-
-            setAchievementsData(data);
-        }
-
-        catch (error) {
-            console.error(error);
-        }
-    }
-
-    useEffect(() => {
-        getAchievementsData();
-    }, [])
-
 
 
     return (
         <div className={styles.container}>
             {
-                [1, 2, 3, 4].map((index: number) => (
+                achievementsData.map((elem: AchievementsProps, index: number) => (
                     <div
                         className={hover === 0 ? styles.achievementNormal : (hover === index ? styles.achievementSelected : styles.achievementNotSelected)}
                         onMouseEnter={() => setHover(index)}
@@ -51,22 +32,22 @@ export default function Achievements() {
                         <Image
                             width={1500}
                             height={1500}
-                            src={`/achievements/image/${index}.jpg`}
+                            src={`/achievements/image/${index + 1}.jpg`}
                             alt=""
                             className={hover === index ? styles.achievementImageSelected : styles.achievementImageNotSelected}
                         />
 
                         <div className={styles.achievementName}>
                             <div className={styles.achievementNameTop}>
-                                {achievementsData[index - 1]?.korTitle}
+                                {elem.korTitle}
                             </div>
 
                             <div className={styles.achievementNameCenter}>
-                                {achievementsData[index - 1]?.engTitle}
+                                {elem.engTitle}
                             </div>
 
                             <div className={styles.achievementNameBottom}>
-                                {achievementsData[index - 1]?.info}
+                                {elem.info}
                             </div>
                         </div>
 
@@ -84,6 +65,8 @@ export default function Achievements() {
                 ))
             }
 
+
+
             <div
                 className={showModal ? styles.backgroundShow : styles.backgroundHide}
                 ref={modalRef}
@@ -98,7 +81,7 @@ export default function Achievements() {
                         <Image
                             width={1500}
                             height={1500}
-                            src={"/achievements/image/" + achievementIndex + "/" + imageIndex + ".jpg"}
+                            src={`/achievements/image/${achievementIndex + 1}/${imageIndex}.jpg`}
                             alt=""
                             className={imageFull ? styles.imageFull : styles.imageNormal}
                         />
@@ -161,9 +144,11 @@ export default function Achievements() {
                             }}
                         />
 
+
+
                         <div className={styles.pagination} style={imageFull ? { opacity: "0", bottom: "-20px" } : {}}>
                             {
-                                achievementsData[achievementIndex - 1]?.text?.map((elem: any, index: number) => (
+                                achievementsData[achievementIndex]?.text?.map((elem: any, index: number) => (
                                     <div key={index} className={index + 1 === imageIndex ? styles.paginationSelected : styles.paginationNotSelected} onClick={() => setImageIndex(index + 1)} />
                                 ))
                             }
@@ -172,21 +157,21 @@ export default function Achievements() {
 
                     <div className={imageFull ? styles.modalBottomHide : styles.modalBottomShow}>
                         <div className={styles.title}>
-                            {achievementsData[achievementIndex - 1]?.korTitle}
+                            {achievementsData[achievementIndex]?.korTitle}
                         </div>
 
                         <div className={styles.date}>
-                            {achievementsData[achievementIndex - 1]?.start}
+                            {achievementsData[achievementIndex]?.start}
                             &nbsp;~&nbsp;
-                            {achievementsData[achievementIndex - 1]?.finish}
+                            {achievementsData[achievementIndex]?.finish}
                         </div>
 
                         <div className={styles.mainText}>
-                            {achievementsData[achievementIndex - 1]?.text[imageIndex - 1]?.mainText}
+                            {achievementsData[achievementIndex]?.text[imageIndex - 1]?.mainText}
                         </div>
 
                         <div className={styles.subText}>
-                            {achievementsData[achievementIndex - 1]?.text[imageIndex - 1]?.subText}
+                            {achievementsData[achievementIndex ]?.text[imageIndex - 1]?.subText}
                         </div>
                     </div>
                 </div>

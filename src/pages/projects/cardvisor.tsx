@@ -8,6 +8,9 @@ import Member from "@/components/Member";
 import Repository from "@/components/Repository";
 import Tech from "@/components/Tech";
 
+import Heading from "@/themes/Heading";
+import Paragraph from "@/themes/Paragraph";
+
 import styles from "./cardvisor.module.css";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -128,23 +131,23 @@ export default function Cardvisor() {
 
             <div className={styles.containerBottom}>
                 <div className={styles.infoContainer} ref={ref1}>
-                    <div className={styles.infoHeader}>
+                    <Heading>
                         개요
-                    </div>
+                    </Heading>
 
-                    <div className={styles.infoText}>
+                    <Paragraph>
                         대한민국은 연간 카드 승인 금액이 약 200조원이 넘을 만큼, 카드 사용량이 많은 나라입니다.
                         사용자 본인에게 적합한 카드를 사용하게되면, 효율적인 경제 활동을 할 수 있습니다.
                         그래서, 우리팀은 소비자들이 자신이 원하는 혜택과 브랜드를 선택하여 가장 적합한 카드를 추천해주는 서비스를 개발하였습니다.
-                    </div>
+                    </Paragraph>
                 </div>
 
 
 
                 <div className={styles.infoContainer} ref={ref2}>
-                    <div className={styles.infoHeader}>
+                    <Heading>
                         개발 팀원
-                    </div>
+                    </Heading>
 
                     <div className={styles.memberContainer}>
                         <Member name="김민석" id="min-0404" position="Team Leader, Back-End Programmer" url={78293352} />
@@ -156,35 +159,35 @@ export default function Cardvisor() {
 
 
                 <div className={styles.infoContainer} ref={ref3}>
-                    <div className={styles.infoHeader}>
+                    <Heading>
                         성과
-                    </div>
+                    </Heading>
 
                     <div className={styles.achievementContainer}>
-                        <div className={styles.infoText}>
+                        <Paragraph>
                             2022 홍익대학교 컴퓨터공학과 졸업 전시회 - 최우수상
-                        </div>
+                        </Paragraph>
 
-                        <div className={styles.infoText}>
+                        <Paragraph>
                             마이 핀테크 서비스 해커톤 - 우수상(학생부)
-                        </div>
+                        </Paragraph>
 
-                        <div className={styles.infoText}>
+                        <Paragraph>
                             졸업 전시회 기간 약 300명 소프트웨어 체험
-                        </div>
+                        </Paragraph>
 
-                        <div className={styles.infoText}>
+                        <Paragraph>
                             창직종합설계프로젝트 1,2 - 지도 교수 선정 우수 작품
-                        </div>
+                        </Paragraph>
                     </div>
                 </div>
 
 
 
                 <div className={styles.infoContainer} ref={ref4}>
-                    <div className={styles.infoHeader}>
+                    <Heading>
                         소스 코드
-                    </div>
+                    </Heading>
 
                     <div className={styles.repositoryContainer}>
                         <Repository name="프론트 엔드 GitHub 페이지" url="/kyeryoong/cardvisor" />
@@ -195,9 +198,9 @@ export default function Cardvisor() {
 
 
                 <div className={styles.infoContainer} ref={ref5}>
-                    <div className={styles.infoHeader}>
+                    <Heading>
                         사용 기술
-                    </div>
+                    </Heading>
 
                     <div className={styles.techContainer}>
                         <div className={styles.techHeader}>
@@ -288,9 +291,9 @@ export default function Cardvisor() {
 
 
                 <div className={styles.infoContainer} ref={ref6}>
-                    <div className={styles.infoHeader}>
+                    <Heading>
                         구조
-                    </div>
+                    </Heading>
 
                     <Image
                         width={2000}
@@ -304,9 +307,9 @@ export default function Cardvisor() {
 
 
                 <div className={styles.infoContainer} ref={ref7}>
-                    <div className={styles.infoHeader}>
+                    <Heading>
                         결과물 보기
-                    </div>
+                    </Heading>
 
                     <Swiper
                         className={styles.demoImageContainer}

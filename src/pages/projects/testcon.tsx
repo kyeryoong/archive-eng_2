@@ -9,6 +9,9 @@ import Member from "@/components/Member";
 import Repository from "@/components/Repository";
 import Tech from "@/components/Tech";
 
+import Heading from "@/themes/Heading";
+import Paragraph from "@/themes/Paragraph";
+
 import styles from "./testcon.module.css";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -119,26 +122,26 @@ export default function Testcon() {
 
             <div className={styles.containerBottom}>
                 <div className={styles.infoContainer} ref={ref1}>
-                    <div className={styles.infoHeader}>
+                    <Heading>
                         개요
-                    </div>
+                    </Heading>
 
-                    <div className={styles.infoText}>
+                    <Paragraph>
                         오늘날 종이보다는 PDF나 워드 파일, 두꺼운 책보다는 얇은 태블릿으로 공부하는 사람들이 많아지고 있습니다.
                         그리고, 컴퓨터로 시험을 보는(CBT Computer-Based Test) 경우를 심심치 않게 발견할 수 있습니다.
                         예를 들자면, 2023년부터 한국산업인력공단이 주관하는 기사 시험 같은 경우, 필기를 CBT 방식으로 전환하여 시행하고 있습니다.
                         그리고, 코로나19로 인해 많은 대학교에서 온라인 시험 플랫폼을 활용하여 시험을 진행하는 경우를 많이 볼 수 있었습니다.
                         취업 준비생들에게 친숙한 AI 온라인 역량검사나 코딩 테스트도 모두 컴퓨터로 진행됩니다.
                         이처럼 온라인으로 시험을 보는 시대가 도래한 만큼, 개인 프로젝트로 온라인 시험 플랫폼 테스트콘을 제작하게 되었습니다.
-                    </div>
+                    </Paragraph>
                 </div>
 
 
 
                 <div className={styles.infoContainer} ref={ref2}>
-                    <div className={styles.infoHeader}>
+                    <Heading>
                         개발 팀원
-                    </div>
+                    </Heading>
 
                     <div className={styles.memberContainer}>
                         <Member name="김영우" id="kyeryoong" position="Programmer" url={98510309} />
@@ -148,9 +151,9 @@ export default function Testcon() {
 
 
                 <div className={styles.infoContainer} ref={ref3}>
-                    <div className={styles.infoHeader}>
+                    <Heading>
                         소스 코드
-                    </div>
+                    </Heading>
 
                     <div className={styles.repositoryContainer}>
                         <Repository name="GitHub 페이지" url="/kyeryoong/testcon" />
@@ -160,9 +163,9 @@ export default function Testcon() {
 
 
                 <div className={styles.infoContainer} ref={ref4}>
-                    <div className={styles.infoHeader}>
+                    <Heading>
                         사용 기술
-                    </div>
+                    </Heading>
 
                     <div className={styles.techContainer}>
                         <div className={styles.techHeader}>
@@ -223,9 +226,9 @@ export default function Testcon() {
 
 
                 <div className={styles.infoContainer} ref={ref5}>
-                    <div className={styles.infoHeader}>
+                    <Heading>
                         결과물 보기
-                    </div>
+                    </Heading>
 
                     <Swiper
                         className={styles.demoImageContainer}

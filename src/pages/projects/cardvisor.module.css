@@ -114,22 +114,6 @@
     margin-bottom: -50px;
 }
 
-.infoHeader {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: white;
-    margin-bottom: 20px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid rgb(50, 50, 50);
-}
-
-.infoText {
-    font-size: 1.2rem;
-    color: gray;
-    text-align: justify;
-    word-break: keep-all;
-}
-
 .memberContainer {
     display: flex;
     flex-direction: row;
@@ -229,10 +213,6 @@
     .containerBottom {
         padding-left: 5vw;
         padding-right: 5vw;
-    }
-
-    .infoText {
-        font-size: 1rem;
     }
 
     .techContainer {

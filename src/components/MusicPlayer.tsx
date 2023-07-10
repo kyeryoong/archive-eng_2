@@ -9,7 +9,6 @@ import styles from "./MusicPlayer.module.css";
 export default function MusicPlayer() {
     const [musicIndex, setMusicIndex] = useState<number>(0);
     const [musicIsPlaying, setMusicIsPlaying] = useState<boolean>(false);
-    const [musicVolume, setMusicVolume] = useState<number>(1);
 
     let musicRef = useRef<any>();
 

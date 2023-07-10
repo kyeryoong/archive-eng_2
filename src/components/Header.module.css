@@ -4,6 +4,8 @@
     padding-left: 15vw;
     padding-right: 15vw;
     position: fixed;
+    top: 0px;
+    left: 0px;
     background: linear-gradient(180deg, black 40%, transparent);
     display: grid;
     grid-template-columns: fit-content(100%) fit-content(100%) 1fr fit-content(100%);

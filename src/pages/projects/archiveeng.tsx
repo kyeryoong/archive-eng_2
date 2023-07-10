@@ -7,6 +7,9 @@ import Member from "@/components/Member";
 import Repository from "@/components/Repository";
 import Tech from "@/components/Tech";
 
+import Heading from "@/themes/Heading";
+import Paragraph from "@/themes/Paragraph";
+
 import styles from "./archiveeng.module.css";
 
 
@@ -32,9 +35,6 @@ export default function Archiveeng() {
     const ref2 = useRef<HTMLDivElement>(null);
     const ref3 = useRef<HTMLDivElement>(null);
     const ref4 = useRef<HTMLDivElement>(null);
-    const ref5 = useRef<HTMLDivElement>(null);
-    const ref6 = useRef<HTMLDivElement>(null);
-    const ref7 = useRef<HTMLDivElement>(null);
 
     function scrollTo1() {
         ref1.current?.scrollIntoView({ behavior: "smooth" });
@@ -111,26 +111,26 @@ export default function Archiveeng() {
 
             <div className={styles.containerBottom}>
                 <div className={styles.infoContainer} ref={ref1}>
-                    <div className={styles.infoHeader}>
+                    <Heading>
                         개요
-                    </div>
+                    </Heading>
 
-                    <div className={styles.infoText}>
+                    <Paragraph>
                         archive-eng은 프론트 엔드 개발자 김영우의 포트폴리오 사이트입니다.
                         archive-eng은 archive와 eng을 합한 것이며, eng은 다음과 같이 두 가지 뜻을 내포하고 있습니다.
                         첫 번째로는, 전공 분야인 컴퓨터&#34;공학&#34;의 engineering의 의미를 담고 있습니다.
                         두 번째로는, 영자 신문사와 통역 자원봉사 활동과 관련된 &#34;영어&#34;의 english를 뜻하기도 합니다.
                         4년 동안 학부 생활을 하면서 했던 다양한 활동들, 진행했던 프로젝트, 수상 내역들을 모아놓았습니다.
                         그리고, 이 사이트는 Notion이나 PDF 파일 대신 포트폴리오 제출 용도로 제작되었습니다.
-                    </div>
+                    </Paragraph>
                 </div>
 
 
 
                 <div className={styles.infoContainer} ref={ref2}>
-                    <div className={styles.infoHeader}>
+                    <Heading>
                         개발 팀원
-                    </div>
+                    </Heading>
 
                     <div className={styles.memberContainer}>
                         <Member name="김영우" id="kyeryoong" position="Programmer" url={98510309} />
@@ -140,9 +140,9 @@ export default function Archiveeng() {
 
 
                 <div className={styles.infoContainer} ref={ref3}>
-                    <div className={styles.infoHeader}>
+                    <Heading>
                         소스 코드
-                    </div>
+                    </Heading>
 
                     <div className={styles.repositoryContainer}>
                         <Repository name="GitHub 페이지" url="/kyeryoong/archive-eng" />
@@ -152,9 +152,9 @@ export default function Archiveeng() {
 
 
                 <div className={styles.infoContainer} ref={ref4}>
-                    <div className={styles.infoHeader}>
+                    <Heading>
                         사용 기술
-                    </div>
+                    </Heading>
 
                     <div className={styles.techContainer}>
                         <div className={styles.techHeader}>
@@ -166,16 +166,6 @@ export default function Archiveeng() {
                             <Tech name="CSS" iconColor="white" textColor="white" rgb1={[41, 101, 241]} />
                             <Tech name="TypeScript" iconColor="white" textColor="white" rgb1={[49, 120, 198]} />
                             <Tech name="Next js" newName="Next.js" iconColor="white" textColor="white" rgb1={[70, 70, 70]} />
-                        </div>
-                    </div>
-
-                    <div className={styles.techContainer}>
-                        <div className={styles.techHeader}>
-                            상태 관리
-                        </div>
-
-                        <div className={styles.techList}>
-                            <Tech name="Redux" iconColor="white" textColor="white" rgb1={[118, 74, 188]} />
                         </div>
                     </div>
 
