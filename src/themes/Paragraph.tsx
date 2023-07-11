@@ -14,9 +14,9 @@ const ParagraphStyle = styled.div`
 `
 
 
-export default function Paragraph({ children }: { children: string }) {
+export default function Paragraph({ children, indent }: { children: string, indent?: number }) {
     return (
-        <ParagraphStyle>
+        <ParagraphStyle style={{ textIndent: indent }}>
             {children}
         </ParagraphStyle>
     )

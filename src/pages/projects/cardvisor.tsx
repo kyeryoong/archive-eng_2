@@ -283,7 +283,6 @@ export default function Cardvisor() {
                         <div className={styles.techList}>
                             <Tech name="Git" iconColor="white" textColor="white" rgb1={[240, 80, 50]} />
                             <Tech name="GitHub" iconColor="white" textColor="white" rgb1={[70, 70, 70]} />
-                            <Tech name="Notion" iconColor="black" textColor="black" rgb1={[220, 220, 220]} />
                         </div>
                     </div>
                 </div>
