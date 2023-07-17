@@ -1,0 +1,136 @@
+.skillNotClicked {
+    width: 240px;
+    height: 240px;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    padding: 20px;
+    color: white;
+    display: grid;
+    grid-template-rows: fit-content(100%) 1fr;
+    position: relative;
+    cursor: pointer;
+}
+
+.skillClicked {
+    width: 240px;
+    height: 240px;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    padding: 20px;
+    transform: scale(1.6);
+    z-index: 2;
+    display: grid;
+    grid-template-rows: fit-content(100%) 1fr fit-content(100%);
+    justify-self: center;
+}
+
+.skillDescription {
+    font-size: 0.7rem;
+    color: rgb(100, 100, 100);
+    margin-top: 10px;
+}
+
+.skillImageColor {
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    filter: brightness(1) invert(0);
+}
+
+.skillImageWhite {
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    filter: brightness(0) invert(1);
+}
+
+@media (max-width: 1200px) {
+    .skillNotClicked {
+        width: 200px;
+        height: 200px;
+    }
+
+    .skillClicked {
+        width: 200px;
+        height: 200px;
+        grid-template-rows: fit-content(100%) 1fr;
+        transform: scale(1.2);
+    }
+
+    .skillDescription {
+        display: none;
+    }
+
+    .skillGoToButton {
+        width: 160px;
+        align-self: flex-end;
+    }
+
+    .skillGoToButtonText {
+        padding-left: 30px;
+    }
+
+    .skillGoToButtonText::before {
+        content: none;
+    }
+    
+    .skillGoToButtonIcon {
+        margin-right: 15px;
+    }
+}
+
+@media (max-width: 700px) {
+    .skillNotClicked {
+        width: 42.5vw;
+        height: 42.5vw;
+        font-size: 1rem;
+        border-radius: 5px;
+        padding: 3vw;
+    }
+
+    .skillNotClicked:hover {
+        transform: none;
+    }
+
+    .skillClicked {
+        width: 42.5vw;
+        height: 42.5vw;
+        font-size: 1rem;
+        border-radius: 5px;
+        padding: 3vw;
+        transform: scale(1.2);
+    }
+
+    .skillIconNotClicked {
+        width: 20vw;
+        height: 20vw;
+    }
+
+    .skillIconClicked {
+        width: 18vw;
+        height: 18vw;
+        bottom: 13vw;
+    }
+
+    .skillGoToButton {
+        width: 36.5vw;
+        height: 10vw;
+        line-height: 10vw;
+    }
+
+    .skillGoToButtonText {
+        font-size: 0.8rem;
+        padding-left: 3vw;
+    }
+
+    .skillGoToButtonIcon {
+        width: 10vw;
+        height: 10vw;
+        padding: 3vw;
+        margin: 0px;
+    }
+}

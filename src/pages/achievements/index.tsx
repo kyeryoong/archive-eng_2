@@ -136,9 +136,9 @@ export default function Achievements() {
                             alt=""
                             src={"/right.png"}
                             className={styles.imageRightButton}
-                            style={imageIndex == achievementsData[achievementIndex - 1]?.text?.length || imageFull ? { opacity: "0", cursor: "default" } : {}}
+                            style={imageIndex == achievementsData[achievementIndex]?.text?.length || imageFull ? { opacity: "0", cursor: "default" } : {}}
                             onClick={() => {
-                                if (imageIndex !== achievementsData[achievementIndex - 1]?.text?.length && !imageFull) {
+                                if (imageIndex !== achievementsData[achievementIndex]?.text?.length && !imageFull) {
                                     setImageIndex((prev) => prev + 1);
                                 }
                             }}

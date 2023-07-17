@@ -16,6 +16,7 @@ if (url) {
         }
         connectDB = globalWithMongoClientPromise._mongo;
     }
+    
     else {
         connectDB = new MongoClient(url, options).connect();
     }

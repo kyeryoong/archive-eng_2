@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { ArticleProps } from "../api/getarticles";
 
+import Link from "next/link"
 import Image from "next/image";
 
 import styles from "./index.module.css";
@@ -18,6 +19,8 @@ export default function Articles() {
 
     const [searchTitle, setSearchTitle] = useState<string>("");
     const [searchSection, setSearchSection] = useState<string[]>([]);
+
+
 
     async function getArticlesData() {
         try {
@@ -181,7 +184,7 @@ export default function Articles() {
                     <Image
                         width={700}
                         height={350}
-                        src={"/articles/images/" + index + ".png"}
+                        src={`/articles/images/${index}.png`}
                         alt=""
                         className={styles.modalImage}
                     />
@@ -232,9 +235,9 @@ export default function Articles() {
                             </div>
                         </div>
 
-                        <div className={styles.modalButton}>
+                        <Link href={`/articles/${index}`} className={styles.modalButton}>
                             Read Article
-                        </div>
+                        </Link>
                     </div>
                 </div>
             </div>
