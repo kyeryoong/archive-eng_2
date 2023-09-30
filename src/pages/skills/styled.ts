@@ -5,7 +5,7 @@ export const Container = styled.div`
   height: fit-content;
   min-height: 100vh;
   background-color: black;
-  padding-top: 150px;
+  padding-top: 200px;
   padding-left: 15vw;
   padding-right: 15vw;
 
@@ -64,7 +64,7 @@ export const SkillsWrapper = styled.div`
   flex-direction: row;
   gap: 25px;
   flex-wrap: wrap;
-  margin-bottom: 80px;
+  margin-bottom: 100px;
 
   @media (max-width: 1000px) {
     gap: 15px;
