@@ -7,8 +7,8 @@ import Member from "@/components/Member";
 import Repository from "@/components/Repository";
 import Tech from "@/components/Tech";
 
-import Heading from "@/components/Heading";
-import Paragraph from "@/components/Paragraph";
+import Heading from "../../../themes/Heading";
+import Paragraph from "../../../themes/Paragraph";
 
 import styles from "./archiveeng.module.css";
 
