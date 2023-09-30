@@ -18,6 +18,12 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/api/fetching.js", "src/utils/ChannelService.js"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "src/pages/api/fetching.js",
+    "utils/ChannelService.js"
+  ],
   "exclude": ["node_modules"]
 }
