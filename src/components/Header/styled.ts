@@ -41,6 +41,7 @@ export const MenuButton = styled.div`
   position: fixed;
   right: 15vw;
   top: 55px;
+  transition: 0.5s;
   z-index: 8;
 
   & span {
@@ -126,12 +127,13 @@ export const Menu = styled.div`
   background-color: rgb(20, 20, 20);
   position: fixed;
   top: 0px;
-  z-index: 7;
   display: flex;
   flex-direction: column;
   gap: 20px;
   padding-top: 120px;
   padding-left: 40px;
+  transition: 0.5s;
+  z-index: 7;
 
   &.show {
     right: 0px;
